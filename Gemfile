@@ -6,15 +6,22 @@ gem 'rails', '3.0.0.rc2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+
+####
+## Add these as defaults for new projects
+###
+
 gem 'mongo_mapper'
 gem 'cucumber-rails'
 gem 'rspec'
 gem 'haml'
 gem 'mongrel'
-gem 'haml_scaffold'
+# gem 'haml_scaffold'
 gem 'bson_ext'
 gem 'will_paginate'
 gem 'mocha'
+gem 'haml-rails'
+gem 'rails3-generators'
 
 # Use unicorn as the web server
 # gem 'unicorn'
