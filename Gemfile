@@ -23,6 +23,10 @@ gem 'mocha'
 gem 'haml-rails'
 gem 'rails3-generators'
 
+# Working on trying different authentication schemes.  Going for the minimal now with Thoughtbot
+
+gem 'clearance'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
