@@ -22,6 +22,7 @@ gem 'will_paginate'
 gem 'mocha'
 gem 'haml-rails'
 gem 'rails3-generators'
+gem 'devise'
 
 # Working on trying different authentication schemes.  Going for the minimal now with Thoughtbot
 
