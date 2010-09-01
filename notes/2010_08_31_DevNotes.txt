@@ -1,0 +1,5 @@
+Got the bare framework up and running for the Toast Schedule.
+
+TODO: 
+Got to get the haml scaffold generator running.  Must be a flag that I'm missing.
+

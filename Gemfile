@@ -12,8 +12,9 @@ gem 'rspec'
 gem 'haml'
 gem 'mongrel'
 gem 'haml_scaffold'
-
-
+gem 'bson_ext'
+gem 'will_paginate'
+gem 'mocha'
 
 # Use unicorn as the web server
 # gem 'unicorn'
