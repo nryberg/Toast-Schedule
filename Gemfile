@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc2'
+gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,6 +23,7 @@ gem 'mocha'
 gem 'haml-rails'
 gem 'rails3-generators'
 gem 'devise'
+
 
 # Working on trying different authentication schemes.  Going for the minimal now with Thoughtbot
 

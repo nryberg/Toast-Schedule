@@ -3,7 +3,7 @@ class User
   
   key :name, String
   key :email, String
-  
+  devise :registerable, :authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
