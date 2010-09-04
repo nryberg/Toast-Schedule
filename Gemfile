@@ -12,22 +12,23 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 ###
 
 gem 'mongo_mapper'
+gem 'mongomapper_ext'
 gem 'cucumber-rails'
 gem 'rspec'
 gem 'haml'
+gem 'haml-rails'
 gem 'mongrel'
 # gem 'haml_scaffold'
 gem 'bson_ext'
 gem 'will_paginate'
 gem 'mocha'
-gem 'haml-rails'
 gem 'rails3-generators'
-gem 'devise'
+#gem 'devise'
 
 
 # Working on trying different authentication schemes.  Going for the minimal now with Thoughtbot
 
-gem 'clearance'
+#gem 'clearance'
 
 # Use unicorn as the web server
 # gem 'unicorn'

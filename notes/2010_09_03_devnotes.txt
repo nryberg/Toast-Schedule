@@ -1,0 +1,16 @@
+9/3/2010 Too late at night
+
+Couple of revelations:
+
+* Devise and Clearance complicated solutions to a complicated problem. 
+* They are simpler in many cases than simply rolling your own.
+* Rolling your own is more (much more) understandable than using canned
+solutions that don't necessarily play well with the database of choice
+here.
+* I get really bogged down in the details of something that I barely understand
+and then spend a _lot_ of time messing around with errors that don't make sense
+* This is a serious waste of time from the overall goal of getting models in
+action and creating something that's useful.
+* It's better to get back to the basics and then work your way out rather than
+trying to puzzle your way through shit that doesn't really matter.
+ 
