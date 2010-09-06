@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
+  before_filter :authenticate_user!
+#  before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
   
 #   include Clearance::UsersController
-  before_filter :authenticate, :except => [:new, :create]
-  before_filter :can_only_edit_self, :only => [:edit, :update]
+#  before_filter :authenticate, :except => [:new, :create]
+#  before_filter :can_only_edit_self, :only => [:edit, :update]
   
   # GET /users
   # GET /users.xml

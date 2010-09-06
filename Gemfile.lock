@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bcrypt-ruby (2.1.2)
     bson (1.0.7)
     bson_ext (1.0.7)
     builder (2.1.2)
@@ -43,6 +44,9 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     daemons (1.1.0)
+    devise (1.1.2)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 0.10.7)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -111,6 +115,8 @@ GEM
     trollop (1.16.2)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
+    warden (0.10.7)
+      rack (>= 1.0.0)
     will_paginate (2.3.14)
 
 PLATFORMS
@@ -119,6 +125,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   cucumber-rails
+  devise
   haml
   haml-rails
   mocha

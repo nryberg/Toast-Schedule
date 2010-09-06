@@ -23,7 +23,7 @@ gem 'bson_ext'
 gem 'will_paginate'
 gem 'mocha'
 gem 'rails3-generators'
-#gem 'devise'
+gem 'devise'
 
 
 # Working on trying different authentication schemes.  Going for the minimal now with Thoughtbot
