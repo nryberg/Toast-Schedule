@@ -18,7 +18,7 @@ class User
   validates_presence_of :name
   attr_accessible :name, :email, :password, :password_confirmation
   
-  devise :registerable, :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
+#   devise :registerable, :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
