@@ -12,6 +12,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 ###
 
 gem 'mongo_mapper'
+gem 'jnunemaker-validatable', '>= 1.8.4'
+gem 'mm-devise',              '>= 1.1.0'
 gem 'mongomapper_ext'
 gem 'cucumber-rails'
 gem 'rspec'

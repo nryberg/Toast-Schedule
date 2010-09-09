@@ -3,7 +3,8 @@ class User
   include MongoMapper::Document        
   
 
-  key :email, String, :unique => true
+#  key :email, String, :unique => true
+  key :email
   key :encrypted_password, String
   key :salt, String
   key :confirmation_token, String
@@ -16,7 +17,6 @@ class User
 
   validates_presence_of :name
   attr_accessible :name, :email, :password, :password_confirmation
-  
   
   devise :registerable, :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
