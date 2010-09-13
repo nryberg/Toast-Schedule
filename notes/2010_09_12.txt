@@ -1,0 +1,15 @@
+﻿Simplify it and get it out the door.  
+
+For a long time I've been fretting about how to handle user management, fooling
+around with user authentication schemes which are (in and of themselves)
+interesting. 
+
+While this is all to the well and good, I'm spinning my wheels on a greasy
+slope that doesn't get the job done, and that sort of violates the principle of
+this project.  Later on, I'll dig deeper into a more complex authentication
+scheme (maybe some sort of auth based on Google, etc?).
+
+Users own clubs.  Clubs own members, roles and meetings.  Members can also hold
+officer roles.  There's a lot to dig into here, and I have the feeling that
+Cucumber could really help me with the storytelling. 
+

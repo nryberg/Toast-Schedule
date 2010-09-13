@@ -1,0 +1,6 @@
+%h1 "What is your club?"
+%p= @club.name
+ 
+= link_to 'Edit', edit_club_path(@club)
+\|
+= link_to 'Back', clubs_path

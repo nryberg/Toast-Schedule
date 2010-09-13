@@ -1,8 +1,9 @@
 ToastSchedule::Application.routes.draw do
 
-  root :to => "home#index"
+#   root :to => "home#index"
 #   devise_for :users
 #   resources :users, :only => :show
+   resources :clubs
    resources :users
   
   # The priority is based upon order of creation:

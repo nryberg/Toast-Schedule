@@ -1,0 +1,17 @@
+Clubs 
+  has many 
+    Members
+  has many 
+    Meetings
+Members
+  Administrator?
+  Active?
+  Name
+  Phone
+  eMail
+  Member_Notes
+
+Meetings
+  Role
+    Member 
+    Note
