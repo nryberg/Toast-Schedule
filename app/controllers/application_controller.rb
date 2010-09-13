@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :authorize
   helper :all
   protect_from_forgery
   def login_required
@@ -23,7 +24,12 @@ class ApplicationController < ActionController::Base
       redirect_to :controller=>'user', :action=>'welcome'
     end
   end
-#   include Clearance::Authentication
-  
-#  before_filter :authenticate
+
+  protected
+    def authorize
+      unless User.find_by_id(session[:user_id])
+	redirect_to login_url, :notice => "Please log in"
+      end
+    end
+
 end

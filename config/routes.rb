@@ -1,5 +1,11 @@
 ToastSchedule::Application.routes.draw do
 
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
 #   root :to => "home#index"
 #   devise_for :users
 #   resources :users, :only => :show
