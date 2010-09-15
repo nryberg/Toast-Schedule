@@ -2,6 +2,8 @@ class Club
   include MongoMapper::Document         
   
   key :name, String, :required => true
+  
+  many :member
     
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
