@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
-  helper :all
   protect_from_forgery
   def login_required
     if session[:user]

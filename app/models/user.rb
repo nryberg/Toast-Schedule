@@ -16,7 +16,7 @@ class User
   timestamps!
 
   validates_presence_of :name
-  validates :password, :confirmation => true
+  validate :password, :confirmation => true
   attr_accessor :password_confirmation
   attr_reader :password
   
@@ -42,6 +42,7 @@ class User
       generate_salt
       self.hashed_password = self.class.encrypt_password(password, salt)
     end
+  end
 
  
   private
