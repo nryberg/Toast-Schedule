@@ -11,7 +11,8 @@ class User
   key :confirmation_token, String
   key :remember_token, String
   key :email_confirmed, Boolean
- 
+  
+  many :club
     
   timestamps!
 
