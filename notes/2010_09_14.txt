@@ -1,0 +1,3 @@
+10:57 PM 09/14/2010
+
+Well, it's been a long time a-coming.  But now I get to play around with Git branching!
