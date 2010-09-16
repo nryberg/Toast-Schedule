@@ -14,7 +14,6 @@ class User
   
   many :clubs
  
-    
   timestamps!
 
   validates_presence_of :name

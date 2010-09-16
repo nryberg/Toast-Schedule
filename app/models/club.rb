@@ -6,6 +6,7 @@ class Club
   
   belongs_to :user
   
+  many :members
     
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
