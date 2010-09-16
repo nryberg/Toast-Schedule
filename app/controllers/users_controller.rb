@@ -81,5 +81,22 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def new_club
+    @user = User.find(params[:id])
+    @club = @user.club.build
+  end
+  
+  def create_club
+    @user = User.find(params[:id])
+    @club = @user.club.build(params[:club])
+    if @club.save
+      format.html { redirect_to(users_url, :notice => 'Club was succesfully created.') }
+    else
+      format.html { render :action => "new_club"}
+    end
+  end
+  
+    
 
 end

@@ -1,5 +1,10 @@
-%h1 "What is your name?"
-%p= @user.name
+%h1= @user.name
+
+- if @users.clubs.length
+  %ul
+    - @user.clubs.each do |club|
+      %li= club.name
+= link_to 'Add Club', :action => "new_club", :id => @user.id
  
 = link_to 'Edit', edit_user_path(@user)
 \|

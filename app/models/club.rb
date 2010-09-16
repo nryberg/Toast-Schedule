@@ -1,7 +1,11 @@
 class Club
-  include MongoMapper::Document         
+  include MongoMapper::EmbeddedDocument         
   
   key :name, String, :required => true
+  key :user_id, ObjectID 
+  
+  belongs_to :user
+  
     
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
