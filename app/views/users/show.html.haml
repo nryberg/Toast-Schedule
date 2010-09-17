@@ -1,6 +1,6 @@
 %h1= @user.name
 
-- if @users.clubs.length
+- if @user.clubs.length
   %ul
     - @user.clubs.each do |club|
       %li= club.name

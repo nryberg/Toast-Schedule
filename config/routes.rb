@@ -10,9 +10,14 @@ ToastSchedule::Application.routes.draw do
 #   devise_for :users
 #   resources :users, :only => :show
    resources :clubs
-   resources :users
-  
-  # The priority is based upon order of creation:
+   resources :users do
+     resources :clubs
+     collection do
+       get 'new_club'
+       get 'create_club'
+     end
+   end
+   
   # first created -> highest priority.
 
   # Sample of regular route:

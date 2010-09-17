@@ -2,9 +2,8 @@ class Club
   include MongoMapper::EmbeddedDocument         
   
   key :name, String, :required => true
-  key :user_id, ObjectID 
   
-  belongs_to :user
+#   belongs_to :user
   
   many :members
     

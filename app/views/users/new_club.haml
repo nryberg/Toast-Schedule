@@ -1,0 +1,11 @@
+/TODO Implement the build club thing here
+
+= form_for :club, @club, :url => users_club_path#create_club do |f|
+  %fieldset
+    %legend
+      Enter Club Details
+    .name
+      = f.label :name
+      = f.text_field :name
+    .submit
+      = f.submit "Save"

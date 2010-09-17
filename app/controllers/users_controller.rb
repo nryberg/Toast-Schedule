@@ -10,11 +10,12 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
-
+  
   # GET /users/1
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+#     @clubs = User.clubs
 
     respond_to do |format|
       format.html # show.html.erb
@@ -84,7 +85,7 @@ class UsersController < ApplicationController
   
   def new_club
     @user = User.find(params[:id])
-    @club = @user.club.build
+    @club = @user.clubs.build
   end
   
   def create_club
