@@ -1,6 +1,6 @@
 /TODO Implement the build club thing here
 
-= form_for :club, @club, :url => users_club_path#create_club do |f|
+= form_for :club, @club, :url => {:controller => :users, :action => 'create_club', :id => @user.id} do |f|
   %fieldset
     %legend
       Enter Club Details

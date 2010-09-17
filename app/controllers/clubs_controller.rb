@@ -41,15 +41,25 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.xml
   def create
+    @user = User.find(params[:user_id])
+    p @user.name
+#     p @user.clubs
+    
+#     @club = @user.clubs << Club.new(params[:club])
     @club = Club.new(params[:club])
+    @user.clubs << @club
+    @user.save
+    
+    p @club.name
+    p @user.clubs.count
 
     respond_to do |format|
-      if @club.save
-        format.html { redirect_to(@club, :notice => 'Club was successfully created.') }
-        format.xml  { render :xml => @club, :status => :created, :location => @club }
+      if @user.save
+        format.html { redirect_to(user_path(@user), :notice => 'Club was successfully created.') }
+#         format.xml  { render :xml => @club, :status => :created, :location => @club }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @club.errors, :status => :unprocessable_entity }
+#         format.xml  { render :xml => @club.errors, :status => :unprocessable_entity }
       end
     end
   end

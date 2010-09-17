@@ -12,11 +12,7 @@ ToastSchedule::Application.routes.draw do
    resources :clubs
    resources :users do
      resources :clubs
-     collection do
-       get 'new_club'
-       get 'create_club'
-     end
-   end
+  end
    
   # first created -> highest priority.
 

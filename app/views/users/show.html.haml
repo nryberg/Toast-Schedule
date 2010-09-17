@@ -4,7 +4,15 @@
   %ul
     - @user.clubs.each do |club|
       %li= club.name
-= link_to 'Add Club', :action => "new_club", :id => @user.id
+%h2 Add a club
+- form_for([@user, @user.clubs.build]) do |f|
+  /   = f.error_messages
+  #field
+    = f.label :name
+    = f.text_field :name
+  #actions
+    = f.submit
+/ = link_to 'Add Club', :action => "new_club", :id => @user.id
  
 = link_to 'Edit', edit_user_path(@user)
 \|
