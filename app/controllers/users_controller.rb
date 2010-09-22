@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  skip_before_filter :authorize
+  before_filter :user_auth
  
   # GET /users
   # GET /users.xml
@@ -98,6 +101,14 @@ class UsersController < ApplicationController
     end
   end
   
+  protected
+  
+  def user_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "nryberg" && password == "zookies"
+    end
     
+  end
+ 
 
 end

@@ -14,7 +14,8 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.xml
   def show
-    @club = Club.find(params[:id])
+    @user = User.find(params[:user_id])
+    @club = @user.clubs.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,17 +36,15 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
-    @club = Club.find(params[:id])
+    @user = User.find(params[:user_id])
+    @club = @user.clubs.find(params[:id])
+    
   end
 
   # POST /clubs
   # POST /clubs.xml
   def create
     @user = User.find(params[:user_id])
-    p @user.name
-#     p @user.clubs
-    
-#     @club = @user.clubs << Club.new(params[:club])
     @club = Club.new(params[:club])
     @user.clubs << @club
     @user.save

@@ -1,9 +1,8 @@
 %h1= @user.name
-
-- if @user.clubs.length
-  %ul
-    - @user.clubs.each do |club|
-      %li= club.name
+%h2
+  My Clubs
+%ul
+= render @user.clubs
 %h2 Add a club
 - form_for([@user, @user.clubs.build]) do |f|
   /   = f.error_messages
