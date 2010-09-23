@@ -1,9 +1,10 @@
 class ClubsController < ApplicationController
+   before_filter :get_user
   
   # GET /clubs
   # GET /clubs.xml
   def index
-    @clubs = Club.all
+    @clubs = @user.clubs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,6 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.xml
   def show
-    @user = User.find(params[:user_id])
     @club = @user.clubs.find(params[:id])
 
     respond_to do |format|
@@ -36,7 +36,6 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
-    @user = User.find(params[:user_id])
     @club = @user.clubs.find(params[:id])
     
   end
@@ -44,17 +43,13 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.xml
   def create
-    @user = User.find(params[:user_id])
     @club = Club.new(params[:club])
     @user.clubs << @club
     @user.save
-    
-    p @club.name
-    p @user.clubs.count
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(user_path(@user), :notice => 'Club was successfully created.') }
+        format.html { redirect_to(@club, :notice => 'Club was successfully created.') }
 #         format.xml  { render :xml => @club, :status => :created, :location => @club }
       else
         format.html { render :action => "new" }
@@ -66,7 +61,7 @@ class ClubsController < ApplicationController
   # PUT /clubs/1
   # PUT /clubs/1.xml
   def update
-    @club = Club.find(params[:id])
+    @club = @user.clubs.find(params[:id])
 
     respond_to do |format|
       if @club.update_attributes(params[:club])
@@ -82,13 +77,24 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   # DELETE /clubs/1.xml
   def destroy
-    @club = Club.find(params[:id])
-    @club.destroy
-
+#     person.phones.delete_if{|p| p.number == '214-555-1234'}
+    @club = @user.clubs.find(params[:id])
+    p @club.id.to_s + " " + params[:id].to_s
+    @user.clubs.delete_if{|club| club.id == @club.id}
+    
+    @user.save
+    
     respond_to do |format|
       format.html { redirect_to(clubs_url) }
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  
+  def get_user
+    @user = User.find(session[:user_id])
+  end
+  
  
 end

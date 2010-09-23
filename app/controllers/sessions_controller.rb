@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user = User.authenticate(params[:name], params[:password])
       session[:user_id] = user.id
       params[:id] = user.id
-      redirect_to users_url 
+      redirect_to clubs_url 
     else
       redirect_to login_url
     end
