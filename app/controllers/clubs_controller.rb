@@ -1,10 +1,9 @@
 class ClubsController < ApplicationController
-   before_filter :get_user
   
   # GET /clubs
   # GET /clubs.xml
   def index
-    @clubs = @user.clubs
+    @clubs = Club.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +14,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.xml
   def show
-    @club = @user.clubs.find(params[:id])
+    @club = Club.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +35,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
-    @club = @user.clubs.find(params[:id])
+    @club = Club.find(params[:id])
     
   end
 
@@ -44,11 +43,11 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    @user.clubs << @club
-    @user.save
+#     @user.clubs << @club
+#     @user.save
 
     respond_to do |format|
-      if @user.save
+      if @club.save
         format.html { redirect_to(@club, :notice => 'Club was successfully created.') }
 #         format.xml  { render :xml => @club, :status => :created, :location => @club }
       else
@@ -61,7 +60,7 @@ class ClubsController < ApplicationController
   # PUT /clubs/1
   # PUT /clubs/1.xml
   def update
-    @club = @user.clubs.find(params[:id])
+    @club = Club.find(params[:id])
 
     respond_to do |format|
       if @club.update_attributes(params[:club])
@@ -78,7 +77,7 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1.xml
   def destroy
 #     person.phones.delete_if{|p| p.number == '214-555-1234'}
-    @club = @user.clubs.find(params[:id])
+    @club = Clubs.find(params[:id])
     p @club.id.to_s + " " + params[:id].to_s
     @user.clubs.delete_if{|club| club.id == @club.id}
     
@@ -92,9 +91,5 @@ class ClubsController < ApplicationController
   
   protected
   
-  def get_user
-    @user = User.find(session[:user_id])
-  end
-  
- 
+# 
 end

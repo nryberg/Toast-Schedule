@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize
+#   before_filter :authorize
+  # TODO 
+  # Reimpliment the user login as soon as you get the model sorted out again.
+  
   protect_from_forgery
   def login_required
     if session[:user]

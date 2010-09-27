@@ -1,9 +1,18 @@
-09:48 PM 09/24/2010
-Moving to "restructure" branch.  Moving Clubs up to primary level. This is for a number of reasons, but most importantly, you can't have a specific club tied to just one person.  The clubs have to own the members, the members will change over time, and the people doing the maintainance will also change.  
+== Readme revised to task list
 
-This means moving away from something I've struggled with for a while now - embedded documents.  Nonetheless, I think this is the right thing to do.  Need to keep in mind that a specific user only has rights to their own club so you're going to have to incorporate an authorization scheme. 
+09:48 PM 09/24/2010
+Moving to "restructure" branch.  Moving Clubs up to primary level. This is for a
+number of reasons, but most importantly, you can't have a specific club tied to
+just one person.  The clubs have to own the members, the members will change
+over time, and the people doing the maintainance will also change.  
+
+This means moving away from something I've struggled with for a while now -
+embedded documents.  Nonetheless, I think this is the right thing to do.  Need
+to keep in mind that a specific user only has rights to their own club so you're
+going to have to incorporate an authorization scheme. 
 
 
 
 ** Wishlist
-Recovery email sent to all members to allow the club to recover in the case of a lost primary member maintaining the club online.
+Recovery email sent to all members to allow the club to recover in the case of a
+lost primary member maintaining the club online.

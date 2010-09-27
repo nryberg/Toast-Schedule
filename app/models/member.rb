@@ -1,16 +1,13 @@
-class Club
+class Member
   include MongoMapper::Document         
+  key :name, String
   
-  key :name, String, :required => true
-  
-  many :members
-    
-
+  key :club_id, ObjectId
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-# belongs_to :model
+  belongs_to :club
 # many :model
 # one :model
 
