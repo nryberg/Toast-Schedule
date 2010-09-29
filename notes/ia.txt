@@ -1,0 +1,48 @@
+President
+VP PR
+VP Ed
+VP Member
+Treasurer
+Sgt at Arms
+Secretary
+
+
+Schedule [Education]
+  Agenda
+  Availability/Requests
+  Templates
+
+Members [Membership]
+  Names
+    Member
+      Name
+      EMail
+      Phone
+      Officer
+      Active?
+    == Phase 2 == 
+    Availability
+      Open Dates
+      Closed Dates
+      Requests
+
+Publicity [Public Relations]
+  Automatic Notification
+    Activated?
+    Advance Notice [by role in days]
+      Toastmaster/Speaker = 6
+      General Evaluator = 4
+      Ah Counter/Table Topics = 3
+  == Phase 3 == 
+  Special Update
+    Update Text
+    Audience
+  Special Events
+  Social Posts
+    Twitter
+    Tumblr
+    Posterous
+
+Availability -> members?
+
+

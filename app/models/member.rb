@@ -1,8 +1,13 @@
+require 'digest/sha2'
+
 class Member
   include MongoMapper::Document         
   key :name, String
   
   key :club_id, ObjectId
+  key :email, String
+  key :phone, String
+ 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 

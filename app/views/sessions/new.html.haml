@@ -2,9 +2,9 @@
   %fieldset
     %legend 
     Please Log In
-    .name
-      %label{:for => "name"} Name:
-      = text_field_tag :name, params[:name]
+    .email
+      %label{:for => "email"} E-Mail:
+      = text_field_tag :email, params[:email]
     .password
       %label{:for => "password"} Password:
       = password_field_tag :password, params[:password]

@@ -1,0 +1,4 @@
+- if session[:user_id]
+  = link_to 'Logout', url_for(:controller => "sessions", :action => "logout", :method => :delete)
+- else
+  = link_to 'Login', url_for(:controller => "sessions", :action => "create")
