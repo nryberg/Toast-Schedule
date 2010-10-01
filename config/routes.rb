@@ -1,10 +1,16 @@
 ToastSchedule::Application.routes.draw do
+  get "admin/login"
+
+  get "admin/logout"
+
+  get "admin/index"
+
   controller :sessions do
     post 'login' => :create
     delete 'logout' => :destroy
   end
 
-
+  resources :users
 #   root :to => "home#index"
 #   devise_for :users
 #   resources :users, :only => :show

@@ -8,9 +8,12 @@
   %fieldset
     %legend
       Enter User Details
-    .name
-      = f.label :name
-      = f.text_field :name
+    .nick_name
+      = f.label :nick_name
+      = f.text_field :nick_name
+    .email
+      = f.label :email
+      = f.text_field :email
     .password
       = f.label :password, "Password"
       = f.password_field :password, :size => 40

@@ -1,17 +1,13 @@
-%h1 Listing users
+%h1 Toast Schedule Users 
 
 %table
   %tr
+    %th Name
+    %th Action
     %th
-    %th
-    %th
-
   - @users.each do |user|
     %tr
-      %td= user.name
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to user.nick_name, user
 
 %br
 

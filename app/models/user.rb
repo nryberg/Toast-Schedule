@@ -2,18 +2,21 @@ require 'digest/sha2'
 
 class User
   include MongoMapper::Document        
-  
-  key :name, String, :unique => true, :presence => true
+ 
+  # Demoting the name to something useful but not necessarily unique. 
+  key :nick_name, String, :presence => true
 
-  key :email, String
+  key :email, String, :unique => true, :presence => true
   key :hashed_password, String
   key :salt, String
-  key :confirmation_token, String
-  key :remember_token, String
-  key :email_confirmed, Boolean
   
-  many :clubs
- 
+  key :club_ids, Array  # Simple HABTM for clubs <--> users
+  
+  # TODO - there's some work to do on implementing other authentication details.  For now, keep it simple stupid.
+#   key :confirmation_token, String
+#   key :remember_token, String
+#   key :email_confirmed, Boolean
+  
   timestamps!
 
   validates_presence_of :name
@@ -22,6 +25,16 @@ class User
   attr_reader :password
   
   validate :password_must_be_present
+  
+  def clubs
+    @clubs = Club.find(self.club_ids)
+  end
+  
+  def new_club
+    @club = Club.new
+    @club.set_user(self.id)
+    return @club
+  end
   
   class << self
     def authenticate(email, password)

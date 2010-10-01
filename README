@@ -1,5 +1,10 @@
 == Readme revised to task list
 
+9/29/2010
+Merged the restructure branch and started working on putting pieces together for the full IA. 
+
+Trying to nail down the relationship between users and clubs. 
+
 09:48 PM 09/24/2010
 Moving to "restructure" branch.  Moving Clubs up to primary level. This is for a
 number of reasons, but most importantly, you can't have a specific club tied to
@@ -14,5 +19,6 @@ going to have to incorporate an authorization scheme.
 
 
 ** Wishlist
-Recovery email sent to all members to allow the club to recover in the case of a
+* Recovery email sent to all members to allow the club to recover in the case of a
 lost primary member maintaining the club online.
+* Form to connect the users to the clubs (other than their base club (clubs[0]))

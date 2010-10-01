@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   skip_before_filter :authorize
-  before_filter :user_auth
+  before_filter :admin_auth
  
   # GET /users
   # GET /users.xml
@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-#     @clubs = User.clubs
-
+    @clubs = @user.clubs
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -91,19 +90,10 @@ class UsersController < ApplicationController
     @club = @user.clubs.build
   end
   
-  def create_club
-    @user = User.find(params[:id])
-    @club = @user.club.build(params[:club])
-    if @club.save
-      format.html { redirect_to(users_url, :notice => 'Club was succesfully created.') }
-    else
-      format.html { render :action => "new_club"}
-    end
-  end
-  
+
   protected
   
-  def user_auth
+  def admin_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == "nryberg" && password == "zookies"
     end

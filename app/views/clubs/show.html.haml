@@ -7,7 +7,7 @@
   = render @club.members
 
 %h2 Add a member
-- form_for([@club, @club.members.build]) do |f|
+= form_for([@club, @club.members.build]) do |f|
   /   = f.error_messages
   #field
     = f.label :name

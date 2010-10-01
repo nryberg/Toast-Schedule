@@ -1,10 +1,11 @@
-President
-VP PR
-VP Ed
-VP Member
-Treasurer
-Sgt at Arms
-Secretary
+Roles
+* President
+* VP PR
+* VP Ed
+* VP Member
+* Treasurer
+* Sgt at Arms
+* Secretary
 
 
 Schedule [Education]

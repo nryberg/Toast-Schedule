@@ -42,7 +42,13 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.xml
   def create
-    @club = Club.new(params[:club])
+    @club = params[:club]
+    params.each {|param| p param}
+    p "I'm at the clubs controller"
+#     @user = User.find(params[:id])
+    
+#     @club.user_ids << params[:id]
+#     @user.club_ids << @club.id
 #     @user.clubs << @club
 #     @user.save
 

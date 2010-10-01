@@ -2,9 +2,9 @@
 %html
 %head
   %title ToastSchedule
-  = stylesheet_link_tag :all
+  /   = stylesheet_link_tag :all
+  /   = stylesheet_link_tag("blueprint/print.css")
   = stylesheet_link_tag("blueprint/screen.css")
-  = stylesheet_link_tag("blueprint/print.css")
   = stylesheet_link_tag("blueprint/ie.css")
   = javascript_include_tag :defaults
   = csrf_meta_tag
@@ -14,12 +14,7 @@
   .container
     .span-24
       %span.right.small
-        - if session[:user_id]
-          = link_to 'Logout', delete_session_path
-          / url_for(:controller => "sessions", :action => "logout", :method => :delete)
-        - else
-          = link_to 'Login', create_session_path 
-          / url_for(:controller => "sessions", :action => "create")
+        club | schedule | member | login 
     .span-4
       Sidebar Left
     .span-16

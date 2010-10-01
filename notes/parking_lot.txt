@@ -1,0 +1,23 @@
+From Users Show
+%h2 Add a club
+- form_for([@user, @user.clubs_build]) do |f|
+  /   = f.error_messages
+  #field
+    = f.label :name
+    = f.text_field :name
+  #actions
+    = f.submit
+/ = link_to 'Add Club', :action => "new_club", :id => @user.id
+ 
+From Users controller
+  def create_club
+    @user = User.find(params[:id])
+#     @club = Club.build(params[:club])
+    if @club.save
+      @user.club_ids << @club.id
+      format.html { redirect_to(users_url, :notice => 'Club was succesfully created.') }
+    else
+      format.html { render :action => "new_club"}
+    end
+  end
+  
