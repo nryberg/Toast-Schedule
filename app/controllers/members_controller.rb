@@ -14,9 +14,20 @@ class MembersController < ApplicationController
       format.xml  { render :xml => @club }
     end
   end
+ 
+  # GET /members/new
+  # GET /members/new.xml
+  def new
+    @member = Member.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @member}
+    end
+  end
   
   def create
-    @club = Club.find(params[:club_id])
+#     @club = Club.find(params[:club_id])
     @member = @club.members.create(params[:member])
 #     @member[:club_id] = params[:club_id]
 #     @club = Club.find(params[:club_id])
