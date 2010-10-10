@@ -15,6 +15,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1.xml
   def show
     @club = Club.find(params[:id])
+    @members = Member.find(@club.member_ids)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,9 +43,8 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.xml
   def create
-    @club = params[:club]
-    params.each {|param| p param}
-    p "I'm at the clubs controller"
+    @club = Club.new(params[:club])
+    @club.member_ids << session[:user_id]
 #     @user = User.find(params[:id])
     
 #     @club.user_ids << params[:id]
@@ -82,7 +82,6 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   # DELETE /clubs/1.xml
   def destroy
-#     person.phones.delete_if{|p| p.number == '214-555-1234'}
     @club = Clubs.find(params[:id])
     p @club.id.to_s + " " + params[:id].to_s
     @user.clubs.delete_if{|club| club.id == @club.id}

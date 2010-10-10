@@ -2,6 +2,7 @@
 
 = render 'form'
 
+= link_to 'Destroy', @member, :confirm => 'Are you sure?', :method => :delete
 = link_to 'Show', @member
 \|
 = link_to 'Back', members_path

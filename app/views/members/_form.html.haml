@@ -1,4 +1,24 @@
 = form_for @member do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.submit 'Save'
+  -if @member.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved:"
+      %ul
+        - @member.errors.full_messages.each do |msg|
+          %li= msg  
+  %fieldset
+    %legend
+      Enter Member Details
+    .nick_name
+      = f.label :name
+      = f.text_field :name
+    .email
+      = f.label :email
+      = f.text_field :email
+    .password
+      = f.label :password, "Password"
+      = f.password_field :password, :size => 40
+    .password_confirmation
+      = f.label :password_confirmation, "Confirm"
+      = f.password_field :password_confirmation, :size => 40
+    .submit
+      = f.submit

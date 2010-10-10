@@ -1,13 +1,13 @@
-= form_for @user do |f|
-  -if @user.errors.any?
+= form_for @member do |f|
+  -if @member.errors.any?
     #errorExplanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %h2= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved:"
       %ul
-        - @user.errors.full_messages.each do |msg|
+        - @member.errors.full_messages.each do |msg|
           %li= msg  
   %fieldset
     %legend
-      Enter User Details
+      Enter Member Details
     .nick_name
       = f.label :nick_name
       = f.text_field :nick_name

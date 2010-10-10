@@ -4,17 +4,22 @@
   %tr
     %th Member
     %th Update
-  = render @club.members
+  - @members.each do |member|
+    %tr
+      %th= member.name
+      %th "Fudge"
 
+/* TODO Fix this Add a member to adequately add members */
 %h2 Add a member
-= form_for([@club, @club.members.build]) do |f|
+= form_for(ub, @club.members.build]) do |f|
   /   = f.error_messages
   #field
     = f.label :name
     = f.text_field :name
   #actions
     = f.submit
- 
+
+
 = link_to 'Edit', edit_club_path(@club)
 \|
 = link_to 'Back', clubs_path

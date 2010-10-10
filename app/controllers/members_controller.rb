@@ -1,5 +1,17 @@
 class MembersController < ApplicationController
     # GET /members/1/edit
+  
+  # GET /members
+  # GET /members.xml
+  def index
+    @members = Member.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @members }
+    end
+  end
+ 
   def edit
     @member = Member.find(params[:id])
     
@@ -27,14 +39,14 @@ class MembersController < ApplicationController
   end
   
   def create
-#     @club = Club.find(params[:club_id])
-    @member = @club.members.create(params[:member])
-#     @member[:club_id] = params[:club_id]
-#     @club = Club.find(params[:club_id])
+    @member = Member.new(params[:member])
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to(@club, :notice => 'Member was successfully created.') }
+        session[:user_id] = @member.id
+        # Then move forward to a new club, or add 
+        # to a current club.
+        format.html { redirect_to(new_club_url, :notice => 'Member was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -60,14 +72,12 @@ class MembersController < ApplicationController
     # DELETE /members/1
   # DELETE /members/1.xml
   def destroy
-#     person.phones.delete_if{|p| p.number == '214-555-1234'}
     @member = Member.find(params[:id])
-    @club = Club.find(@member.club_id)
     @member.destroy
     
     
     respond_to do |format|
-      format.html { redirect_to(@club) }
+      format.html { redirect_to(members_url) }
       format.xml  { head :ok }
     end
   end

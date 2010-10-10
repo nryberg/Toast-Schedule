@@ -3,17 +3,7 @@ class Club
   
   key :name, String, :required => true
   
-  key :user_ids, Array # Other side of HABTM work 
-  
-  many :members
-  
-  def users
-    @users = User.find(self.user_ids)
-  end
-  
-  def set_user(user_id)
-    self.user_ids << user_id
-  end
+  key :member_ids, Array # Other side of HABTM work 
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

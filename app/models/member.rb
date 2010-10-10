@@ -9,6 +9,8 @@ class Member
   key :phone, String
   key :can_edit, Boolean
   key :role, String
+  key :salt, String
+  key :hashed_password, String
  
   validates_presence_of :name
   validate :password, :confirmation => true  
