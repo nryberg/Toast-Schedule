@@ -11,12 +11,12 @@
 
 /* TODO Fix this Add a member to adequately add members */
 %h2 Add a member
-= form_for(ub, @club.members.build]) do |f|
-  /   = f.error_messages
-  #field
+= form_for([@club, @club.member.build]) do |f|
+  /* = f.error_messages */
+  %field
     = f.label :name
     = f.text_field :name
-  #actions
+  %actions
     = f.submit
 
 

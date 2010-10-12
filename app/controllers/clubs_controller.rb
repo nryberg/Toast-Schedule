@@ -44,7 +44,16 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    @club.member_ids << session[:user_id]
+    
+    @club.member_ids << session[:member_id]
+    session[:club_id] = @club.id
+    
+    # TODO: Refactor this stuff into the Member model
+    @member = Member.find(session[:member_id])
+    @member.club_ids << @club.id
+    @member.save
+    
+    
 #     @user = User.find(params[:id])
     
 #     @club.user_ids << params[:id]
@@ -82,11 +91,13 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   # DELETE /clubs/1.xml
   def destroy
-    @club = Clubs.find(params[:id])
-    p @club.id.to_s + " " + params[:id].to_s
-    @user.clubs.delete_if{|club| club.id == @club.id}
+    @club = Club.find(params[:id])
+#     p @club.id.to_s + " " + params[:id].to_s
+#     @user.clubs.delete_if{|club| club.id == @club.id}
     
-    @user.save
+#     @user.save
+    
+    @club.destroy
     
     respond_to do |format|
       format.html { redirect_to(clubs_url) }

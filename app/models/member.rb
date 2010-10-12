@@ -16,16 +16,23 @@ class Member
   validate :password, :confirmation => true  
   attr_accessor :password_confirmation  
   attr_reader :password  
-    
-  validate :password_must_be_present  
+  
+#   Pulling out the required password.  
+#   HOWEVER: If the user doesn't have an e-mail 
+#   and password defined, then they will not be able to 
+#   either edit the club, details OR enter their 
+#   availability (when that gets implemented.
+#   validate :password_must_be_present  
+  
   
  
+  key :club_ids, Array # Other side of HABTM work 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
  
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-  belongs_to :club
-# many :model
+    #    :club
+  many :club
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
