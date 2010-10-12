@@ -4,10 +4,7 @@
   %tr
     %th Member
     %th Update
-  - @members.each do |member|
-    %tr
-      %th= member.name
-      %th "Fudge"
+  = render :partial => 'member', :collection => @members
 
 /* TODO Fix this Add a member to adequately add members */
 %h2 Add a member

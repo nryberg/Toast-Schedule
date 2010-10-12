@@ -1,2 +1,3 @@
-%p= member.name
-  
+%tr
+  %th= member.name
+  %th= link_to 'Edit', edit_member_path(member)

@@ -19,7 +19,9 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @club = Club.find(params[:club_id])
+    @clubs = Club.find(@member.club_ids)
+    p @clubs
+#     @club = Club.find(params[:club_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,9 +44,10 @@ class MembersController < ApplicationController
     @member = Member.new(params[:member])
     
     # TODO Get the Rails Idiom correct.
-    if not session[:club_id].nil? 
-      @member.club_ids << session[:club_id]
-    end
+    @member.club_ids << session[:club_id]
+#     if not session[:club_id].nil? 
+#       @member.club_ids << session[:club_id]
+#     end
 
     respond_to do |format|
       if @member.save

@@ -2,6 +2,8 @@
 /  it working for now.*/
 
 %h1= @member.name
+%h3 Clubs
+= render :partial => 'club', :collection => @clubs
 
 = link_to 'Edit', edit_member_path(@member)
 \|
