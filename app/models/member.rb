@@ -53,7 +53,10 @@ class Member
 # key :user_ids, Array, :typecast => 'ObjectId'
   class << self
     def authenticate(email, password)  
-      if user = find_by_name(email)  
+      p email
+      p password
+      if user = find_by_email(email) 
+        p "user found"
         if user.hashed_password == encrypt_password(password, user.salt)  
           user  
         end  

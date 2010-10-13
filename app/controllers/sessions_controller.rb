@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
-#   skip_before_filter :authorize
+  skip_before_filter :authorize
 
   def new
   end
 
   def create
-    if user = User.authenticate(params[:name], params[:password])
-      session[:user_id] = user.id
-      params[:id] = user.id
+    if member = Member.authenticate(params[:email], params[:password])
+      session[:member_id] = member.id
+      params[:id] = member.id
       redirect_to clubs_url 
     else
       redirect_to login_url
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-     session[:user_id] = nil
+     session[:member_id] = nil
      redirect_to root_path, :notice => "Logged out"
   end
 

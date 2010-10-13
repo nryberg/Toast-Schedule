@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  
+  skip_before_filter :authorize, :only => [:index, :show]
     # GET /members/1/edit
   
   # GET /members
