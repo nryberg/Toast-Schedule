@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  skip_before_filter :authorize, :only => [:index, :show]
+  skip_before_filter :authorize, :only => [:index, :show, :new]
   
   # GET /clubs
   # GET /clubs.xml

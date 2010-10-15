@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     if member = Member.authenticate(params[:email], params[:password])
+      p "Member found"
       session[:member_id] = member.id
       params[:id] = member.id
       redirect_to clubs_url 
