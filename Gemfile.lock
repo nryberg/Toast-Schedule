@@ -79,6 +79,7 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
+    nokogiri (1.4.3.1)
     plucky (0.3.5)
       mongo (~> 1.0.8)
     polyglot (0.3.1)
@@ -110,6 +111,10 @@ GEM
     trollop (1.16.2)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
+    webrat (0.7.1)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
     will_paginate (2.3.15)
 
 PLATFORMS
@@ -127,4 +132,5 @@ DEPENDENCIES
   rails (= 3.0.0)
   rails3-generators
   rspec
+  webrat
   will_paginate

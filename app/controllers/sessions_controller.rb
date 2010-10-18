@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
     if member = Member.authenticate(params[:email], params[:password])
       p "Member found"
       session[:member_id] = member.id
+      session[:member_name] = member.name
       params[:id] = member.id
+      @member_signed_in = member
       redirect_to clubs_url 
     else
       redirect_to login_url

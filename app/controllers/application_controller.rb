@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    session[:user]
+    Member.find(session[:member_id])
   end
 
   def redirect_to_stored
@@ -27,7 +27,9 @@ class ApplicationController < ActionController::Base
 
   protected
     def authorize
-      unless User.find_by_id(session[:user_id])
+      if Member.find_by_id(session[:member_id])
+        @member_signed_in = Member.find(session[:member_id])
+      else
         redirect_to login_url, :notice => "Please log in"
       end
     end

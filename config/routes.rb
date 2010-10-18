@@ -1,14 +1,14 @@
 ToastSchedule::Application.routes.draw do
-  get "admin/login"
+#   get "admin/login"
 
-  get "admin/logout"
+#   get "admin/logout"
 
-  get "admin/index"
+#   get "admin/index"
 
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
-    delete 'logout' => :destroy
+    get 'logout' => :destroy
   end
 
   resources :users

@@ -46,10 +46,16 @@ class MembersController < ApplicationController
     @member = Member.new(params[:member])
     
     # TODO Get the Rails Idiom correct.
-    @member.club_ids << session[:club_id]
-#     if not session[:club_id].nil? 
-#       @member.club_ids << session[:club_id]
-#     end
+    if session[:club_id] then 
+      @member.club_ids << session[:club_id]
+      
+      club = Club.find(session[:club_id])
+      club.member_ids << @member.id
+      club.save
+      
+    end
+    
+    if session[:member_id].nil? then session[:member_id] = @member.id end
 
     respond_to do |format|
       if @member.save
@@ -58,6 +64,8 @@ class MembersController < ApplicationController
         # to a current club.
         if session[:club_id].nil? then 
           format.html { redirect_to(new_club_url, :notice => 'Member was successfully created.') }
+        else
+          format.html { redirect_to(:action => 'index', :notice => 'Member was successfully created.') }
         end
       else
         format.html { render :action => "new" }

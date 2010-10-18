@@ -1,10 +1,14 @@
 class ClubsController < ApplicationController
-  skip_before_filter :authorize, :only => [:index, :show, :new]
+  skip_before_filter :authorize, :only => [:index, :show, :new, :create]
   
   # GET /clubs
   # GET /clubs.xml
   def index
-    @clubs = Club.all
+    if session[:member_id] then
+       @clubs = Club.find(Member.find(session[:member_id]).club_ids)
+    else
+      @clubs = Club.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +20,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1.xml
   def show
     @club = Club.find(params[:id])
+    session[:club_id] = @club.id
     @members = Member.find(@club.member_ids)
 
     respond_to do |format|
