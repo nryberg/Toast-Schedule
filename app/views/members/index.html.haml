@@ -1,4 +1,4 @@
-%h1 Toast Schedule Members
+%h1= @club.name + " Members"
 
 %table
   %tr
@@ -12,3 +12,4 @@
 %br
 
 = link_to 'New Member', new_member_path
+= link_to 'Club Details', @club

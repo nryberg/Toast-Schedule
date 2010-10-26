@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
      session[:member_id] = nil
+     session[:club_id] = nil
      redirect_to root_path, :notice => "Logged out"
   end
 

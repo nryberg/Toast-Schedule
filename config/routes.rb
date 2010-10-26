@@ -1,4 +1,12 @@
 ToastSchedule::Application.routes.draw do
+  resources :templates
+
+  resources :roles
+
+  resources :agenda_templates
+
+  resources :agendas
+
 #   get "admin/login"
 
 #   get "admin/logout"
