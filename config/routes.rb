@@ -23,11 +23,11 @@ ToastSchedule::Application.routes.draw do
 #   root :to => "home#index"
 #   devise_for :users
 #   resources :users, :only => :show
-   resources :clubs
-   resources :members
    resources :clubs do
-     resources :members
-  end
+     resources :templates
+   end
+   
+   resources :members
    
   # first created -> highest priority.
 

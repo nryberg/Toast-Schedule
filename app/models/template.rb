@@ -1,9 +1,9 @@
 class Template
-  include MongoMapper::Document         
+  include MongoMapper::EmbeddedDocument         
   
   key :name, String
   key :description, String
-  
+  key :role_ids, ObjectID
   key :ordered_role, Array
 
 
@@ -11,8 +11,8 @@ class Template
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-# belongs_to :model
-# many :model
+   belongs_to :club
+   many :role
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

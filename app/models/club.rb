@@ -11,6 +11,7 @@ class Club
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # belongs_to :model
   many :member
+  many :template
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

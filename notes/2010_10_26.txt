@@ -1,0 +1,7 @@
+2010 10 26 Reaching for breath at the top of another mountain.
+
+Roles have been added, but in a very open way.  Need to have an admin role in the database and that has to be locked down to the very few.
+
+Each club has one or more templates - embedded docs - that are used to generate a new agenda.  The roles are used to fill out the agenda.  The agenda are the step two of the process where you fill out the people that are active in that meeting.
+
+Need to have a place holder for "No Meeting Today"
