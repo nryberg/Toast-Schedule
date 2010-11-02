@@ -5,10 +5,13 @@
     %th Members
     %th= link_to 'Add Member', new_member_path
   = render :partial => 'member', :collection => @members
+%table
   %tr
-    %th Agenda Templates
-    %th= link_to 'Add Template', new_club_template_path
-    
+    %th Agenda 
+  = render :partial => 'agenda', :collection => @club.agendas
+%div    
+  = link_to 'New Agenda', new_club_agenda_path(@club)
+  
 = link_to 'Edit', edit_club_path(@club)
 \|
 = link_to 'Back', clubs_path

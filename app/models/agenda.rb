@@ -1,5 +1,7 @@
 class Agenda
-  include MongoMapper::Document         
+  include MongoMapper::EmbeddedDocument         
+  
+  key :name, String
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

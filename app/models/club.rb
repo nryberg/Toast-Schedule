@@ -3,6 +3,8 @@ class Club
   
   key :name, String, :required => true
   
+  
+  
   key :member_ids, Array # Other side of HABTM work 
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -11,7 +13,7 @@ class Club
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # belongs_to :model
   many :member
-  many :template
+  many :agendas
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

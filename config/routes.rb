@@ -3,10 +3,6 @@ ToastSchedule::Application.routes.draw do
 
   resources :roles
 
-  resources :agenda_templates
-
-  resources :agendas
-
 #   get "admin/login"
 
 #   get "admin/logout"
@@ -24,7 +20,7 @@ ToastSchedule::Application.routes.draw do
 #   devise_for :users
 #   resources :users, :only => :show
    resources :clubs do
-     resources :templates
+     resources :agendas
    end
    
    resources :members

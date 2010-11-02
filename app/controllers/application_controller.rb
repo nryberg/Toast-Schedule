@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize
+#  before_filter :authorize
+# TODO - put the authentication back into place
  
   protect_from_forgery
   def login_required
