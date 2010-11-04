@@ -1,10 +1,11 @@
-= form_for @agenda do |f|
+= form_for([@club, @agenda]) do |f|
   -if @agenda.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@agenda.errors.count, "error")} prohibited this agenda from being saved:"
       %ul
         - @agenda.errors.full_messages.each do |msg|
           %li= msg
-
+  = f.label :name
+  = f.text_field :name
   .actions
     = f.submit 'Save'

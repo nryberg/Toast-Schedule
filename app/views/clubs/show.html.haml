@@ -3,11 +3,12 @@
 %table
   %tr
     %th Members
-    %th= link_to 'Add Member', new_member_path
   = render :partial => 'member', :collection => @members
+%div
+  = link_to 'Add Member', new_member_path
 %table
   %tr
-    %th Agenda 
+    %th Agendas
   = render :partial => 'agenda', :collection => @club.agendas
 %div    
   = link_to 'New Agenda', new_club_agenda_path(@club)
