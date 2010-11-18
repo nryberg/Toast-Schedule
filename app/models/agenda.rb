@@ -2,6 +2,7 @@ class Agenda
   include MongoMapper::EmbeddedDocument         
   
   key :name, String
+  key :meeting_date, Date
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
