@@ -25,7 +25,7 @@ gem 'bson_ext'
 gem 'will_paginate'
 gem 'mocha'
 gem 'rails3-generators'
-
+gem 'jquery-rails', '>=0.2.5'
 # Use unicorn as the web server
 # gem 'unicorn'
 

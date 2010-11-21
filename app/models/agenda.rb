@@ -4,6 +4,10 @@ class Agenda
   key :name, String
   key :meeting_date, Date
 
+  def meeting_date_formatted
+    meeting_date.strftime '%m/%d/%Y'
+  end
+  
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 

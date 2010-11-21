@@ -22,6 +22,9 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
     @members = Member.find(@club.member_ids)
+    @agendas = @club.agendas
+    
+    #TODO: Fix the friggin date problems
 
     respond_to do |format|
       format.html # show.html.erb
