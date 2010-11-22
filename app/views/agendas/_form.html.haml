@@ -5,10 +5,11 @@
       %ul
         - @agenda.errors.full_messages.each do |msg|
           %li= msg
-  = f.label :name
-  = f.text_field :name
-  %div
   = f.label :meeting_date
   = f.text_field :meeting_date
+  %div
+  = f.label :notes
+  %div
+  = f.text_area :notes, :cols => 20, :rows => 10
   .actions
     = f.submit 'Save'

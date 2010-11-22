@@ -1,3 +1,2 @@
 %tr
-  %td= agenda.meeting_date_formatted
-  %td= link_to 'Edit', edit_club_agenda_path(@club, agenda) 
+  %td= link_to agenda.meeting_date_pretty, club_agenda_path(@club, agenda) 

@@ -1,12 +1,17 @@
 class Agenda
   include MongoMapper::EmbeddedDocument         
   
-  key :name, String
+  key :notes, String
   key :meeting_date, Date
 
   def meeting_date_formatted
     meeting_date.strftime '%m/%d/%Y'
   end
+  
+  def meeting_date_pretty
+    meeting_date.strftime '%a, %b %e, %Y'
+  end
+  
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

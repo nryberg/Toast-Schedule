@@ -13,7 +13,9 @@ class AgendasController < ApplicationController
   # GET /agendas/1
   # GET /agendas/1.xml
   def show
-    @agenda = Agenda.first(params[:id])
+    @club = Club.find(params[:club_id])
+    
+    @agenda = @club.agendas.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,8 +42,6 @@ class AgendasController < ApplicationController
     @club = Club.find(session[:club_id])
     @agenda = @club.agendas.find(params[:id])
     
-    p @club
-    p @agenda
   end
 
   # POST /agendas

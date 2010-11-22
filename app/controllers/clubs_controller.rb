@@ -22,7 +22,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
     @members = Member.find(@club.member_ids)
-    @agendas = @club.agendas
+    @agendas = @club.agendas.sort_by {|e| e['meeting_date']}
     
     #TODO: Fix the friggin date problems
 
@@ -101,11 +101,6 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1.xml
   def destroy
     @club = Club.find(params[:id])
-#     p @club.id.to_s + " " + params[:id].to_s
-#     @user.clubs.delete_if{|club| club.id == @club.id}
-    
-#     @user.save
-    
     @club.destroy
     
     respond_to do |format|
