@@ -16,6 +16,7 @@ class AgendasController < ApplicationController
     @club = Club.find(params[:club_id])
     
     @agenda = @club.agendas.find(params[:id])
+    @roles = @agenda.roles
 
     respond_to do |format|
       format.html # show.html.erb

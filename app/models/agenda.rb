@@ -3,7 +3,7 @@ class Agenda
   
   key :notes, String
   key :meeting_date, Date
-
+  
   def meeting_date_formatted
     meeting_date.strftime '%m/%d/%Y'
   end
@@ -18,7 +18,7 @@ class Agenda
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # belongs_to :model
-# many :model
+   many :roles
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

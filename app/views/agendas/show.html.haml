@@ -1,5 +1,11 @@
 %p= @agenda.meeting_date_pretty
 %p= @agenda.notes
+
+%table
+  %tr
+    %th Roles
+  = render :partial => 'role', :collection => @roles
+
 = link_to 'Edit', edit_club_agenda_path(@club, @agenda)
 \|
 = link_to 'Back', club_path(@club)

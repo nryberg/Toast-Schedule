@@ -3,6 +3,7 @@ class Role
   
   key :name, String
   key :responsibility, String
+  key :member_id, ObjectId
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
