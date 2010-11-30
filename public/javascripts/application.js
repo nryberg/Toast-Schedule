@@ -5,5 +5,5 @@
 // }); 
 var $j = jQuery.noConflict();
 $j(document).ready(function() {
-   $('#agenda_meeting_date').datepicker();
- });
+    $j('#agenda_meeting_date').datepicker();
+  });

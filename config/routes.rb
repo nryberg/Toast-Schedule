@@ -11,7 +11,7 @@ ToastSchedule::Application.routes.draw do
 #   resources :users, :only => :show
    resources :clubs do
      resources :agendas do
-       get 'addrole' => "agenda/addrole"
+       resources :roles
      end
    end
    

@@ -17,6 +17,8 @@ class AgendasController < ApplicationController
     
     @agenda = @club.agendas.find(params[:id])
     @roles = @agenda.roles
+    
+    p "Agenda Show Roles Count: " + @agenda.roles.count.to_s
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,6 +34,7 @@ class AgendasController < ApplicationController
     @agenda = Agenda.new
     @club.agendas << @agenda
     3.times {@agenda.roles << Role.new}
+    p "agenda roles: " +  @agenda.roles.count.to_s
 
     respond_to do |format|
       format.html # new.html.erb
@@ -86,11 +89,12 @@ class AgendasController < ApplicationController
   # DELETE /agendas/1
   # DELETE /agendas/1.xml
   def destroy
-    @agenda = Agenda.first(params[:id])
-    @agenda.destroy
-
+    @club = Club.find(session[:club_id])
+    @agenda = @club.agendas.find(params[:id])
+    @club.agendas.delete_if{|agenda| agenda.id == @agenda.id}
+    @club.save
     respond_to do |format|
-      format.html { redirect_to(agendas_url) }
+      format.html { redirect_to(@club) }
       format.xml  { head :ok }
     end
   end
