@@ -22,7 +22,8 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
     @members = Member.find(@club.member_ids)
-    @agendas = @club.agendas.sort_by {|e| e['meeting_date']}
+    # @agendas = @club.agendas.sort{|a,b|( a and b ) ? a <=> b : ( a ? -1 : 1 ) }
+    @agendas = @club.agendas
     
     #TODO: Fix the friggin date problems
 

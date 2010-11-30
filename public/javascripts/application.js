@@ -3,6 +3,7 @@
 // $(function (){  
 //     $("#agenda_meeting_date").datepicker();  
 // }); 
-$(document).ready(function() {
+var $j = jQuery.noConflict();
+$j(document).ready(function() {
    $('#agenda_meeting_date').datepicker();
  });

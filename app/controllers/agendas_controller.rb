@@ -31,6 +31,7 @@ class AgendasController < ApplicationController
     
     @agenda = Agenda.new
     @club.agendas << @agenda
+    3.times {@agenda.roles << Role.new}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -93,4 +94,9 @@ class AgendasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def addrole
+    @agenda.roles << [0,0]
+  end
+  
 end

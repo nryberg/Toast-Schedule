@@ -5,7 +5,8 @@
   %tr
     %th Roles
   = render :partial => 'role', :collection => @roles
-
+= link_to 'Destroy', [@club, @agenda], :confirm => 'Are you sure?', :method => :delete
+/ link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete 
 = link_to 'Edit', edit_club_agenda_path(@club, @agenda)
 \|
 = link_to 'Back', club_path(@club)

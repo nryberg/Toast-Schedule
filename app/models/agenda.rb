@@ -3,13 +3,20 @@ class Agenda
   
   key :notes, String
   key :meeting_date, Date
+  key :roles, Array
+  
   
   def meeting_date_formatted
     meeting_date.strftime '%m/%d/%Y'
   end
   
   def meeting_date_pretty
-    meeting_date.strftime '%a, %b %e, %Y'
+    if meeting_date.nil? then 
+       "(empty date)"
+    else
+      meeting_date.strftime '%a, %b %e, %Y'
+    end
+    
   end
   
   
