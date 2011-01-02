@@ -12,8 +12,13 @@ class Club
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # belongs_to :model
-  many :member
+  many :members
   many :agendas
+  
+  def members 
+    members = Member.find(:member_ids)
+  end
+  
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

@@ -8,7 +8,7 @@
   %div
     = f.label :member_id
   %div
-    = f.text_field :member_id
+    = f.select(:member_id, options_from_collection_for_select(@members, :id, :name))
   %div
     = f.label :responsibility
   %div

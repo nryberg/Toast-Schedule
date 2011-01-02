@@ -27,6 +27,9 @@ class RolesController < ApplicationController
   def new
     @agenda = Agenda.find(params[:agenda_id])
     p "At role new"
+    p @agenda.club_id
+    @members = Member.find(Club.find(@agenda.club_id).member_ids)
+    p @members
     @role = Role.new
     @agenda.roles << @role
 

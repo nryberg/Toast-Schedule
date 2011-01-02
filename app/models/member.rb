@@ -32,7 +32,7 @@ class Member
  
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
     #    :club
-  many :club
+  many :clubs
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
