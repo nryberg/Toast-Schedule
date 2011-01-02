@@ -5,7 +5,7 @@ class Club
   
   
   
-  key :member_ids, Array # Other side of HABTM work 
+#   key :member_ids, Array # Other side of HABTM work 
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
@@ -14,10 +14,8 @@ class Club
 # belongs_to :model
   many :members
   many :agendas
+  belongs_to :member
   
-  def members 
-    members = Member.find(:member_ids)
-  end
   
 # one :model
 

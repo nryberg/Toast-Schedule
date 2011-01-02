@@ -4,7 +4,6 @@ class Member
   include MongoMapper::Document         
   key :name, String
   
-  key :club_id, ObjectId
   key :email, String
   key :phone, String
   key :can_edit, Boolean
@@ -26,12 +25,12 @@ class Member
   
   
  
-  key :club_ids, Array # Other side of HABTM work 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
  
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
     #    :club
+  belongs_to :club
   many :clubs
 # one :model
 

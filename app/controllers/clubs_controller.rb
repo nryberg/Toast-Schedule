@@ -21,8 +21,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
-    @members = Member.find(@club.member_ids)
-    # @agendas = @club.agendas.sort{|a,b|( a and b ) ? a <=> b : ( a ? -1 : 1 ) }
+    @members = @club.members
     @agendas = @club.agendas
     
     #TODO: Fix the friggin date problems
@@ -54,22 +53,10 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    
-    @club.member_ids << session[:member_id]
+    member = Member.find(session[:member_id])
+    @club.members << member
     session[:club_id] = @club.id
     
-    # TODO: Refactor this stuff into the Member model
-    @member = Member.find(session[:member_id])
-    @member.club_ids << @club.id
-    @member.save
-    
-    
-#     @user = User.find(params[:id])
-    
-#     @club.user_ids << params[:id]
-#     @user.club_ids << @club.id
-#     @user.clubs << @club
-#     @user.save
 
     respond_to do |format|
       if @club.save

@@ -8,7 +8,7 @@ class MembersController < ApplicationController
   def index
     @club = Club.find(session[:club_id])
     if @club then
-       @members = Member.find(@club.member_ids)
+       @members = @club.members
     else
       @members = Member.find(session[:member_id])
     end
@@ -27,7 +27,7 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @clubs = Club.find(@member.club_ids)
+    @clubs = @member.clubs
     p @clubs
 #     @club = Club.find(params[:club_id])
 
@@ -53,10 +53,11 @@ class MembersController < ApplicationController
     
     # TODO Get the Rails Idiom correct.
     if session[:club_id] then 
-      @member.club_ids << session[:club_id]
-      
+      p session[:club_id]
       club = Club.find(session[:club_id])
-      club.member_ids << @member.id
+      @member.clubs << club
+      
+      club.members << @member
       club.save
       
     end
