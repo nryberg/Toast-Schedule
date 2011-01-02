@@ -5,7 +5,7 @@ class Role
   key :member_id, ObjectId
   key :temp, String
   
-  
+  belongs_to :agenda
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

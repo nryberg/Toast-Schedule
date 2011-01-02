@@ -1,5 +1,4 @@
 class RolesController < ApplicationController
-  before_filter :authenticate
   
   # GET /roles
   # GET /roles.xml
@@ -26,7 +25,10 @@ class RolesController < ApplicationController
   # GET /roles/new
   # GET /roles/new.xml
   def new
+    @agenda = Agenda.find(params[:agenda_id])
+    p "At role new"
     @role = Role.new
+    @agenda.roles << @role
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,14 +82,6 @@ class RolesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(roles_url) }
       format.xml  { head :ok }
-    end
-  end
-  
-  protected
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "nryberg" && password == "zookies"
     end
   end
 end

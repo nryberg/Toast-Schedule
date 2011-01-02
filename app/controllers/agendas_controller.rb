@@ -29,12 +29,11 @@ class AgendasController < ApplicationController
   # GET /agendas/new
   # GET /agendas/new.xml
   def new
+    p "At Agenda New"
     @club = Club.find(session[:club_id])
     
     @agenda = Agenda.new
     @club.agendas << @agenda
-    3.times {@agenda.roles << Role.new}
-    p "agenda roles: " +  @agenda.roles.count.to_s
 
     respond_to do |format|
       format.html # new.html.erb
@@ -90,9 +89,7 @@ class AgendasController < ApplicationController
   # DELETE /agendas/1.xml
   def destroy
     @club = Club.find(session[:club_id])
-    @agenda = @club.agendas.find(params[:id])
-    @club.agendas.delete_if{|agenda| agenda.id == @agenda.id}
-    @club.save
+    @club.agendas.delete(params[:id])
     respond_to do |format|
       format.html { redirect_to(@club) }
       format.xml  { head :ok }

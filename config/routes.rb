@@ -5,14 +5,13 @@ ToastSchedule::Application.routes.draw do
     get 'logout' => :destroy
   end
 
-  resources :users
-#   root :to => "home#index"
-#   devise_for :users
-#   resources :users, :only => :show
+
    resources :clubs do
-     resources :agendas do
-       resources :roles
-     end
+     resources :agendas
+   end
+   
+   resources :agendas do
+     resources :roles
    end
    
    resources :members

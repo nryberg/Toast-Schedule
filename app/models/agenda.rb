@@ -1,5 +1,7 @@
 class Agenda
-  include MongoMapper::EmbeddedDocument         
+#   include MongoMapper::EmbeddedDocument         
+  
+  include MongoMapper::Document         
   
   key :notes, String
   key :meeting_date, Date
@@ -24,7 +26,7 @@ class Agenda
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-# belongs_to :model
+   belongs_to :club
    many :roles
 # one :model
 
