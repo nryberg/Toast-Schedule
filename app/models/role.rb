@@ -1,11 +1,9 @@
 class Role
   include MongoMapper::Document
   
+  key :name, String
   key :responsibility, String
-  key :member_id, ObjectId
-  key :temp, String
   
-  belongs_to :agenda
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

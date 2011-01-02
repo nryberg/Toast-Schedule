@@ -6,9 +6,9 @@
         - @role.errors.full_messages.each do |msg|
           %li= msg
   %div
-    = f.label :member_id
+    = f.label :name
   %div
-    = f.select(:member_id, options_from_collection_for_select(@members, :id, :name))
+    = f.text_field :name
   %div
     = f.label :responsibility
   %div
