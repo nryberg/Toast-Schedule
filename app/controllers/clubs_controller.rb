@@ -5,7 +5,7 @@ class ClubsController < ApplicationController
   # GET /clubs.xml
   def index
     if session[:member_id] then
-       @clubs = Club.find(Member.find(session[:member_id]).club_ids)
+       @clubs = Member.find(session[:member_id]).clubs
     else
       @clubs = Club.all
     end
@@ -53,8 +53,10 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    member = Member.find(session[:member_id])
-    @club.members << member
+    if session[:member_id] then
+      @club.members << Member.find(session[:member_id])
+    end
+    
     session[:club_id] = @club.id
     
 

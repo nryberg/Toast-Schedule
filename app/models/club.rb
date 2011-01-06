@@ -3,7 +3,11 @@ class Club
   
   key :name, String, :required => true
   
-  
+  key :member_ids, Array
+  many :members, :in => :member_ids
+#   def members
+#     Member.find(self.member_ids)
+#   end
   
 #   key :member_ids, Array # Other side of HABTM work 
   
@@ -11,11 +15,8 @@ class Club
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-# belongs_to :model
-  many :members
   many :agendas
-  belongs_to :member
-  
+#   belongs_to :members
   
 # one :model
 

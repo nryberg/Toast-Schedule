@@ -2,6 +2,7 @@ require 'digest/sha2'
 
 class Member
   include MongoMapper::Document         
+  
   key :name, String
   
   key :email, String
@@ -15,6 +16,18 @@ class Member
   validate :password, :confirmation => true  
   attr_accessor :password_confirmation  
   attr_reader :password  
+  
+  def clubs 
+    p "At clubs search"
+    p id
+    Club.where(:member_ids => id)
+  end
+  
+#   key :club_ids, Array, :typecast => 'ObjectId'
+  
+#   def clubs
+#     p "getting there"
+# #     Club.find(self.club_ids) end
   
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 
@@ -30,8 +43,6 @@ class Member
  
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
     #    :club
-  belongs_to :club
-  many :clubs
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

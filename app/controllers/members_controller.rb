@@ -28,7 +28,10 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @clubs = @member.clubs
-    p @clubs
+    @clubs.each do |club|
+      p club.name
+    end
+  
 #     @club = Club.find(params[:club_id])
 
     respond_to do |format|
@@ -53,13 +56,9 @@ class MembersController < ApplicationController
     
     # TODO Get the Rails Idiom correct.
     if session[:club_id] then 
-      p session[:club_id]
-      club = Club.find(session[:club_id])
-      @member.clubs << club
-      
-      club.members << @member
-      club.save
-      
+      @member.club_ids << session[:club_id]
+      Club.find(session[:club_id]).member_ids << @member
+      p "hello"
     end
     
     if session[:member_id].nil? then session[:member_id] = @member.id end
