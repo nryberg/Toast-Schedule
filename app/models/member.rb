@@ -8,6 +8,7 @@ class Member
   key :email, String
   key :phone, String
   key :can_edit, Boolean
+  key :officer, String
   key :role, String
   key :salt, String
   key :hashed_password, String
@@ -18,16 +19,9 @@ class Member
   attr_reader :password  
   
   def clubs 
-    p "At clubs search"
-    p id
     Club.where(:member_ids => id)
   end
   
-#   key :club_ids, Array, :typecast => 'ObjectId'
-  
-#   def clubs
-#     p "getting there"
-# #     Club.find(self.club_ids) end
   
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 

@@ -5,18 +5,12 @@ class Club
   
   key :member_ids, Array
   many :members, :in => :member_ids
-#   def members
-#     Member.find(self.member_ids)
-#   end
-  
-#   key :member_ids, Array # Other side of HABTM work 
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :agendas
-#   belongs_to :members
   
 # one :model
 

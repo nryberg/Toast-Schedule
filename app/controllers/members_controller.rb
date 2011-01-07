@@ -8,9 +8,9 @@ class MembersController < ApplicationController
   def index
     @club = Club.find(session[:club_id])
     if @club then
-       @members = @club.members
+       @members = @club.members.sort_by(&:name)
     else
-      @members = Member.find(session[:member_id])
+      @members = Member.find(session[:member_id]).sort(:name)
     end
                            
 
@@ -22,6 +22,9 @@ class MembersController < ApplicationController
  
   def edit
     @member = Member.find(params[:id])
+    p params[:id]
+    p session[:member_id].to_s
+    @editing_self = (params[:id] == session[:member_id].to_s)
     
   end
 
@@ -44,7 +47,7 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
-
+    @editing_self = true
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @member}
@@ -54,13 +57,12 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(params[:member])
     
-    # TODO Get the Rails Idiom correct.
     if session[:club_id] then 
-      @member.club_ids << session[:club_id]
-      Club.find(session[:club_id]).member_ids << @member
-      p "hello"
+      @club = Club.find(session[:club_id])
+      @club.members << @member
+      @club.save
     end
-    
+    p "Debugging create: " + session[:member_id].to_s
     if session[:member_id].nil? then session[:member_id] = @member.id end
 
     respond_to do |format|
@@ -71,7 +73,7 @@ class MembersController < ApplicationController
         if session[:club_id].nil? then 
           format.html { redirect_to(new_club_url, :notice => 'Member was successfully created.') }
         else
-          format.html { redirect_to(:action => 'index', :notice => 'Member was successfully created.') }
+          format.html { redirect_to(@club, :notice => 'Member was successfully created.') }
         end
       else
         format.html { render :action => "new" }

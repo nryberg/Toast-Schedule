@@ -14,11 +14,12 @@
     .email
       = f.label :email
       = f.text_field :email
-    .password
-      = f.label :password, "Password"
-      = f.password_field :password, :size => 40
-    .password_confirmation
-      = f.label :password_confirmation, "Confirm"
-      = f.password_field :password_confirmation, :size => 40
+    - if @editing_self
+      .password
+        = f.label :password, "Password"
+        = f.password_field :password, :size => 40
+      .password_confirmation
+        = f.label :password_confirmation, "Confirm"
+        = f.password_field :password_confirmation, :size => 40
     .submit
-      = f.submit
+    = f.submit
