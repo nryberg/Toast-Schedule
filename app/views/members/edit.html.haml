@@ -1,5 +1,5 @@
 %h1 Editing Member 
-
+%h2= @editing_self
 = render 'form'
 
 = link_to 'Destroy', @member, :confirm => 'Are you sure?', :method => :delete

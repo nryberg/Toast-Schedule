@@ -25,6 +25,7 @@ class MembersController < ApplicationController
     p params[:id]
     p session[:member_id].to_s
     @editing_self = (params[:id] == session[:member_id].to_s)
+    p @editing_self
     
   end
 
@@ -62,12 +63,9 @@ class MembersController < ApplicationController
       @club.members << @member
       @club.save
     end
-    p "Debugging create: " + session[:member_id].to_s
-    if session[:member_id].nil? then session[:member_id] = @member.id end
 
     respond_to do |format|
       if @member.save
-        session[:member_id] = @member.id
         # Then move forward to a new club, or add 
         # to a current club.
         if session[:club_id].nil? then 
