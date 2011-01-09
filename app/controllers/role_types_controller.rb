@@ -1,56 +1,56 @@
-class RolesController < ApplicationController
+class RoleTypesController < ApplicationController
   before_filter :authenticate
   
   # GET /roles
   # GET /roles.xml
   def index
-    @roles = Role.sort(:name).all
+    @role_types = RoleType.sort(:name).all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @roles }
+      format.xml  { render :xml => @role_types }
     end
   end
 
   # GET /roles/1
   # GET /roles/1.xml
   def show
-    @role = Role.find(params[:id])
+    @role_type = RoleType.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @role }
+      format.xml  { render :xml => @role_type }
     end
   end
 
   # GET /roles/new
   # GET /roles/new.xml
   def new
-    @role = Role.new
+    @role_type = RoleType.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @role }
+      format.xml  { render :xml => @role_type }
     end
   end
 
   # GET /roles/1/edit
   def edit
-    @role = Role.find(params[:id])
+    @role_type = RoleType.find(params[:id])
   end
 
   # POST /roles
   # POST /roles.xml
   def create
-    @role = Role.new(params[:role])
+    @role_type = RoleType.new(params[:role_type])
 
     respond_to do |format|
-      if @role.save
-        format.html { redirect_to(@role, :notice => 'Role was successfully created.') }
-        format.xml  { render :xml => @role, :status => :created, :location => @role }
+      if @role_type.save
+        format.html { redirect_to(@role_type, :notice => 'Role was successfully created.') }
+        format.xml  { render :xml => @role_type, :status => :created, :location => @role_type }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @role_type.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -58,15 +58,15 @@ class RolesController < ApplicationController
   # PUT /roles/1
   # PUT /roles/1.xml
   def update
-    @role = Role.find(params[:id])
+    @role_type = RoleType.find(params[:id])
 
     respond_to do |format|
-      if @role.update_attributes(params[:role])
-        format.html { redirect_to(@role, :notice => 'Role was successfully updated.') }
+      if @role_type.update_attributes(params[:role_type])
+        format.html { redirect_to(@role_type, :notice => 'Role was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @role_type.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,8 +74,8 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.xml
   def destroy
-    @role = Role.find(params[:id])
-    @role.destroy
+    @role_type = RoleType.find(params[:id])
+    @role_type.destroy
 
     respond_to do |format|
       format.html { redirect_to(roles_url) }

@@ -14,6 +14,10 @@
     .email
       = f.label :email
       = f.text_field :email
+    .phone
+      = f.label :phone
+      = f.text_field :phone
+      
     - if @editing_self
       .password
         = f.label :password, "Password"

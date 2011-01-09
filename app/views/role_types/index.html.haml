@@ -1,0 +1,18 @@
+%h1 Listing Role Types
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @role_types.each do |role_type|
+    %tr
+      %td= role_type.name
+      %td= link_to 'Show', role_type
+      %td= link_to 'Edit', edit_role_type_path(role_type)
+      %td= link_to 'Destroy', role_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New role', new_role_type_path

@@ -5,7 +5,7 @@ ToastSchedule::Application.routes.draw do
     get 'logout' => :destroy
   end
 
-   resources :roles
+   resources :role_types
 
    resources :clubs do
      resources :agendas
@@ -15,6 +15,11 @@ ToastSchedule::Application.routes.draw do
    resources :members do
      resources :clubs
    end
+   
+   resources :agendas do
+     resources :roles
+   end
+   
    
   # first created -> highest priority.
 

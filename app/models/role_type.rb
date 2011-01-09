@@ -33,6 +33,6 @@ class RoleType
    
 end
 
-class OrderedRole < Role
+class OrderedRole < RoleType
   attr_accessor :order
 end

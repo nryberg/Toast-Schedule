@@ -1,0 +1,7 @@
+%p= @role_type.name
+%p Responsibility
+%p= @role_type.responsibility
+
+= link_to 'Edit', edit_role_type_path(@role_type)
+\|
+= link_to 'Back', role_types_path
