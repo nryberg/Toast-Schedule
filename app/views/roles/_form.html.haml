@@ -5,14 +5,8 @@
       %ul
         - @role.errors.full_messages.each do |msg|
           %li= msg
-  %div
-    = f.label :name
-  %div
-    = f.text_field :name
-  %div
-    = f.label :responsibility
-  %div
-    = f.text_area :responsibility
+  = f.select(:member_id, options_from_collection_for_select(@members, :id, :name))
+  = f.select(:role_type_id, options_from_collection_for_select(RoleType.all, :id, :name))
  
 
   .actions

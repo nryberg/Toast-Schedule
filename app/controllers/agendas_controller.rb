@@ -15,8 +15,10 @@ class AgendasController < ApplicationController
   def show
     @club = Club.find(params[:club_id])
     
-    @agenda = @club.agendas.find(params[:id])
+    @agenda = Agenda.find(params[:id])
+#     @roles = Role.where(:agenda_id => params[:id]).all
     @roles = @agenda.roles
+    p @roles
     
     p "Agenda Show Roles Count: " + @agenda.roles.count.to_s
 
@@ -45,6 +47,7 @@ class AgendasController < ApplicationController
   def edit
     @club = Club.find(session[:club_id])
     @agenda = @club.agendas.find(params[:id])
+    @members = @club.members
     
   end
 

@@ -1,6 +1,6 @@
-%p= @role.name
+%p= Member.find(@role.member_id).name
 %p Responsibility
-%p= @role.responsibility
+%p= RoleType.find(@role.role_type_id).name
 
 = link_to 'Edit', edit_role_path(@role)
 \|

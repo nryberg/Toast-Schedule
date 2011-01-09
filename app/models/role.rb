@@ -1,15 +1,18 @@
-class RoleType
+class Role
   include MongoMapper::Document
   
-  key :name, String
-  key :responsibility, String
+#   key :member_id, :typecast => 'ObjectId'
+#   key :role_type_id, :typecast => 'ObjectId'
   
+  key :member_id
+  key :role_type_id 
+  key :agenda_id, ObjectId
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-# belongs_to :model
+   belongs_to :agenda
 # many :model
 # one :model
 

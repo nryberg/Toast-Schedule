@@ -8,7 +8,8 @@
 
   - @roles.each do |role|
     %tr
-      %td= role.name
+      %td= Member.find(role.member_id).name
+      %td= RoleType.find(role.role_type_id).name
       %td= link_to 'Show', role
       %td= link_to 'Edit', edit_role_path(role)
       %td= link_to 'Destroy', role, :confirm => 'Are you sure?', :method => :delete

@@ -1,3 +1,4 @@
 %tr
-  %td= @role.object_id
+  %td= @role.nil?
+  %td= link_to 'Destroy', [@agenda, @role], :confirm => 'Are you sure?', :method => :delete
   /%td= link_to agenda.meeting_date_pretty, club_agenda_path(@club, agenda) 

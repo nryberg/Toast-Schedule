@@ -1,6 +1,7 @@
 %p= @agenda.meeting_date_pretty
 %p= @agenda.notes
-
+- @roles.each do |role|
+  %p= role.member_id
 %table
   %tr
     %th Roles
