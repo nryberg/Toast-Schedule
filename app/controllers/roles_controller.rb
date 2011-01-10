@@ -47,13 +47,15 @@ class RolesController < ApplicationController
   # POST /roles.xml
   def create
     @agenda = Agenda.find(session[:agenda_id])
-    @role = @agenda.roles.create(params[:role])
-    @club = @agenda.club
+    @role = Role.create(params[:role])
+    @agenda.roles << @role
+    @agenda.save
+    
     
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to([@club, @agenda], :notice => 'Role was successfully created.') }
+        format.html { redirect_to([@agenda.club, @agenda], :notice => 'Role was successfully created.') }
         format.xml  { render :xml => @agenda, :status => :created, :location => @role }
       else
         format.html { render :action => "new" }

@@ -2,10 +2,9 @@ class Agenda
 #   include MongoMapper::EmbeddedDocument         
   
   include MongoMapper::Document         
-  
+  key :theme, String
   key :notes, String
   key :meeting_date, Date
-  key :roles, Array
   
   
   def meeting_date_formatted
