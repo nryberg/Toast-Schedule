@@ -8,12 +8,21 @@ class Role
   key :role_type_id 
   key :agenda_id, ObjectId
 
+  def member_name
+    Member.find(self.member_id).name
+  end
+  
+  def role_type
+    RoleType.find(self.role_type_id).name
+  end
+  
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :agenda
 # many :model
+   
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

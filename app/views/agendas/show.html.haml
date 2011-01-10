@@ -1,14 +1,13 @@
 %p= @agenda.meeting_date_pretty
 %p= @agenda.notes
-- @roles.each do |role|
-  %p= role.member_id
 %table
   %tr
     %th Roles
-    / %th= link_to 'Add Role', new_club_agenda_role_path
   = render :partial => 'role', :collection => @roles
-= link_to 'Add a Role', new_agenda_role_path(@agenda, @role)
-= link_to 'Destroy', [@club, @agenda], :confirm => 'Are you sure?', :method => :delete
+  %tr
+    %td= link_to 'Add Role', new_agenda_role_path(@agenda, @role)
+/= link_to 'Add a Role', new_agenda_role_path(@agenda, @role)
+= link_to 'Remove Agenda', [@club, @agenda], :confirm => 'Are you sure?', :method => :delete
 / link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete 
 = link_to 'Edit', edit_club_agenda_path(@club, @agenda)
 \|

@@ -82,10 +82,11 @@ class RolesController < ApplicationController
   # DELETE /roles/1.xml
   def destroy
     @role = Role.first(params[:id])
+    agenda = Role.agenda
     @role.destroy
 
     respond_to do |format|
-      format.html { redirect_to(roles_url) }
+      format.html { redirect_to(agenda) }
       format.xml  { head :ok }
     end
   end
