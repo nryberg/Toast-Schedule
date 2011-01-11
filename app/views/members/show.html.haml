@@ -5,6 +5,9 @@
 %h3 Clubs
 = render :partial => 'club', :collection => @clubs
 
+%h3 Roles
+= render :partial => 'role', :collection => @roles
+
 = link_to 'Edit', edit_member_path(@member)
 \|
 = link_to 'Back', members_path

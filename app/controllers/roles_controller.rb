@@ -39,7 +39,9 @@ class RolesController < ApplicationController
 
   # GET /roles/1/edit
   def edit
-    @role = Role.first(params[:id])
+    p "Role " + params[:id]
+    @role = Role.find(params[:id])
+    p "Member " + @role.member_name
     @members = Club.find(session[:club_id]).members
   end
 

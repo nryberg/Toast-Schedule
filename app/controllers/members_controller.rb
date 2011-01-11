@@ -32,11 +32,8 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @clubs = @member.clubs
-    @clubs.each do |club|
-      p club.name
-    end
+    @roles = Role.where(:member_id => params[:id])
   
-#     @club = Club.find(params[:club_id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -79,7 +79,7 @@ class AgendasController < ApplicationController
     @agenda = @club.agendas.find(params[:id])
     respond_to do |format|
       if @agenda.update_attributes(params[:agenda])
-        format.html { redirect_to(@club, :notice => 'Agenda was successfully updated.') }
+        format.html { redirect_to([@club, @agenda], :notice => 'Agenda was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
