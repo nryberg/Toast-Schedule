@@ -4,8 +4,8 @@ class Role
 #   key :member_id, :typecast => 'ObjectId'
 #   key :role_type_id, :typecast => 'ObjectId'
   
-  key :member_id
-  key :role_type_id 
+  key :member_id, ObjectId
+  key :role_type_id, ObjectId 
   key :agenda_id, ObjectId
 
   def member_name

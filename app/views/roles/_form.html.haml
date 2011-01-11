@@ -5,9 +5,8 @@
       %ul
         - @role.errors.full_messages.each do |msg|
           %li= msg
-  = f.select(:member_id, options_from_collection_for_select(@members, :id, :name))
-  = f.select(:role_type_id, options_from_collection_for_select(RoleType.all, :id, :name))
- 
+  = f.collection_select(:member_id, @members, :id, :name)
+  = f.collection_select(:role_type_id, RoleType.all, :id, :name)
 
   .actions
     = f.submit 'Save'

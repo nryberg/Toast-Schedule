@@ -39,9 +39,7 @@ class RolesController < ApplicationController
 
   # GET /roles/1/edit
   def edit
-    p "Role " + params[:id]
     @role = Role.find(params[:id])
-    p "Member " + @role.member_name
     @members = Club.find(session[:club_id]).members
   end
 
@@ -69,11 +67,11 @@ class RolesController < ApplicationController
   # PUT /roles/1
   # PUT /roles/1.xml
   def update
-    @role = Role.first(params[:id])
+    @role = Role.find(params[:id])
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
-        format.html { redirect_to(@role, :notice => 'Role was successfully updated.') }
+        format.html { redirect_to([@role.agenda.club, @role.agenda], :notice => 'Role was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
