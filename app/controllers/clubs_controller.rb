@@ -58,7 +58,7 @@ class ClubsController < ApplicationController
     end
     
     session[:club_id] = @club.id
-    
+    p @club.members
 
     respond_to do |format|
       if @club.save

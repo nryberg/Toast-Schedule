@@ -60,6 +60,10 @@ class MembersController < ApplicationController
       @club.members << @member
       @club.save
     end
+    
+    if session[:member_id].nil? then
+      session[:member_id] = @member.id
+    end
 
     respond_to do |format|
       if @member.save
