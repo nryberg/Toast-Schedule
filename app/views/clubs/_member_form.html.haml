@@ -1,0 +1,23 @@
+= form_for member do |f|
+  %fieldset
+    %legend
+      Enter Member Details
+    .nick_name
+      = f.label :name
+      = f.text_field :name
+    .email
+      = f.label :email
+      = f.text_field :email
+    .phone
+      = f.label :phone
+      = f.text_field :phone
+      
+    - if @editing_self
+      .password
+        = f.label :password, "Password"
+        = f.password_field :password, :size => 40
+      .password_confirmation
+        = f.label :password_confirmation, "Confirm"
+        = f.password_field :password_confirmation, :size => 40
+    .submit
+    = f.submit

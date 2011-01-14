@@ -2,3 +2,5 @@
   = f.label :name
   = f.text_field :name
   = f.submit 'Save'
+  = f.fields_for :members do |builder| 
+    = render "member_fields", :f => builder
