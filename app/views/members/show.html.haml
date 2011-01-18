@@ -1,13 +1,21 @@
-/* TODO - fix the linking. Just getting /
-/  it working for now.*/
-
-%h1= @member.name
-%h3 Clubs
-= render :partial => 'club', :collection => @clubs
-
-%h3 Roles
-= render :partial => 'role', :collection => @roles
-
-= link_to 'Edit', edit_member_path(@member)
-\|
-= link_to 'Back', members_path
+%div#header_box.span-16
+  %span#member_background.span-4 Member
+  %span.span-8= @member.name
+  %span.span-2= link_to 'Edit', edit_member_path(@member)
+%hr
+%div.span-16
+  %span#club_background.span-4 
+    %h3 Clubs
+  %span.span-8
+    %table
+      = render :partial => 'club', :collection => @clubs
+%hr
+%div.span-16
+  %span#role_background.span-4 
+    %h3 Roles
+  %span.span-8
+    %table
+      %tr
+        %th Date
+        %th Role
+      = render :partial => 'role', :collection => @roles

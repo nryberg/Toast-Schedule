@@ -1,6 +1,7 @@
 = form_for @club do |f|
   = f.label :name
   = f.text_field :name
+  = f.label :address
+  = f.text_area :address, :rows => 5, :class => "textarea"
   = f.submit 'Save'
-  = f.fields_for :members do |builder| 
-    = render "member_fields", :f => builder
+  

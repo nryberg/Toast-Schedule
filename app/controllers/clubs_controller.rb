@@ -46,6 +46,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1/edit
   def edit
     @club = Club.find(params[:id])
+    @members = @club.members
     
   end
 

@@ -1,5 +1,6 @@
 %tr
   %td= link_to role.agenda.meeting_date_pretty,[role.agenda.club, role.agenda]
   %td= role.role_type
-  %td= link_to 'Remove Role', [@agenda, role], :confirm => 'Are you sure?', :method => :delete
+  %td= link_to 'Edit', edit_agenda_role_path(role.agenda, role)
+  %td= link_to 'Remove', [@agenda, role], :confirm => 'Are you sure?', :method => :delete
   /%td= link_to agenda.meeting_date_pretty, club_agenda_path(@club, agenda) 

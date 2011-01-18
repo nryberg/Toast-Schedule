@@ -2,6 +2,7 @@ class Club
   include MongoMapper::Document         
   
   key :name, String, :required => true
+  key :address, String
   
   key :member_ids, Array
   many :members, :in => :member_ids
