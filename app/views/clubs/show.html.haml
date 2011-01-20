@@ -9,7 +9,8 @@
   %span.span-10 
     %table
       = render :partial => 'member', :collection => @members
-    %tr= link_to '(+) New Member', new_member_path
+      %tr
+        %td= link_to '(+) New Member', new_member_path
 %hr
 %div.span-16
   %span#agenda_background.span-4
@@ -17,5 +18,6 @@
   %span.span-10
     %table
       = render :partial => 'agenda', :collection => @agendas
-    %tr= link_to '(+) New Agenda', new_club_agenda_path(@club)
+      %tr
+        %td= link_to '(+) New Agenda', new_club_agenda_path(@club)
   
