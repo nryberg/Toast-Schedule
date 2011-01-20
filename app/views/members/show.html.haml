@@ -3,16 +3,16 @@
   %span.span-8= @member.name
   %span.span-2= link_to 'Edit', edit_member_path(@member)
 %hr
-%div.span-16
+%div#content_box.span-16
   %span#club_background.span-4 
     %h3 Clubs
   %span.span-8
     %table
       = render :partial => 'club', :collection => @clubs
 %hr
-%div.span-16
-  %span#role_background.span-4 
-    %h3 Roles
+%div#content_box.span-16
+  %span#agenda_background.span-4 
+    %h3 Agendas
   %span.span-8
     %table
       %tr

@@ -22,7 +22,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
     @members = @club.members.sort_by(&:name)
-    @agendas = @club.agendas
+    @agendas = @club.agendas.sort_by(&:meeting_date)
     
     #TODO: Fix the friggin date problems
 

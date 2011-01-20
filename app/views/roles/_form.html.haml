@@ -7,6 +7,8 @@
           %li= msg
   = f.collection_select(:member_id, @members, :id, :name)
   = f.collection_select(:role_type_id, RoleType.all, :id, :name)
+  = f.label :title
+  = f.text_field :title
 
   .actions
     = f.submit 'Save'

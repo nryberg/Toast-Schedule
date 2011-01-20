@@ -7,6 +7,7 @@ class Role
   key :member_id, ObjectId
   key :role_type_id, ObjectId 
   key :agenda_id, ObjectId
+  key :title, String
 
   def member_name
     Member.find(self.member_id).name
