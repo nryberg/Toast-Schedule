@@ -3,7 +3,6 @@ class Agenda
   
   include MongoMapper::Document         
   key :theme, String
-  key :notes, String
   key :meeting_date, Date
   
   
