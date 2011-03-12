@@ -16,12 +16,8 @@ class AgendasController < ApplicationController
     @club = Club.find(params[:club_id])
     
     @agenda = Agenda.find(params[:id])
-#     @roles = Role.where(:agenda_id => params[:id]).all
     @roles = @agenda.roles
-    p @roles
     
-    p "Agenda Show Roles Count: " + @agenda.roles.count.to_s
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @agenda }
