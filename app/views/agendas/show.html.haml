@@ -1,19 +1,26 @@
-%div#header_box.span-16
-  %span#agenda_background.span-4 Agenda
-  %span.span-8= @agenda.meeting_date_pretty
-  %span.span-2= link_to 'Edit', edit_agenda_path(@agenda)
-%div#content_box.span-16
-  %span.span-4
-    %h3 Theme
-  %span.span-8= @agenda.theme
-%div#content_box.span-16
-  %span.span-4 
-    %h3 Roles
-  %span.span-8
-    %table
-      = render :partial => 'role', :collection => @roles
-      %tr
-        %td= link_to 'Add Role', new_agenda_role_path(@agenda, @role)
-
-= link_to 'Remove Agenda', [@club, @agenda], :confirm => 'Are you sure?', :method => :delete
-= link_to 'Back to Club', club_path(@club)
+.span-4
+  = render :partial => 'agenda', :collection => @club.upcoming_agendas
+  Sidebar Left
+.span-12
+  #header_box
+    %span#agenda_background.span-12 Agenda
+  #content_box.span-16
+    %span.span-4
+      %h3 Date
+    %span.span-8= @agenda.meeting_date_pretty
+  #content_box.span-16
+    %span.span-4
+      %h3 Theme
+    %span.span-8= @agenda.theme
+  #content_box.span-16
+    %span.span-4 
+      %h3 Roles
+    %span.span-8
+      %table
+        = render :partial => 'role', :collection => @roles
+        %tr
+          %td= link_to 'Add Role', new_agenda_role_path(@agenda, @role)
+.span-4.last
+  %div= link_to 'Edit Agenda', edit_agenda_path(@agenda)
+  %div= link_to 'Remove Agenda', [@club, @agenda], :confirm => 'Are you sure?', :method => :delete
+  %div= link_to 'Back to Club', club_path(@club)

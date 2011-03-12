@@ -13,8 +13,7 @@ class AgendasController < ApplicationController
   # GET /agendas/1
   # GET /agendas/1.xml
   def show
-    @club = Club.find(params[:club_id])
-    
+    @club = Club.find(params[:club_id])    
     @agenda = Agenda.find(params[:id])
     @roles = @agenda.roles
     
@@ -27,7 +26,6 @@ class AgendasController < ApplicationController
   # GET /agendas/new
   # GET /agendas/new.xml
   def new
-    p "At Agenda New"
     @club = Club.find(session[:club_id])
     
     @agenda = Agenda.new

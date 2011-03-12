@@ -13,6 +13,9 @@ class Club
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :agendas
   
+  def upcoming_agendas
+    self.agendas.limit(5)
+  end
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
