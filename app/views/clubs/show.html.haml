@@ -12,11 +12,11 @@
         %td= link_to '(+) New Member', new_member_path
 %hr
 %div#content_box.span-16
-  %span#agenda_background.span-4
-    %h3 Agendas
+  %span#meeting_background.span-4
+    %h3 Meetings
   %span.span-10
     %table
-      = render :partial => 'agenda', :collection => @agendas
+      = render :partial => 'meeting', :collection => @meetings
       %tr
-        %td= link_to '(+) New Agenda', new_club_agenda_path(@club)
+        %td= link_to '(+) New Meeting', new_club_meeting_path(@club)
   

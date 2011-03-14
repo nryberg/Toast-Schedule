@@ -1,0 +1,6 @@
+%tr
+  %td= role.member_name
+  %td= role.role_type
+  %td= link_to 'Edit', edit_meeting_role_path(@meeting, role)
+  %td= link_to 'Drop', [@meeting, role], :confirm => 'Are you sure?', :method => :delete
+  /%td= link_to meeting.meeting_date_pretty, club_meeting_path(@club, meeting) 

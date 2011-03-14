@@ -10,7 +10,7 @@ ToastSchedule::Application.routes.draw do
    resources :role_types
 
    resources :clubs do
-     resources :agendas
+     resources :meetings
    end
    
    
@@ -18,7 +18,7 @@ ToastSchedule::Application.routes.draw do
      resources :clubs
    end
    
-   resources :agendas do
+   resources :meetings do
      resources :roles
    end
    

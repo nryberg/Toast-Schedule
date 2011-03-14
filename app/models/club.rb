@@ -11,10 +11,10 @@ class Club
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-  many :agendas
+  many :meetings
   
-  def upcoming_agendas
-    self.agendas.limit(5)
+  def upcoming_meetings
+    self.meetings.limit(5)
   end
 # one :model
 

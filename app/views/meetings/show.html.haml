@@ -1,0 +1,26 @@
+.span-4
+  = render :partial => 'meeting', :collection => @club.upcoming_meetings
+  Sidebar Left
+.span-12
+  #header_box
+    %span#meeting_background.span-12 Meeting
+  #content_box.span-16
+    %span.span-4
+      %h3 Date
+    %span.span-8= @meeting.meeting_date_pretty
+  #content_box.span-16
+    %span.span-4
+      %h3 Theme
+    %span.span-8= @meeting.theme
+  #content_box.span-16
+    %span.span-4 
+      %h3 Roles
+    %span.span-8
+      %table
+        = render :partial => 'role', :collection => @roles
+        %tr
+          %td= link_to 'Add Role', new_meeting_role_path(@meeting, @role)
+.span-4.last
+  %div= link_to 'Edit Meeting', edit_meeting_path(@meeting)
+  %div= link_to 'Remove Meeting', [@club, @meeting], :confirm => 'Are you sure?', :method => :delete
+  %div= link_to 'Back to Club', club_path(@club)

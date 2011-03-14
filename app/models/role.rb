@@ -6,7 +6,7 @@ class Role
   
   key :member_id, ObjectId
   key :role_type_id, ObjectId 
-  key :agenda_id, ObjectId
+  key :meeting_id, ObjectId
   key :title, String
 
   def member_name
@@ -21,7 +21,7 @@ class Role
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-   belongs_to :agenda
+   belongs_to :meeting
 # many :model
    
 # one :model

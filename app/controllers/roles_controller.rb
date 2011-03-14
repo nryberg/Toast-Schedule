@@ -24,7 +24,7 @@ class RolesController < ApplicationController
   # GET /roles/new
   # GET /roles/new.xml
   def new
-    session[:agenda_id] = params[:agenda_id]
+    session[:meeting_id] = params[:meeting_id]
     @role = Role.new
     
     @club = Club.find(session[:club_id])
@@ -46,17 +46,17 @@ class RolesController < ApplicationController
   # POST /roles
   # POST /roles.xml
   def create
-    @agenda = Agenda.find(session[:agenda_id])
+    @meeting = Agenda.find(session[:meeting_id])
     @role = Role.create(params[:role])
-    @agenda.roles << @role
-    @agenda.save
+    @meeting.roles << @role
+    @meeting.save
     
     
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to([@agenda.club, @agenda], :notice => 'Role was successfully created.') }
-        format.xml  { render :xml => @agenda, :status => :created, :location => @role }
+        format.html { redirect_to([@meeting.club, @meeting], :notice => 'Role was successfully created.') }
+        format.xml  { render :xml => @meeting, :status => :created, :location => @role }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
@@ -71,7 +71,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
-        format.html { redirect_to([@role.agenda.club, @role.agenda], :notice => 'Role was successfully updated.') }
+        format.html { redirect_to([@role.meeting.club, @role.meeting], :notice => 'Role was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -84,11 +84,11 @@ class RolesController < ApplicationController
   # DELETE /roles/1.xml
   def destroy
     @role = Role.first(params[:id])
-    @agenda = @role.agenda
+    @meeting = @role.meeting
     @role.destroy
 
     respond_to do |format|
-      format.html { redirect_to([@agenda.club, @agenda]) }
+      format.html { redirect_to([@meeting.club, @meeting]) }
       format.xml  { head :ok }
     end
   end

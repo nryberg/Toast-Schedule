@@ -1,9 +1,9 @@
-%h1 Editing agenda
+%h1 Editing meeting
 
 %div{:type=>"text", :id=>"datepicker"} 
 
 = render 'form'
 
-= link_to 'Show', [@club, @agenda]
+= link_to 'Show', [@club, @meeting]
 \|
 / = link_to 'Back', agendas_path

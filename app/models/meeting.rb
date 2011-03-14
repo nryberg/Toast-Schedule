@@ -1,4 +1,4 @@
-class Agenda
+class Meeting
 #   include MongoMapper::EmbeddedDocument         
   
   include MongoMapper::Document         
