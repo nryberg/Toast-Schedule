@@ -1,12 +1,15 @@
 .span-4
-  = render :partial => 'meeting', :collection => @club.upcoming_meetings
-  Sidebar Left
+  %h4 Upcoming 
+  = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
+.span-4
+  %h4 Members
+  = render :partial => 'shared/member', :collection => @club.members
 .span-12
   #header_box
     %span#meeting_background.span-12 Meeting
   #content_box.span-16
     %span.span-4
-      %h3 Date
+      %h3 When
     %span.span-8= @meeting.meeting_date_pretty
   #content_box.span-16
     %span.span-4

@@ -46,7 +46,7 @@ class RolesController < ApplicationController
   # POST /roles
   # POST /roles.xml
   def create
-    @meeting = Agenda.find(session[:meeting_id])
+    @meeting = Meeting.find(session[:meeting_id])
     @role = Role.create(params[:role])
     @meeting.roles << @role
     @meeting.save
@@ -86,6 +86,7 @@ class RolesController < ApplicationController
     @role = Role.first(params[:id])
     @meeting = @role.meeting
     @role.destroy
+    p @meeting
 
     respond_to do |format|
       format.html { redirect_to([@meeting.club, @meeting]) }

@@ -14,7 +14,7 @@ class Club
   many :meetings
   
   def upcoming_meetings
-    self.meetings.limit(5)
+    self.meetings.limit(5).sort(:meeting_date)
   end
 # one :model
 
