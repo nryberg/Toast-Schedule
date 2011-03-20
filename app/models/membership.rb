@@ -1,30 +1,14 @@
-class Club
-  include MongoMapper::Document         
-  
-  key :name, String, :required => true
-  key :address, String
-  
-  key :member_ids, Array
-  many :members, :in => :member_ids
-  
+class Membership
+  include MongoMapper::Document    
+  one :club
+  one :member
+
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-  many :meetings
-  
-  def upcoming_meetings
-    self.meetings.limit(5).sort(:meeting_date)
-  end
-  
-  def members
-    Member.find(:member_ids)
-  end
- 
-  def add_member(member)
-    self.member_ids << member
-  end
-  
+# belongs_to :model
+# many :model
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

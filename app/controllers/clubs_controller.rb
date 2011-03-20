@@ -21,7 +21,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
-    @members = @club.members.sort_by(&:name)
+#     @members = @club.members.sort_by(&:name)
     @meetings = @club.meetings.sort(:meeting_date.asc)
     
     #TODO: Fix the friggin date problems
@@ -55,11 +55,10 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(params[:club])
     if session[:member_id] then
-      @club.members << Member.find(session[:member_id])
+      @club.add_member(session[:member_id])
     end
     
     session[:club_id] = @club.id
-    p @club.members
 
     respond_to do |format|
       if @club.save

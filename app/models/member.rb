@@ -21,6 +21,10 @@ class Member
   def clubs 
     Club.where(:member_ids => id)
   end
+
+  def roles
+    Role.where(:member_id => id).all
+  end
   
   
 #   Pulling out the required password.  

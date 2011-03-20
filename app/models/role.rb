@@ -9,6 +9,8 @@ class Role
   key :meeting_id, ObjectId
   key :title, String
 
+  validates_presence_of :member_id
+  
   def member_name
     Member.find(self.member_id).name
   end

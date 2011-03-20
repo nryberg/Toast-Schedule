@@ -5,7 +5,7 @@ gem 'rails', '3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 
 ####
 ## Add these as defaults for new projects
@@ -19,7 +19,7 @@ gem 'cucumber-rails'
 gem 'rspec'
 gem 'haml'
 gem 'haml-rails'
-gem 'mongrel'
+gem 'mongrel', '>= 1.2.0.pre2'
 # gem 'haml_scaffold'
 gem 'bson_ext'
 gem 'will_paginate'
