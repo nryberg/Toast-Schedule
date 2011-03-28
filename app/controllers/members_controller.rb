@@ -54,8 +54,9 @@ class MembersController < ApplicationController
   
   def create
     @member = Member.new(params[:member])
+    p @member
     
-    if session[:club_id] then 
+    unless session[:club_id].nil? then 
       @club = Club.find(session[:club_id])
       @club.members << @member
       @club.save

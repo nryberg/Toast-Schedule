@@ -1,6 +1,6 @@
 # Local ###
 MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
-MongoMapper.database = "ts-#{Rails.env}"
+# MongoMapper.database = "ts-#{Rails.env}"
 
 # Mongo HQ ###
 # MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27038)

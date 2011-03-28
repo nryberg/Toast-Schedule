@@ -17,13 +17,6 @@ class Club
     self.meetings.limit(5).sort(:meeting_date)
   end
   
-  def members
-    Member.find(:member_ids)
-  end
- 
-  def add_member(member)
-    self.member_ids << member
-  end
   
 # one :model
 
