@@ -25,5 +25,5 @@
           %td= link_to 'Add Role', new_meeting_role_path(@meeting, @role)
 .span-4.last
   %div= link_to 'Edit Meeting', edit_meeting_path(@meeting)
-  %div= link_to 'Remove Meeting', [@club, @meeting], :confirm => 'Are you sure?', :method => :delete
+  %div= link_to 'Remove Meeting', @meeting,:confirm => "Are you sure?", :method => :delete
   %div= link_to 'Back to Club', club_path(@club)

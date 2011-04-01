@@ -14,7 +14,7 @@ class Club
   many :meetings
   
   def upcoming_meetings
-    self.meetings.limit(5).sort(:meeting_date)
+    self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
   end
   
   

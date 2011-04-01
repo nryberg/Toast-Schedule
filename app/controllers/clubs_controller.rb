@@ -21,7 +21,6 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
-    @members = @club.members.sort_by(&:name)
     @meetings = @club.meetings.sort(:meeting_date.asc)
     
     #TODO: Fix the friggin date problems

@@ -10,6 +10,6 @@
     = link_to "(+) New Meeting", new_meeting_path
   .span-4
     %h4#member_background Members
-    = render :partial => 'shared/member', :collection => @club.members
+    = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
     = link_to "(+) New Member", new_member_path
  
