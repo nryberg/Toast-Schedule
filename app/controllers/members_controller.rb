@@ -32,7 +32,7 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @clubs = @member.clubs
-    @roles = Role.where(:member_id => params[:id])
+    @roles = Role.where(:member_id => params[:id]).all
   
 
     respond_to do |format|
