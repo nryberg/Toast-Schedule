@@ -31,7 +31,7 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @clubs = @member.clubs
+    @clubs = @member.clubs.all
     @roles = Role.where(:member_id => params[:id]).all
   
 
