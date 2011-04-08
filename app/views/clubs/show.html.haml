@@ -3,12 +3,13 @@
   %span.span-8= @club.name
   %span.span-2= link_to '(edit)', edit_club_path(@club)
 %hr
-%div.span-6
-  .span-4
+%div.span-16
+  %span.span-4#club_background  &nbsp;
+  %span.span-5
     %h4#meeting_background Upcoming Meetings
     = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
     = link_to "(+) New Meeting", new_meeting_path
-  .span-4
+  %span.span-5
     %h4#member_background Members
     = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
     = link_to "(+) New Member", new_member_path
