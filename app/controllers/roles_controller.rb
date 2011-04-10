@@ -83,7 +83,8 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.xml
   def destroy
-    @role = Role.first(params[:id])
+    p "Yes I'm in delete"
+    @role = Role.find(params[:id])
     @meeting = @role.meeting
     @role.destroy
     p @meeting
