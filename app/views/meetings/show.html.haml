@@ -3,11 +3,11 @@
   %span.span-8= @meeting.meeting_date_pretty
   %span.span-2= link_to '(edit)', edit_meeting_path(@meeting)
 %hr
-.span-18.colborder
-  %span.span-4#meeting_background &nbsp;
-  %h4.span-2
-    Theme:
-  %span.span-8= @meeting.theme
+.span-20.colborder
+  %div
+    %h4.span-2.prepend-4
+      Theme:
+    %span.span-12= @meeting.theme
 .span-16
   %span.span-4#meeting_background &nbsp;
   %h4.span-2

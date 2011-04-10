@@ -3,14 +3,14 @@
   %span.span-8= @club.name
   %span.span-2= link_to '(edit)', edit_club_path(@club)
 %hr
-%div.span-16
-  %div.span-20
+.span-20
+  %div
     %span.span-3.prepend-4
       %h4 Address
     %span.span-6
       %code= @club.address
       %h5= link_to "Map it", map_to(@club.address), {"target"=>"_blank"}
-  %div.span-20
+  %div.span-20  
     %span.span-3.prepend-4
       %h4 Club Number
     %span.span-6= @club.club_number
