@@ -3,20 +3,20 @@
   %span.span-8= @meeting.meeting_date_pretty
   %span.span-2= link_to '(edit)', edit_meeting_path(@meeting)
 %hr
+.span-18.colborder
+  %span.span-4#meeting_background &nbsp;
+  %h4.span-2
+    Theme:
+  %span.span-8= @meeting.theme
 .span-16
   %span.span-4#meeting_background &nbsp;
+  %h4.span-2
+    Roles:
   %span.span-8
-    %h3 Theme
-    %span.span-8= @meeting.theme
-.span-16
-  %span.span-4#meeting_background &nbsp;
-  %span.span-10
-    %strong Roles
-    %span.span-8
-      %table
-        = render :partial => 'role', :collection => @roles
-        %tr
-        %td= link_to 'Add Role', new_meeting_role_path(@meeting, @role) 
+    %table
+      = render :partial => 'role', :collection => @roles
+      %tr
+      %td= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
 .span-16
   %span.span-4#meeting_background &nbsp;
   %h4 Upcoming 
