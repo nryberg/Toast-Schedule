@@ -3,6 +3,7 @@ class Club
   
   key :name, String, :required => true
   key :address, String
+  key :club_number, String
   
   key :member_ids, Array
   many :members, :in => :member_ids

@@ -1,7 +1,19 @@
 = form_for @club do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :address
-  = f.text_area :address, :rows => 5, :class => "textarea"
-  = f.submit 'Save'
+  %div.span-20
+    %span.span-4#club_background Editing Club
+    %span.span-2
+      %h4 Name
+    %span.span-12= f.text_field :name
+  %div.span-20
+    %span.span-2.prepend-4
+      %h4 Address
+    %span.span-6.textarea= f.text_area :address, :rows => 3
+  %div.span-20
+    %span.span-2.prepend-4
+      %h4 Club Number
+    %span.span-12= f.text_field :club_number
+    
+  %div.span-20.prepend-6
+    = f.submit 'Save'
+    = link_to 'or Cancel', @club
   
