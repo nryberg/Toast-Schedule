@@ -1,16 +1,16 @@
-#member_background {
+.member_background {
   background-color: #C19A7B;
 }
 
-#meeting_background {
+.meeting_background {
   background-color: #F3933C;
 }
 
-#club_background {
+.club_background {
   background-color: #88BEE4;
 }
 
-#role_background {
+.role_background {
   background-color: #FFFFFF;
 }
 

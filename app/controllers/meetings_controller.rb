@@ -13,10 +13,11 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.xml
   def show
-    @club = Club.find(params[:club_id])    
     @meeting = Meeting.find(params[:id])
     @roles = @meeting.roles
     
+#     @club = Club.find(params[:club_id])   
+    @club = @meeting.club
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @meeting }

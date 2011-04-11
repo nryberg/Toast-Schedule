@@ -14,7 +14,7 @@ class Meeting
     if meeting_date.nil? then 
        "(empty date)"
     else
-      meeting_date.strftime '%a, %b %e, %Y'
+      meeting_date.strftime '%A, %b %e, %Y'
     end
     
   end
