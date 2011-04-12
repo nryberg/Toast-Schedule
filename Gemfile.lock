@@ -44,6 +44,10 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    formtastic (1.2.3)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (~> 0.4)
     gem_plugin (0.2.3)
     gherkin (2.2.9)
       json (~> 1.4.6)
@@ -134,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   cucumber-rails
+  formtastic (~> 1.2.3)
   haml
   haml-rails
   jquery-rails (>= 0.2.5)

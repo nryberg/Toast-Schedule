@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       session[:member_name] = member.name
       params[:id] = member.id
       @member_signed_in = member
-      redirect_to clubs_url 
+      @member = @member_signed_in
+      redirect_to @member_signed_in
     else
       redirect_to login_url
     end

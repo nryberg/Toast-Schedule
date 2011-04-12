@@ -10,7 +10,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 ####
 ## Add these as defaults for new projects
 ###
-
+gem 'formtastic', '~> 1.2.3'
 gem 'mongo_mapper'
 # gem 'jnunemaker-validatable', '>= 1.8.4'
 gem 'mongomapper_ext'
