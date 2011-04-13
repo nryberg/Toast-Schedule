@@ -28,6 +28,7 @@ class RolesController < ApplicationController
     @role = Role.new
     
     @club = Club.find(session[:club_id])
+    @meeting = Meeting.find(session[:meeting_id])
     
     @members = @club.members
 
@@ -41,6 +42,7 @@ class RolesController < ApplicationController
   def edit
     @role = Role.find(params[:id])
     @members = Club.find(session[:club_id]).members
+    @meeting = Meeting.find(session[:meeting_id])
   end
 
   # POST /roles

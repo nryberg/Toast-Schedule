@@ -1,14 +1,15 @@
-= form_for ([@agenda, @role]) do |f|
+= form_for ([@meeting, @role]) do |f|
   -if @role.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@role.errors.count, "error")} prohibited this role from being saved:"
       %ul
         - @role.errors.full_messages.each do |msg|
           %li= msg
-  = f.collection_select(:member_id, @members, :id, :name)
-  = f.collection_select(:role_type_id, RoleType.all, :id, :name)
-  = f.label :title
-  = f.text_field :title
-
-  .actions
-    = f.submit 'Save'
+  %div.span-20
+    %span-16
+      = f.collection_select(:member_id, @members, :id, :name)
+      = f.collection_select(:role_type_id, RoleType.all, :id, :name)
+      = f.label :title
+      = f.text_field :title
+      .actions
+        = f.submit 'Save'

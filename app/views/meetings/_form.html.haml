@@ -14,6 +14,14 @@
     %span.span-3.prepend-4
       %h4 Theme:
     %span.span-6= f.text_field :theme
+  .span-16.prepend-4
+    %h4.span-3
+      Roles:
+    %span.span-8
+      %table
+        = render :partial => 'role', :collection => @meeting.roles
+        %tr
+          %td= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
   %div.span-20.prepend-7
     = f.submit 'Save'
     = link_to 'or Cancel', @meeting
