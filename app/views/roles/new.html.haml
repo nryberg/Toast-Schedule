@@ -1,3 +1,12 @@
-= render 'form'
+%h1 new role
+
+%span.span-4
+  %span.span-4.edit_label.meeting_background  Meeting
+  %span.span-4= @meeting.meeting_date
+%span-16.last
+  %h2.span-6.last
+    Adding Roles
+  .span-16.prepend-4
+    = render 'form'
 
 / = link_to 'Back', roles_path
