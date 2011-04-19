@@ -10,6 +10,10 @@ class Role
   key :title, String
 
   validates_presence_of :member_id
+
+  def meeting_date
+    self.meeting.meeting_date
+  end
   
   def member_name
     Member.find(self.member_id).name
