@@ -11,7 +11,7 @@ class Role
 
   validates_presence_of :member_id
 
-  def meeting_date
+  def date_meeting
     self.meeting.meeting_date
   end
   
@@ -22,6 +22,8 @@ class Role
   def role_type
     RoleType.find(self.role_type_id).name
   end
+  
+    
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

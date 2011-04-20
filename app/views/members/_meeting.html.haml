@@ -1,0 +1,6 @@
+%tr
+  %td= link_to meeting.meeting_date_pretty,[meeting.club, .meeting]
+  %td= meeting.role.role_type
+  %td= link_to 'Edit', edit_meeting_role_path(role.meeting, role)
+  %td= link_to 'Remove', [@meeting, role], :confirm => 'Are you sure?', :method => :delete
+  /%td= link_to meeting.meeting_date_pretty, club_meeting_path(@club, meeting) 

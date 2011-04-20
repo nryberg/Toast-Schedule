@@ -22,8 +22,9 @@ class Member
     Club.where(:member_ids => id)
   end
 
+  
   def roles
-    Role.where(:member_id => id).all
+    Role.where(:member_id => id).sort(:date_meeting).all
   end
   
   

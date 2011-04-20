@@ -3,7 +3,7 @@ class Meeting
   
   include MongoMapper::Document         
   key :theme, String
-  key :meeting_date, Date
+  key :meeting_date, Date, :index => true
   
   
   def meeting_date_formatted
@@ -19,6 +19,9 @@ class Meeting
     
   end
   
+  def member_roles(member_id)
+    
+  end
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
