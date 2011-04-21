@@ -24,7 +24,8 @@ class Member
 
   
   def roles
-    Role.where(:member_id => id).sort(:date_meeting).all
+    rolez = Role.where(:member_id => id).all
+    rolez.sort_by {|e| e.meeting.meeting_date}
   end
   
   
