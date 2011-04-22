@@ -1,9 +1,10 @@
-%div#header_box.span-16
-  %span.member_background.span-4 Member
-  %span.span-8= @member.name
-  %span.span-2= link_to 'Edit', edit_member_path(@member)
-%hr
+.span-4
+  .span-4#header_box.member_background Member
+  .span-2= link_to 'Edit', edit_member_path(@member)
+.span-16
+  .span-8#header_box= @member.name
 %div#content_box.span-16
+  .span-20 Member Information (fill this in)
   %span.club_background.span-4 
     %h3 Clubs
   %span.span-8
