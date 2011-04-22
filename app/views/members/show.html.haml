@@ -3,20 +3,19 @@
   .span-2= link_to 'Edit', edit_member_path(@member)
 .span-16
   .span-8#header_box= @member.name
-%div#content_box.span-16
+.span-16#content_box
   .span-20 Member Information (fill this in)
-  %span.club_background.span-4 
-    %h3 Clubs
-  %span.span-8
-    %table
-      = render :partial => 'club', :collection => @clubs
-%hr
-%div#content_box.span-16
-  %span.meeting_background.span-4 
-    %h3 Meetings
-  %span.span-11
-    %table
-      %tr
-        %th Date
-        %th Role
-      = render :partial => 'role', :collection => @member.roles
+  .span-20#content_box
+    %span.span-8
+      %h3.meeting_background Meetings
+      %span.span-8
+        %table
+          %tr
+            %th Date
+            %th Role
+          = render :partial => 'role', :collection => @member.roles
+    %span.span-4 
+      %h3.club_background Clubs
+      %span.span-8
+        %table
+          = render :partial => 'club', :collection => @clubs     
