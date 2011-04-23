@@ -1,17 +1,6 @@
-= form_for @club do |f|
-  %div.span-16
-    %span.span-3
-      %h4 Name
-    %span.span-12= f.text_field :name
-  %div.span-16
-    %span.span-3
-      %h4 Address
-    %span.span-6.textarea= f.text_area :address, :rows => 3
-  %div.span-16
-    %span.span-3
-      %h4 Club Number
-    %span.span-12= f.text_field :club_number
-  %div.span-16.prepend-3
-    = f.submit 'Save'
-    = link_to 'or Cancel', @club
-  
+= semantic_form_for @club do |f|
+  - f.inputs do
+    = f.input :name, :as => :string
+    = f.input :address, :as => :text, :required => false, :input_html => { :rows => 4}
+    = f.input :club_number, :as => :string, :required => false
+  = f.buttons :commit

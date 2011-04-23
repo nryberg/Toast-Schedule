@@ -4,7 +4,14 @@
 .span-16
   .span-8#header_box= @member.name
 .span-16#content_box
-  .span-20 Member Information (fill this in)
+  .span-20  
+    .span-3
+      %h4 E-Mail
+    .span-6= @member.email
+  .span-20  
+    .span-3
+      %h4 Phone
+    .span-6= @member.phone
   .span-20#content_box
     %span.span-8
       %h3.meeting_background Meetings
