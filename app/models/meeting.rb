@@ -26,7 +26,6 @@ class Meeting
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :club
-   many :roles
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

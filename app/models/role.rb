@@ -6,7 +6,6 @@ class Role
   
   key :member_id, ObjectId
   key :role_type_id, ObjectId 
-  key :meeting_id, ObjectId
   key :title, String
 
   validates_presence_of :member_id
@@ -30,6 +29,7 @@ class Role
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :meeting
+   
 # many :model
    
 # one :model
