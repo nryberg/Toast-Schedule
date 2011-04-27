@@ -86,8 +86,11 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.xml
   def destroy
-    @club = Club.find(session[:club_id])
-    @club.meetings.delete(params[:id])
+#      @club = Club.find(session[:club_id])
+#     @club.meetings.delete(params[:id])
+    meeting = Meeting.find(params[:id])
+    @club = meeting.club
+    meeting.destroy
     respond_to do |format|
       format.html { redirect_to(@club) }
       format.xml  { head :ok }
