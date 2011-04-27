@@ -1,13 +1,22 @@
-= form_tag do
-  %fieldset
-    %legend 
-    Please Log In
-    .email
-      %label{:for => "email"} E-Mail:
-      = text_field_tag :email, params[:email]
-    .password
-      %label{:for => "password"} Password:
-      = password_field_tag :password, params[:password]
-    .submit
-      = submit_tag "Login"
-      
+Theme: Roles:
+.span-4
+  .span-4#header_box.member_background Member
+.span-16.last
+  .span-8#header_box Login as member
+.span-16#content_box
+  = form_tag do
+    .span-20.prepend-4 
+      .span-3
+        .email
+          %label{:for => "email"} E-Mail:
+      .span-6
+        = text_field_tag :email, params[:email]
+    .span-20.prepend-4 
+      .span-3
+        .password
+          %label{:for => "password"} Password:
+      .span-6
+        = password_field_tag :password, params[:password]
+    .span-20.prepend-7
+      .submit
+        = submit_tag "Login"
