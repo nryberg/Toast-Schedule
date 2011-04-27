@@ -4,7 +4,6 @@ class Meeting
   include MongoMapper::Document         
   key :theme, String
   key :meeting_date, Date, :index => true
-  many :roles, :dependent => :destroy
   
   def meeting_date_formatted
     meeting_date.strftime '%m/%d/%Y'
@@ -23,10 +22,10 @@ class Meeting
     
   end
 # validates_presence_of :attribute
+  has_many :roles, :dependent => :destroy
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :club
-# one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 # before_create :your_model_method

@@ -1,6 +1,5 @@
 class Role
   include MongoMapper::Document
-  
 #   key :member_id, :typecast => 'ObjectId'
 #   key :role_type_id, :typecast => 'ObjectId'
   
@@ -21,8 +20,6 @@ class Role
   def role_type
     RoleType.find(self.role_type_id).name
   end
-  
-    
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

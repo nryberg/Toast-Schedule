@@ -1,4 +1,4 @@
-= form_for([@club, @meeting]) do |f|
+= semantic_form_for([@club, @meeting]) do |f|
   -if @meeting.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@meeting.errors.count, "error")} prohibited this meeting from being saved:"
@@ -8,8 +8,8 @@
   %div.span-20
     %span.span-4.edit_label.meeting_background Editing Meeting
     %span.span-3
-      %h4 Meeting Date:
-    %span.span-12= f.text_field :meeting_date
+      %h4 Meeting Date
+    %span.span-12= f.text_field :meeting_date, :as => :date
   %div.span-20
     %span.span-3.prepend-4
       %h4 Theme:
