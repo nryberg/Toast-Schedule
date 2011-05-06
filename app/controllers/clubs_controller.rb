@@ -22,6 +22,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     session[:club_id] = @club.id
     @meetings = @club.meetings.sort(:meeting_date.asc)
+    @clubname = @club.name
     
     #TODO: Fix the friggin date problems
 

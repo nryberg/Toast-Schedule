@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   def index
     @member_signed_in = Member.find(session[:member_id])
     @time = Time.new.to_s
+    @clubname = "TM Schedule Me"
     
   end
   
