@@ -24,6 +24,7 @@
     .span-8
       %span.right.small
         - if session[:member_id]
+          = link_to "My Schedule", member_path(session[:member_id])
           = "Signed in as "
           %b= session[:member_name]
           = ": Not you?"
