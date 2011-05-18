@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :authorize
 
   def new
+    @header_text = "TM Schedule Me - Login"  
   end
 
   def create

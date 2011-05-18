@@ -2,7 +2,7 @@
 
 %html
 %head
-  %title= @clubname
+  %title= @header_text
   = stylesheet_link_tag('http://fonts.googleapis.com/css?family=Pacifico')
   = stylesheet_link_tag("blueprint/screen.css")
   = stylesheet_link_tag("blueprint/ie.css")
@@ -21,7 +21,7 @@
   .container
     .span-15
       %h1.font_pacifico= @clubname
-    .span-6
+    .span-8
       %span.right.small
         - if session[:member_id]
           = "Signed in as "
