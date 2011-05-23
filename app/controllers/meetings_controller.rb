@@ -27,10 +27,8 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   # GET /meetings/new.xml
   def new
-    @club = Club.find(session[:club_id])
     
     @meeting = Meeting.new
-    @club.meetings << @meeting
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +39,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1/edit
   def edit
     @club = Club.find(session[:club_id])
-    @meeting = @club.meetings.find(params[:id])
+    @meeting = Meeting.find(params[:id])
     @members = @club.members
     
   end

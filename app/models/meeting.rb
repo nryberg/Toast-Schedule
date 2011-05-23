@@ -5,6 +5,8 @@ class Meeting
   key :theme, String
   key :meeting_date, Date, :index => true
   
+  validates_presence_of :meeting_date
+
   def meeting_date_formatted
     meeting_date.strftime '%m/%d/%Y'
   end
