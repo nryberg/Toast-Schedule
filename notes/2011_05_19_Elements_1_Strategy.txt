@@ -1,0 +1,9 @@
+Elements of Design
+
+Strategy Level
+
+This web application has the following goals:
+
+* Teach me how to code in Rails and how to design a website
+* Create a center point for club officers to schedule and track speeches, and for members to be aware of their commitments
+* Develop a small online business that provides a reasonable income while providing a great service to the speakers of the world.

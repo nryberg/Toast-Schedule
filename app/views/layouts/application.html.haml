@@ -20,7 +20,8 @@
   %p#class= alert
   .container
     .span-15
-      %h1.font_pacifico= @clubname
+      %h1.font_pacifico
+        = yield :top_title
     .span-8
       %span.right.small
         - if session[:member_id]
