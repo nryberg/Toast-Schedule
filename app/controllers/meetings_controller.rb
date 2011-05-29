@@ -38,9 +38,9 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
-    @club = Club.find(session[:club_id])
+#     @club = Club.find(session[:club_id])
     @meeting = Meeting.find(params[:id])
-    @members = @club.members
+#     @members = @club.members
     
   end
 
@@ -68,11 +68,12 @@ class MeetingsController < ApplicationController
   # PUT /meetings/1
   # PUT /meetings/1.xml
   def update
-    @club = Club.find(session[:club_id])
-    @meeting = @club.meetings.find(params[:id])
+    @meeting = Meeting.find(params[:id])
+# @club = Club.find(session[:club_id])
+#     @meeting = @club.meetings.find(params[:id])
     respond_to do |format|
       if @meeting.update_attributes(params[:meeting])
-        format.html { redirect_to([@club, @meeting], :notice => 'Meeting was successfully updated.') }
+        format.html { redirect_to([@meeting.club, @meeting], :notice => 'Meeting was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
