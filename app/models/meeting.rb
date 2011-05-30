@@ -19,6 +19,15 @@ class Meeting
     end
     
   end
+ 
+  def meeting_date_short
+    if meeting_date.nil? then 
+       "(empty date)"
+    else
+      meeting_date.strftime '%m/%e/%y'
+    end
+    
+  end
   
   def member_roles(member_id)
     
