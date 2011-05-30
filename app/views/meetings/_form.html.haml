@@ -9,7 +9,7 @@
     %span.span-4.edit_label.meeting_background Editing Meeting
     %span.span-3
       %h4=f.label :meeting_date
-    %span.span-12= f.text_field :meeting_date
+    %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
   %div.span-20
     %span.span-3.prepend-4
       %h4 Theme:
