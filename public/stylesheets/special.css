@@ -36,3 +36,31 @@
 .font_droid_serif {
   font-family: 'Droid Serif', arial, serif;
 }
+
+.font_droid_serif_bold {
+  font-family: 'Droid Serif Bold', arial, serif;
+}
+
+.site_title {
+  color:  #0B79D9;
+  font-size: 200%;
+  border-bottom:thin solid #0B79D9;
+  text-decoration:none;
+}
+
+#title_link{
+  text-decoration: none;
+}
+
+.body {
+  /* background-color: #8AB29F; */
+}
+
+.container {
+  /* background-color: #F2E6CE; */
+}
+
+.log_in_bar {
+  line-height: 3em;
+  font-size:50%;
+}

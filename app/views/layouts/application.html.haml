@@ -4,9 +4,11 @@
 %head
   %title= @header_text
   = stylesheet_link_tag('http://fonts.googleapis.com/css?family=Droid+Serif')
+  = stylesheet_link_tag('http://fonts.googleapis.com/css?family=Droid+Serif:bold')
   = stylesheet_link_tag("blueprint/screen.css")
   = stylesheet_link_tag("blueprint/ie.css")
   = stylesheet_link_tag "blueprint/print.css", :media => "print"
+  = stylesheet_link_tag "blueprint/plugins/tabs/screen.css"
   = stylesheet_link_tag("formtastic_changes")
   = stylesheet_link_tag("formtastic")
   = stylesheet_link_tag("special.css")
@@ -19,15 +21,14 @@
   %p#notice= notice 
   %p#class= alert
   .container
-    .span-15
-      %h1.font_droid_serif
-        = yield :top_title
-    .span-8
-      %span.right.small
+    .span-24.site_title
+      .span-10
+        = link_to 'TM Schedule Me', root_url, :style => 'text-decoration: none'
+      %span.log_in_bar
         - if session[:member_id]
-          = link_to "My Schedule", member_path(session[:member_id])
           = "Signed in as "
-          %b= session[:member_name]
+          %b
+            =link_to session[:member_name], member_path(session[:member_id])
           = ": Not you?"
           = link_to "Logout", logout_path
         - else
