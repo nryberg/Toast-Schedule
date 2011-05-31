@@ -6,15 +6,14 @@
         - @meeting.errors.full_messages.each do |msg|
           %li= msg
   %div.span-20
-    %span.span-4.edit_label.meeting_background Editing Meeting
     %span.span-3
       %h4=f.label :meeting_date
     %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
   %div.span-20
-    %span.span-3.prepend-4
+    %span.span-3
       %h4 Theme:
     %span.span-6= f.text_field :theme
-  .span-16.prepend-4
+  .span-20
     %h4.span-3
       Roles:
     %span.span-8
@@ -22,6 +21,6 @@
         = render :partial => 'role', :collection => @meeting.roles
         %tr
           %td= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
-  %div.span-20.prepend-7
+  %div.span-20.prepend-3
     = f.submit 'Save'
     = link_to 'or Back to Meeting', @meeting
