@@ -26,11 +26,7 @@ class RolesController < ApplicationController
   def new
     session[:meeting_id] = params[:meeting_id]
     @role = Role.new
-    
-    @club = Club.find(session[:club_id])
     @meeting = Meeting.find(session[:meeting_id])
-    
-    @members = @club.members
 
     respond_to do |format|
       format.html # new.html.erb

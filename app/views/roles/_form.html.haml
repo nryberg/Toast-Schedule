@@ -7,7 +7,7 @@
           %li= msg
   %div.span-20
     %span-16
-      = f.collection_select(:member_id, @members, :id, :name)
+      = f.collection_select(:member_id, @meeting.club.members, :id, :name)
       = f.collection_select(:role_type_id, RoleType.all, :id, :name)
       = f.label :title
       = f.text_field :title
