@@ -1,5 +1,7 @@
-%h1 New meeting
-
-= render 'form'
+%div{:type=>"text", :id=>"datepicker"} 
+.span-4.edit_label.meeting_background New Meeting
+.span-18.last
+  %br
+  = render 'form'
 
 / = link_to 'Back', club_agendas_path

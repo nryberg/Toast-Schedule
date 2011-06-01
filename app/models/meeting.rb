@@ -8,7 +8,12 @@ class Meeting
   validates_presence_of :meeting_date
 
   def meeting_date_formatted
-    meeting_date.strftime '%m/%d/%Y'
+      if meeting_date.nil? then 
+         ''
+      else
+         meeting_date.strftime '%m/%d/%Y' 
+      end
+    
   end
   
   def meeting_date_pretty
