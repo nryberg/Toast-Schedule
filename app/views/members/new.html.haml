@@ -1,5 +1,9 @@
-%h1 New Member
-
-= render 'form'
+%span.span-4
+  .span-4#header_box.member_background Member
+  .span-2= link_to '(return)', @member
+  .span-2= link_to 'Destroy', @member, :confirm => 'Are you sure?', :method => :delete
+%span.span-16
+  %span.span-last#header_box New member
+  = render 'form'
 
 = link_to 'Back', members_path

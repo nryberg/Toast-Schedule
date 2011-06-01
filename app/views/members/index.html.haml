@@ -1,15 +1,15 @@
-%h1= @club.name
-%h2 Members
-
-%table
-  %tr
-    %th Name
-    %th
-  - @members.each do |member|
+%span.span-4
+  .span-4#header_box.member_background Members
+%span.span-16
+  %span.span-last#header_box= link_to @club.name, @club
+  %table
     %tr
-      %td= link_to member.name, member
-
+      %th Name
+      %th
+    - @members.each do |member|
+      %tr
+        %td= link_to member.name, member
+  = link_to 'New Member', new_member_path
+  
 %br
 
-= link_to 'New Member', new_member_path
-= link_to 'Club Details', @club
