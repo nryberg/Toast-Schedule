@@ -1,13 +1,14 @@
 %span.span-4
   %span.span-4.edit_label.meeting_background  Meeting
-  %span.span-4= @meeting.meeting_date
   .span-2= link_to '(change)', edit_meeting_path(@meeting)
   .span-2= link_to '(remove)', @meeting,:confirm => "Are you sure?", :method => :delete
   .span-2= link_to '(Meeting)', meeting_path(@meeting)
 %span-16
-  %h2.span-6.last
+  %h2.span-16
+    = @meeting.meeting_date_pretty
+  %h3.span-16
     Add a Role:
-  .span-16
+  .span-16.prepend-4
     = render 'form'
 
 / = link_to 'Back', roles_path
