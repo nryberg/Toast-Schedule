@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   protected
     def authorize
       if Member.find_by_id(session[:member_id])
-        @member_signed_in = Member.find(session[:member_id])
+        @member_signed_in = Member.find(session[:member_id]).first
       else
         redirect_to login_url, :notice => "Please log in"
       end
