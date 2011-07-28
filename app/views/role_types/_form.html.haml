@@ -1,19 +1,12 @@
-= form_for @role_type do |f|
+= semantic_form_for @role_type do |f|
   -if @role_type.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@role_type.errors.count, "error")} prohibited this role from being saved:"
       %ul
         - @role_type.errors.full_messages.each do |msg|
           %li= msg
-  %div
-    = f.label :name
-  %div
-    = f.text_field :name
-  %div
-    = f.label :responsibility
-  %div
-    = f.text_area :responsibility
- 
-
-  .actions
-    = f.submit 'Save'
+  - f.inputs do 
+    = f.input :name
+    = f.input :responsibility, :input_html => { :class => 'autogrow', :rows => 10, :cols => 20, :maxlength => 10  }
+    = f.input :tm_reference_path
+  = f.buttons :commit

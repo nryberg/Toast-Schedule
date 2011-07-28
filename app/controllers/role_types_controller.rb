@@ -46,8 +46,8 @@ class RoleTypesController < ApplicationController
 
     respond_to do |format|
       if @role_type.save
-        format.html { redirect_to(@role_type, :notice => 'Role was successfully created.') }
-        format.xml  { render :xml => @role_type, :status => :created, :location => @role_type }
+        format.html { redirect_to(@role_types, :notice => 'Role was successfully created.') }
+        format.xml  { render :xml => @role_types, :status => :created, :location => @role_type }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @role_type.errors, :status => :unprocessable_entity }
@@ -62,7 +62,7 @@ class RoleTypesController < ApplicationController
 
     respond_to do |format|
       if @role_type.update_attributes(params[:role_type])
-        format.html { redirect_to(@role_type, :notice => 'Role was successfully updated.') }
+        format.html { redirect_to(role_types_path, :notice => 'Role was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

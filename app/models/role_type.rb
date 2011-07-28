@@ -3,6 +3,7 @@ class RoleType
   
   key :name, String
   key :responsibility, String
+  key :tm_reference_path, String
   
 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
