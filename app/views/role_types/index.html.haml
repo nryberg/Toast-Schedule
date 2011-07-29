@@ -1,6 +1,6 @@
-%h1 Listing Role Types
+%h1 Role Types
 
-%table
+%table.prepend-2
   %tr
     %th
     %th
@@ -8,11 +8,8 @@
 
   - @role_types.each do |role_type|
     %tr
-      %td= role_type.name
-      %td= link_to 'Show', role_type
-      %td= link_to 'Edit', edit_role_type_path(role_type)
-      %td= link_to 'Destroy', role_type, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to role_type.name, role_type
 
 %br
-
-= link_to 'New role', new_role_type_path
+.prepend-2
+  = link_to '+ New role', new_role_type_path

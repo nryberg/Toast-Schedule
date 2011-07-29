@@ -1,7 +1,17 @@
-%p= @role_type.name
-%p Responsibility
-%p= @role_type.responsibility
+.span-24
+  .span-3.prepend-1
+    %h4 Role Type:
+  .span-10
+    = @role_type.name
+.span-24
+  .span-3.prepend-1
+    %h4 Responsibility
+  .span-17.append-2
+    = @role_type.responsibility
+.span-24
+  .prepend-4
+    = link_to 'Edit', edit_role_type_path(@role_type)
+    = link_to 'Destroy', @role_type, :confirm => 'Are you sure?', :method => :delete
+  %div
+  = link_to 'Role Types', role_types_path
 
-= link_to 'Edit', edit_role_type_path(@role_type)
-\|
-= link_to 'Back', role_types_path
