@@ -47,7 +47,6 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.xml
   def create
-    p "At create"
     @club = Club.find(session[:club_id])
     
     @meeting = Meeting.new(params[:meeting])
@@ -56,8 +55,8 @@ class MeetingsController < ApplicationController
     
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to(@club, :notice => 'Meeting was successfully created.') }
-        format.xml  { render :xml => @club, :status => :created, :location => @club}
+        format.html { redirect_to(@meeting, :notice => 'Meeting was successfully created.') }
+        format.xml  { render :xml => @meeting, :status => :created, :location => @club}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @meeting.errors, :status => :unprocessable_entity }

@@ -53,7 +53,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to([@meeting.club, @meeting], :notice => 'Role was successfully created.') }
+        format.html { redirect_to(@meeting, :notice => 'Role was successfully created.') }
         format.xml  { render :xml => @meeting, :status => :created, :location => @role }
       else
         format.html { render :action => "new" }
