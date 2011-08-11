@@ -1,4 +1,6 @@
 ToastSchedule::Application.routes.draw do
+  resources :templates
+
   resources :roles
 
   controller :sessions do

@@ -13,7 +13,7 @@ class TemplatesController < ApplicationController
   # GET /templates/1
   # GET /templates/1.xml
   def show
-    @template = Template.first(params[:id])
+    @template = Template.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class TemplatesController < ApplicationController
 
   # GET /templates/1/edit
   def edit
-    @template = Template.first(params[:id])
+    @template = Template.find(params[:id])
   end
 
   # POST /templates
@@ -56,10 +56,10 @@ class TemplatesController < ApplicationController
   # PUT /templates/1
   # PUT /templates/1.xml
   def update
-    @template = Template.first(params[:id])
+    @template = Template.find(params[:id])
 
     respond_to do |format|
-      if @template.update(params[:template])
+      if @template.update_attributes(params[:template])
         format.html { redirect_to(@template, :notice => 'Template was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -72,7 +72,7 @@ class TemplatesController < ApplicationController
   # DELETE /templates/1
   # DELETE /templates/1.xml
   def destroy
-    @template = Template.first(params[:id])
+    @template = Template.find(params[:id])
     @template.destroy
 
     respond_to do |format|

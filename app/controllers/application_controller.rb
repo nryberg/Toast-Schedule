@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-#  before_filter :authorize
-# TODO - put the authentication back into place
+  before_filter :authorize
  
   protect_from_forgery
   def login_required
@@ -29,10 +28,11 @@ class ApplicationController < ActionController::Base
   protected
     def authorize
       if Member.find_by_id(session[:member_id])
-        @member_signed_in = Member.find(session[:member_id]).first
+        @member_signed_in = Member.find(session[:member_id])
       else
         redirect_to login_url, :notice => "Please log in"
       end
     end
+    
 
 end

@@ -7,6 +7,7 @@ class Club
   
   key :member_ids, Array
   many :members, :in => :member_ids
+  many :templates
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

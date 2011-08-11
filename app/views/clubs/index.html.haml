@@ -1,18 +1,12 @@
-%h1 Listing Clubs
+%span.span-4
+  .span-4#header_box.club_background Club Listing
+  .span-2= link_to '(Add a club)', new_club_path()
+%span.span-16
+  %span.span-8#header_box My Clubs
+  %div.span-20= @clubs.count
+  %span.span-5
+    %table
+      = render :partial => 'shared/club', :collection => @clubs.all
+  
+  = link_to "(+) New Club", new_club_path
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @clubs.each do |club|
-    %tr
-      %td= club.name
-      %td= link_to 'Show', club
-      %td= link_to 'Edit', edit_club_path(club)
-      %td= link_to 'Destroy', club, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New club', new_club_path

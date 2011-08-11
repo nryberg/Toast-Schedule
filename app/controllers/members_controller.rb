@@ -1,15 +1,23 @@
 class MembersController < ApplicationController
   
   skip_before_filter :authorize, :only => [:show, :new, :create]
+
     # GET /members/1/edit
   
   # GET /members
   # GET /members.xml
+
+  
   def index
+  # TODO: Fix the model information for members index.  This
+  #       doesn't work when we don't have a club set.  
+    
     @club = Club.find(session[:club_id])
     if @club then
        @members = @club.members.sort_by(&:name)
     else
+      
+      p session[:member_id]
       @members = Member.find(session[:member_id]).sort(:name)
     end
                            
