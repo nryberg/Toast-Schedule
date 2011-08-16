@@ -2,11 +2,9 @@
   .span-4#header_box.club_background Club Listing
   .span-2= link_to '(Add a club)', new_club_path()
 %span.span-16
-  %span.span-8#header_box My Clubs
-  %div.span-20= @clubs.count
+  %span.span-16#header_box My Clubs
   %span.span-5
     %table
-      = render :partial => 'shared/club', :collection => @clubs.all
-  
-  = link_to "(+) New Club", new_club_path
+      = render :partial => 'shared/club', :collection => @clubs
+    = link_to "(+) New Club", new_club_path
 

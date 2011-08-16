@@ -22,23 +22,16 @@
   %p#class= alert
   .container
     .span-24.site_title
-      .span-8
-        = link_to 'TM Schedule Me', root_url, :style => 'text-decoration: none'
-      .span-3
-        =link_to "Members", members_path
-      .span-2
-        =link_to "Clubs", clubs_path
-      %span.log_in_bar.span-4
-        - if session[:member_id]
-          = "Signed in as "
-          %b
-            =link_to session[:member_name], member_path(session[:member_id])
-          = ": Not you?"
-          = link_to "Logout", logout_path
-        - else
-          Not a member? 
-          = link_to "Register", new_member_path
-          Or 
-          = link_to "Sign In", login_path
+      .span-12= render "layouts/nav_header"
+      .span-10
+        %span.log_in_bar= render "layouts/nav_login"
+        .span-10
+          .span-3 
+            = link_to "Meetings", meetings_path
+          .span-3
+            =link_to "Members", members_path
+          .span-3
+            =link_to "My Clubs", clubs_path
+          
     .span-24
       = yield

@@ -5,8 +5,10 @@ class ClubsController < ApplicationController
   # GET /clubs.xml
   def index
     if session[:member_id] then
-       @clubs = Member.find(session[:member_id]).clubs
+       @clubs = Member.find(session[:member_id]).clubs.sort(:name).all
     else
+      # TODO: This won't scale - need to have better way of finding clubs
+      #       or simply don't do an index. 
       @clubs = Club.all
     end
 

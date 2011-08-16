@@ -1,0 +1,12 @@
+- if session[:member_id]
+  = "Signed in as "
+  %b
+    =link_to session[:member_name], member_path(session[:member_id])
+  = ": Not you?"
+  = link_to "Logout", logout_path
+- else
+  Not a member? 
+  = link_to "Register", new_member_path
+  Or 
+  = link_to "Sign In", login_path
+

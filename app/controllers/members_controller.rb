@@ -39,9 +39,8 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-#     @clubs = @member.clubs.all
     @roles = Role.where(:member_id => params[:id]).sort(:meeting_date.desc).all
-  
+    @header_text = @member.name
 
     respond_to do |format|
       format.html # show.html.erb
