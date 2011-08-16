@@ -1,11 +1,9 @@
-%span.span-4
-  .span-4#header_box.meeting_background Meetings
-  .span-2= link_to '(Club)', club_path(@club)
-%span.span.8
-  %table
+.span-4
+  %span.span-4#header_box.meeting_background Meetings
+.span-16
+  %table.span-16
     %tr
       %th Date
       %th Theme
     = render @meetings
-
-= link_to 'New meeting', new_meeting_path
+    = link_to 'New meeting', new_meeting_path

@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    SystemTimer (1.2.3)
     abstract (1.0.0)
     actionmailer (3.0.5)
       actionpack (= 3.0.5)
@@ -48,7 +47,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     i18n (0.6.0)
-    jquery-rails (1.0.12)
+    jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
     mail (2.2.19)
@@ -103,13 +102,12 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
     uuidtools (2.1.2)
-    will_paginate (2.3.15)
+    will_paginate (3.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer
   bson_ext
   formtastic (~> 1.2.3)
   haml
