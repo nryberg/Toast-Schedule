@@ -1,0 +1,1 @@
+06:28 AM 08/17/2011   TODO: When club not set, members and meetings don't work.  Structural issue that should be caught with rethink.
