@@ -5,7 +5,7 @@ gem 'rails', '>= 3.0.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'SystemTimer'
 ####
 ## Add these as defaults for new projects
@@ -19,7 +19,12 @@ gem 'mongomapper_ext'
 #gem 'rspec', '>=2.6.0.rc4'
 gem 'haml'
 gem 'haml-rails'
-gem 'mongrel', '>= 1.2.0.pre2'
+group :production do
+end
+group :development, :test do
+  gem 'mongrel', '>= 1.2.0.pre2'
+end
+
 # gem 'haml_scaffold'
 gem 'bson_ext'
 gem 'will_paginate'
