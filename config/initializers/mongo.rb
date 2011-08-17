@@ -1,10 +1,10 @@
 # Local ###
 #  MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
   MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27038)
+  MongoMapper.database = 'toast_schedule'
   MongoMapper.database.authenticate('toast_user', 'gidwysEzlaug')
   
   
-  MongoMapper.database = 'toast_schedule'
 
 # Mongo HQ ###
 
