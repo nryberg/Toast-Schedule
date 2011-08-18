@@ -2,7 +2,8 @@ class TemplatesController < ApplicationController
   # GET /templates
   # GET /templates.xml
   def index
-    @templates = Template.all
+    @club = Club.find(session([:club_id])).first
+    @templates = @club.templates
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,7 @@ class TemplatesController < ApplicationController
   # GET /templates/new
   # GET /templates/new.xml
   def new
+    @club = current_club
     @template = Template.new
 
     respond_to do |format|
@@ -41,6 +43,7 @@ class TemplatesController < ApplicationController
   # POST /templates.xml
   def create
     @template = Template.new(params[:template])
+    current_club.templates << @template
 
     respond_to do |format|
       if @template.save

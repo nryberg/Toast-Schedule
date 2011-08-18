@@ -4,3 +4,20 @@
 = link_to 'Edit', edit_template_path(@template)
 \|
 = link_to 'Back', templates_path
+
+
+%span.span-4
+  .span-4#header_box.club_background Template
+  .span-2= link_to '(change)', edit_template_path(@template)
+  .span-2= link_to '(Add a template)', new_template_path()
+%span.span-16
+  %div.span-20
+    %span.span-3
+      %h3 Name
+    %span.span-6
+      %code= @template.name
+  %span.span-5
+    %h4.meeting_background Roles
+    = render :partial => 'shared/role_type', :collection => @template.role_types
+    / = link_to "(+) New Role", new_template_path
+

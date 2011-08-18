@@ -1,5 +1,4 @@
 ToastSchedule::Application.routes.draw do
-  resources :templates
 
   resources :roles
 
@@ -13,6 +12,7 @@ ToastSchedule::Application.routes.draw do
 
    resources :clubs do
      resources :meetings
+     resources :templates
    end
    
    
@@ -22,6 +22,10 @@ ToastSchedule::Application.routes.draw do
    
    resources :meetings do
      resources :roles
+   end
+
+   resources :templates do
+     resources :role_types
    end
    
    

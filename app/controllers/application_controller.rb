@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     Member.find(session[:member_id])
   end
 
+  def current_club
+    Club.find(session[:club_id])
+  end
+
   def redirect_to_stored
     if return_to = session[:return_to]
       session[:return_to]=nil

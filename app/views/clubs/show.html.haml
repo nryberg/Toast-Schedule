@@ -2,18 +2,16 @@
   .span-4#header_box.club_background Club
   .span-2= link_to '(change)', edit_club_path(@club)
   .span-2= link_to '(Add a club)', new_club_path()
-  .span-2= link_to '(remove)', @club,:confirm => "Are you sure?", :method => :delete
 %span.span-16
-  %span.span-8#header_box= @club.name
   %div.span-20
     %span.span-3
-      %h4 Address
+      %h3 Address
     %span.span-6
       %code= @club.address
       %h5= link_to "Map it", map_to(@club.address), {"target"=>"_blank"}
   %div.span-20  
     %span.span-3
-      %h4 Club Number
+      %h3 Club Number
     %span.span-6= @club.club_number
   %span.span-5
     %h4.meeting_background Upcoming Meetings
@@ -23,4 +21,8 @@
     %h4.member_background Members
     = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
     = link_to "(+) New Member", new_member_path
- 
+  %span.span-5
+    %h4.meeting_background Templates
+    = render :partial => 'shared/template', :collection => @club.templates
+    = link_to "(+) New Template", new_template_path
+
