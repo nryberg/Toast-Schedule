@@ -1,0 +1,16 @@
+07:27 AM 08/17/2011
+
+Once the pieces start falling into place, then the logic will flow again.  Until then, the site is effectively broken - logically.
+
+The club is central to everything, and maybe it shouldn't be so easy to switch clubs.  Maybe just associate someone with a club?
+
+Have to get the templates off the ground and research the AJAX section of updating those pieces.  Then we'll be approaching a 0.5 release and start thinking about basic testing with KK, Paul, and ??
+
+07:41 PM 08/17/2011
+
+Okay - clubs rule supreme.  In order to do something, you need a club.  You can inactivate a club, but you cannot delete them anymore.  There's too much riding on it. 
+
+Next part - invite other members from other clubs - but have to have some sort of inactive/active flag.  Maybe simply being part of a club makes you active.  
+
+
+

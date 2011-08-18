@@ -18,6 +18,6 @@
       %code= @template.name
   %span.span-5
     %h4.meeting_background Roles
-    = render :partial => 'shared/role_type', :collection => @template.role_types
-    / = link_to "(+) New Role", new_template_path
+    = render :partial => 'shared/role', :collection => @template.roles
+    = link_to "(+) New Role", new_template_role_path(@template, @role)
 

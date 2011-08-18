@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.xml
   def index
-    @club = Club.find(session[:club_id])
+    @club = current_club
     @meetings = @club.meetings.sort(:meeting_date).all
     @header_text = @club.name
 
@@ -17,9 +17,7 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find(params[:id])
     @roles = @meeting.roles
-    @header_text = @meeting.club.name
     
-#     @club = Club.find(params[:club_id])   
     @club = @meeting.club
     respond_to do |format|
       format.html # show.html.erb
@@ -31,7 +29,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/new.xml
   def new
     
-    @club = Club.find(session[:club_id])
+    @club = current_club 
     @meeting = Meeting.new
 
     respond_to do |format|

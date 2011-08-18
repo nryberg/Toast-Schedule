@@ -4,7 +4,7 @@ class Template
 
   key :role_types, Hash
 
-  has_many :role_types
+  has_many :roles
 
   belongs_to :club
 
