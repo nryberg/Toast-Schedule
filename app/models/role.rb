@@ -26,7 +26,7 @@ class Role
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :meeting
-   
+  belongs_to :template   
 # many :model
    
 # one :model

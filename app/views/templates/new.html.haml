@@ -1,5 +1,12 @@
 %h1 New template
 
 = render 'form'
+%p= @template.roles.count
+- for role in @template.roles
+  - fields_for "template[role_attributes][]", role do |role_form| 
+    %p
+      Role: = role_form.text_field :title
+
+/ = render 'role', :collection => @template.roles
 
 = link_to 'Back', templates_path

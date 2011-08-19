@@ -24,6 +24,9 @@ class RolesController < ApplicationController
   # GET /roles/new
   # GET /roles/new.xml
   def new
+    if not @template.nil?
+      p "Template!"
+    end 
     session[:meeting_id] = params[:meeting_id]
     @role = Role.new
     @meeting = Meeting.find(session[:meeting_id])

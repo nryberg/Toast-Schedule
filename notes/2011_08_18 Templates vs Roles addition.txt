@@ -1,0 +1,6 @@
+05:09 PM 08/18/2011
+
+New roles for templates is broken.
+
+This is in part a functional issue with who's getting kicked off when.  When a template asks for a new role, the new role form takes off - which is not at all what I want.  In this case, I just want to add more roles to the specific template.  Something that would work on a functional AJAX level with a little elbow grease, but for now, I can assume that this just isn't going to work.  
+

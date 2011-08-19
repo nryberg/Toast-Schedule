@@ -27,6 +27,10 @@ class TemplatesController < ApplicationController
   def new
     @club = current_club
     @template = Template.new
+    3.times { @template.roles.build }
+
+    ap @template.roles.count
+
 
     respond_to do |format|
       format.html # new.html.erb
