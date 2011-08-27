@@ -1,0 +1,3 @@
+07:41 AM 08/22/2011
+
+While railsguides is wonderful and all, I have a feeling that I'm missing a crucial step in building the roles out for the template.  Maybe the whole model is broken with multiple connections (a problem faced before) so perhaps that's the key.  Create a new model pointing to the old class model and go from there.  Overall the two models are just different between an array based relationship and an honest to god Active Model built on a true database.  Maybe the infatuation with MongoDB is more painful than it really is helpful.  Everything has a cost, and this one is costing the entire project.  

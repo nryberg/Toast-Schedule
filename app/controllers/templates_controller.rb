@@ -27,11 +27,9 @@ class TemplatesController < ApplicationController
   def new
     @club = current_club
     @template = Template.new
-    3.times { @template.roles.build }
-
-    ap @template.roles.count
-
-
+    @test = Array.new
+    3.times { @test << @template.template_roles.build }
+    @template.template_roles = @test
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @template }
@@ -47,6 +45,7 @@ class TemplatesController < ApplicationController
   # POST /templates.xml
   def create
     @template = Template.new(params[:template])
+    
     current_club.templates << @template
 
     respond_to do |format|

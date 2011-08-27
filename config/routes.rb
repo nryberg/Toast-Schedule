@@ -25,7 +25,7 @@ ToastSchedule::Application.routes.draw do
    end
 
    resources :templates do
-     resources :roles
+     resources :template_roles
    end
    
    
