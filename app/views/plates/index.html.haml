@@ -1,0 +1,17 @@
+%h1 Listing plates
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @plates.each do |plate|
+    %tr
+      %td= link_to 'Show', plate
+      %td= link_to 'Edit', edit_plate_path(plate)
+      %td= link_to 'Destroy', plate, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Plate', new_plate_path

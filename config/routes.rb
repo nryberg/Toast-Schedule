@@ -1,5 +1,6 @@
 ToastSchedule::Application.routes.draw do
 
+
   resources :roles
 
   controller :sessions do
@@ -25,7 +26,7 @@ ToastSchedule::Application.routes.draw do
    end
 
    resources :templates do
-     resources :template_roles
+     resources :plates
    end
    
    

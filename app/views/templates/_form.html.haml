@@ -8,5 +8,6 @@
   - f.inputs do
     = f.input :name, :as => :string
 
+  = render :partial => "plate", :collection => @template.plates
   .actions
     = f.submit 'Save'

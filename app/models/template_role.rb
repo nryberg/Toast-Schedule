@@ -7,8 +7,7 @@ class TemplateRole
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
-   belongs_to :template   
- many :role_types
+ belongs_to :template   
    
 # one :model
 

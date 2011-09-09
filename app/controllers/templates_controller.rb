@@ -2,7 +2,7 @@ class TemplatesController < ApplicationController
   # GET /templates
   # GET /templates.xml
   def index
-    @club = Club.find(session([:club_id])).first
+    @club = current_club
     @templates = @club.templates
 
     respond_to do |format|
@@ -27,9 +27,7 @@ class TemplatesController < ApplicationController
   def new
     @club = current_club
     @template = Template.new
-    @test = Array.new
-    3.times { @test << @template.template_roles.build }
-    @template.template_roles = @test
+    3.times { @template.plates.build }
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @template }

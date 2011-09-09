@@ -1,16 +1,16 @@
 %h1 New template
 
 / = render 'form'
-= semantic_form_for @template, templates_path do |f|
+= form_for @template, templates_path do |f|
   %p
     Name:
     = f.text_field :name
-  - for template_role in @template.template_roles
-    = semantic_fields_for "template[template_role_attributes][]", template_role do |role_form|
-      %p
-        Role: 
-        = role_form.text_field :title
-    / = render 'role', :collection => @template.roles
+  = render :partial => "plate", :collection => @template.plates
+  = add_plate_link "Add a role"
+  %p.test Test
+  / - for plate in @template.plates
+
+  / = render 'role', :collection => @template.roles
   = submit_tag
 
 = link_to 'Back', templates_path
