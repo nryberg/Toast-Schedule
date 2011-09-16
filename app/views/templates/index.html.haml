@@ -8,7 +8,7 @@
 
   - @templates.each do |template|
     %tr
-      %td= link_to 'Show', template
+      %td= link_to template.name, template
       %td= link_to 'Edit', edit_template_path(template)
       %td= link_to 'Destroy', template, :confirm => 'Are you sure?', :method => :delete
 

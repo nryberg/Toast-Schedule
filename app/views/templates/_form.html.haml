@@ -5,9 +5,8 @@
       %ul
         - @template.errors.full_messages.each do |msg|
           %li= msg
-  - f.inputs do
+  = f.inputs do
     = f.input :name, :as => :string
-
-  = render :partial => "plate", :collection => @template.plates
+  = render :partial => "plate", :collection => @template.plates, :locals => { :form => f}
   .actions
     = f.submit 'Save'

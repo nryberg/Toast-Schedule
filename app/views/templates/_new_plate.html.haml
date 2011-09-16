@@ -1,0 +1,7 @@
+%task
+  = fields_for "template[plate_new_attributes][]", plate do |role_form|
+    %p#entry
+      Role: 
+      = role_form.text_field :title
+      = link_to_function "remove", "var elem = this; $j(elem).parent().remove()"
+

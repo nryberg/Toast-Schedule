@@ -1,6 +1,7 @@
 class Plate
   include MongoMapper::Document
   key :title, String
+  key :remove, String
 
   belongs_to :template
   
