@@ -7,6 +7,9 @@
           %li= msg
   = f.inputs do
     = f.input :name, :as => :string
-  = render :partial => "plate", :collection => @template.plates, :locals => { :form => f}
+  %div.plates
+    = render :partial => "plate", :collection => @template.plates, :locals => { :form => f}
+  
+  = add_role_link("Add role")
   .actions
     = f.submit 'Save'
