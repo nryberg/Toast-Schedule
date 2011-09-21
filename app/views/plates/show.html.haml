@@ -1,6 +1,6 @@
 %p#notice= notice
 
-
-= link_to 'Edit', edit_plate_path(@plate)
+%h1= @plate.title
+= link_to 'Edit', edit_template_plate_path(@plate.template, @plate)
 \|
-= link_to 'Back', plates_path
+= link_to 'Back', template_plates_path(@plate.template, @plate)

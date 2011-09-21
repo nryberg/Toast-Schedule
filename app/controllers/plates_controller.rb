@@ -2,7 +2,8 @@ class PlatesController < ApplicationController
   # GET /plates
   # GET /plates.xml
   def index
-    @plates = Plate.all
+    @template = Template.find(params[:template_id])
+    @plates = @template.plates.all
 
     respond_to do |format|
       format.html # index.html.erb

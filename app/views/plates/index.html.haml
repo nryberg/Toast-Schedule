@@ -8,10 +8,11 @@
 
   - @plates.each do |plate|
     %tr
-      %td= link_to 'Show', plate
-      %td= link_to 'Edit', edit_plate_path(plate)
-      %td= link_to 'Destroy', plate, :confirm => 'Are you sure?', :method => :delete
+      %td= plate.title
+      %td= link_to 'Show', template_plate_path(@template, plate)
+      / %td= link_to 'Edit', edit_template_plate_path(plate)
+      / %td= link_to 'Destroy', plate, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Plate', new_plate_path
+/ = link_to 'New Plate', new_plate_path
