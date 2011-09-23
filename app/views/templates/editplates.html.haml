@@ -1,0 +1,8 @@
+%h1 Hello!
+
+= form_for @template do |f| 
+  - for plate in @plates
+    = fields_for "template[plate_attributes][]", plate do |role_form|
+      %p= role_form.text_field :title
+  = submit_tag "Save"
+

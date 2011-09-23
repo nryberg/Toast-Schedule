@@ -18,9 +18,6 @@
     %span.span-6
       - @template.plates.each do |plate|
         %p= plate.title
-
-  / %span.span-5
-  / %h4.meeting_background Roles
   / = render :partial => "template_role", :collection => @template.template_roles
   / = link_to "(+) New Role", new_template_role_path(@template, @role)
 

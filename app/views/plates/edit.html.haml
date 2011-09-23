@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @plate
+= link_to 'Show', template_plate_path(@plate.template, @plate)
 \|
-= link_to 'Back', plates_path
+= link_to 'Back', template_plates_path

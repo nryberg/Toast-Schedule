@@ -15,7 +15,7 @@ class TemplatesController < ApplicationController
   # GET /templates/1.xml
   def show
     @template = Template.find(params[:id])
-    @plate = Plate.new()
+    @plates= @template.plates
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,6 +23,11 @@ class TemplatesController < ApplicationController
     end
   end
 
+  def editplates
+    @template = Template.find(params[:template_id])
+    @plates= @template.plates
+
+  end
   # GET /templates/new
   # GET /templates/new.xml
   def new

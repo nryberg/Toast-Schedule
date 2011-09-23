@@ -27,8 +27,8 @@ ToastSchedule::Application.routes.draw do
 
    resources :templates do
      resources :plates
+     get 'editplates' => :editplates
    end
-   
    
   # first created -> highest priority.
 
