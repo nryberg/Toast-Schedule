@@ -1,8 +1,10 @@
-%h1 Hello!
+%h1= @template.name
 
 = form_for @template do |f| 
-  - for plate in @plates
-    = fields_for "template[plate_attributes][]", plate do |role_form|
-      %p= role_form.text_field :title
+  %div.plates
+    - for plate in @plates
+      = fields_for "template[plate_attributes][]", plate do |role_form|
+        %p= role_form.text_field :title
   = submit_tag "Save"
-
+= test_role_link "Testing"
+= add_role_link "Add Role"

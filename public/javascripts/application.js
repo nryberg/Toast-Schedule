@@ -16,7 +16,10 @@ $j('a.delete').click (function(){
     }
 });
 
-
+function field_text(id) {
+  var new_id = new Date().getTime();
+  $j('.plates').append('<p><input id="99999" name="Nice" size="30" type="text" value="foundary"></p>');
+}
 
 function remove_fields(link) {
   $j(link).prev("input[type=hidden]").val("1");
