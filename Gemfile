@@ -25,6 +25,7 @@ group :development, :test do
   gem 'mongrel', '>= 1.2.0.pre2'
 end
 
+gem 'log_buddy'
 # gem 'haml_scaffold'
 gem 'bson_ext'
 gem 'will_paginate'

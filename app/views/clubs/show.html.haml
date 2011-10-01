@@ -1,8 +1,8 @@
 %span.span-4
-  .span-4#header_box.club_background Club
   .span-2= link_to '(change)', edit_club_path(@club)
   .span-2= link_to '(Add a club)', new_club_path()
 %span.span-16
+  .span-4#header_box.club_background Club
   %div.span-20
     %span.span-3
       %h3 Address
@@ -21,8 +21,3 @@
     %h4.member_background Members
     = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
     = link_to "(+) New Member", new_member_path
-  %span.span-5
-    %h4.meeting_background Templates
-    = render :partial => 'shared/template', :collection => @club.templates
-    = link_to "(+) New Template", new_template_path
-
