@@ -9,8 +9,9 @@
     .span-10= @meeting.meeting_date_pretty
     .span-2= link_to '(edit)', edit_meeting_path(@meeting)
     .span-2= link_to '(add)', new_meeting_path
-  %h3.span-2 Theme:
-  .span-8= @meeting.theme
+  %h3
+    .span-2 Theme:
+    .span-8= @meeting.theme
   .span-16
     %h4.span-2
       Roles:

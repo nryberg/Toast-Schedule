@@ -1,10 +1,9 @@
 %span.span-4
-  %span.span-4.edit_label.meeting_background  Meeting
-  .span-2= link_to '(change)', edit_meeting_path(@meeting)
-  .span-2= link_to '(Meeting)', meeting_path(@meeting)
+  %span#lead_box.span-4.edit_label.meeting_background  Meeting
 %span.span-16
-  %h2.span-16
-    = @meeting.meeting_date_pretty
+  %h2.span-16#lead_box
+    = link_to @meeting.meeting_date_pretty, @meeting
+    = link_to '(change)', edit_meeting_path(@meeting)
   %h3.span-6.last
     Changing Roles
   .span-16.prepend
