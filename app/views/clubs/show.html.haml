@@ -1,8 +1,9 @@
-%span.span-4
-  .span-2= link_to '(change)', edit_club_path(@club)
-  .span-2= link_to '(Add a club)', new_club_path()
+%span.span-4#header_box
+  .span-4.club_background Club
 %span.span-16
-  .span-4#header_box.club_background Club
+  %div.span-20#header_box
+    = @club.name
+    = link_to '(edit)', edit_club_path(@club)
   %div.span-20
     %span.span-3
       %h3 Address
@@ -13,11 +14,12 @@
     %span.span-3
       %h3 Club Number
     %span.span-6= @club.club_number
-  %span.span-5
+  %span.span-10
     %h4.meeting_background Upcoming Meetings
     = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
     = link_to "(+) New Meeting", new_meeting_path
-  %span.span-5
+  %span.span-10
     %h4.member_background Members
     = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
     = link_to "(+) New Member", new_member_path
+  %div.span-20= link_to '(Add a club)', new_club_path()

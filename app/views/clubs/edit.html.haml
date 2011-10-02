@@ -1,7 +1,10 @@
-%span.span-4
-  .span-4#header_box.club_background Club
-  .span-2= link_to '(return)', @club
+%span.span-4#header_box
+  .span-4.club_background Club
+  .span-4.meeting_background 
+    = link_to "Meetings", meetings_path
+  .span-4.member_background
+    =link_to "Members", members_path
 %span.span-16
-  %span.span-8#header_box Edit this club
   .span-16
     = render 'form'
+  .span-2= link_to '(return)', @club

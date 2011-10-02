@@ -14,6 +14,11 @@
   background-color: #FFFFFF;
 }
 
+#lead_box {
+  font-size: 200%;
+  margin-bottom: 15px;
+}
+
 #header_box {
   font-size: 200%;
 }

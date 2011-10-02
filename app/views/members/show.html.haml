@@ -1,11 +1,16 @@
 = content_for :top_title do
   = "Member - " + @member.name
 .span-4
-  .span-4#header_box.member_background Member
-  .span-2= link_to 'Edit', edit_member_path(@member)
-  .span-2= link_to 'New', new_member_path()
-.span-16
-  .span-8#header_box= @member.name
+  .span-4#lead_box.member_background Member
+  .span-4#header_box.club_background 
+    = link_to "Clubs", clubs_path
+  .span-4#header_box.meeting_background 
+    = link_to "Meetings", meetings_path
+
+.span-16#lead_box
+  .span-8= @member.name
+  .span-2= link_to '(Edit)', edit_member_path(@member)
+  .span-2= link_to '(Add)', new_member_path()
 .span-16#content_box
   .span-20  
     .span-3
@@ -16,8 +21,8 @@
       %h4 Phone
     .span-6= @member.phone
   .span-20#content_box
-    %span.span-8
-      %h3.meeting_background Meetings
+    %span.span-20
+      %h3.meeting_background Member Meetings
       %span.span-8
         %table
           %tr
@@ -25,8 +30,8 @@
             %th Role
           = render :partial => 'role', :collection => @member.roles
         / TODO: Add in new Role function for a person
-    %span.span-4 
-      %h3.club_background Clubs
+    %span.span-20
+      %h3.club_background Member Clubs
       %span.span-8
         %table
           = render :partial => 'club', :collection => @member.clubs.all

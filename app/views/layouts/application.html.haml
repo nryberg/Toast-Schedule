@@ -24,13 +24,7 @@
     .span-24.site_title
       .span-13
         %div.log_in_bar TM Schedule
-        %div= render "layouts/nav_header"
       .span-10
         %span.log_in_bar= render "layouts/nav_login"
-        .span-10
-          .span-3.meeting_background 
-            = link_to "Meetings", meetings_path
-          .span-3.member_background
-            =link_to "Members", members_path
     .span-24
       = yield

@@ -1,9 +1,16 @@
 .span-4
-  %span.span-4#header_box.meeting_background Meetings
+  .span-4#lead_box.meeting_background Meetings
+  .span-4#header_box.club_background 
+    = link_to "Clubs", clubs_path
+  .span-4#header_box.member_background
+    =link_to "Members", members_path
+
 .span-16
+  .span-16#lead_box
+    = link_to @club.name, @club, :style => 'text-decoration: none'
   %table.span-16
     %tr
       %th Date
       %th Theme
     = render @meetings
-    = link_to 'New meeting', new_meeting_path
+  = link_to 'New meeting', new_meeting_path
