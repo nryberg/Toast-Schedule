@@ -11,6 +11,7 @@ class Member
   key :officer, String
   key :role, String
   key :salt, String
+  key :primary_club, ObjectId
   key :hashed_password, String
  
   validates_presence_of :name
@@ -22,7 +23,11 @@ class Member
     Club.where(:member_ids => id)
   end
 
-  
+ 
+  def my_club
+    Club.find(self.primary_club)
+  end
+
   def roles
     rolez = Role.where(:member_id => id).all
     rolez.sort_by {|e| e.meeting.meeting_date || 0}

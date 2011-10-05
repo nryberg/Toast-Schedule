@@ -9,7 +9,10 @@ module ApplicationHelper
   end
 
   def current_club
-    Club.find(session[:club_id])
+    if session[:club_id].nil? then
+      session[:club_id] = current_user.primary_club
+    end 
+      Club.find(session[:club_id])
   end
 
 end

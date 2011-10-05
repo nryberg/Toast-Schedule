@@ -21,6 +21,10 @@
     .span-3
       %h4 Phone
     .span-6= @member.phone
+  .span-20  
+    .span-3
+      %h4 Primary Club
+    .span-6= link_to @member.my_club.name, @member.my_club
   .span-12#content_box
     %span.span-12
       %h3.meeting_background 

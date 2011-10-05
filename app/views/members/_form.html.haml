@@ -3,6 +3,7 @@
     = f.input :name, :as => :string
     = f.input :email, :as => :email
     = f.input :phone, :as => :phone
+    = f.input :primary_club, :as => :select, :collection => @member.clubs
     - if @editing_self
       = f.input :password
       = f.input :password_confirmation

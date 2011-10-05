@@ -6,8 +6,7 @@
     = link_to "Meetings", meetings_path
 %span.span-16
   .span-20#lead_box
-    = current_club.name
-
+    = link_to @club.name, @club, :style => 'text-decoration: none'
   %table
     %tr
       %th Name
