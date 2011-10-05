@@ -1,7 +1,7 @@
 %span.span-4
   .span-4#lead_box.meeting_background Meeting
   .span-4#header_box.club_background
-    = link_to 'Club', @meeting.club
+    = link_to 'My Club', current_club
   .span-4#header_box.member_background
     = link_to 'Members', members_path
 %span.span-16  
@@ -9,9 +9,8 @@
     .span-10= @meeting.meeting_date_pretty
     .span-2= link_to '(edit)', edit_meeting_path(@meeting)
     .span-2= link_to '(add)', new_meeting_path
-  %h3
-    .span-2 Theme:
-    .span-8= @meeting.theme
+  .span-16#lead_box
+    = @meeting.theme
   .span-16
     %h4.span-2
       Roles:

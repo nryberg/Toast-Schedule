@@ -6,8 +6,8 @@
   .span-4#header_box.member_background
     = link_to 'Members', members_path
 %span.span-16
-  %div.span-20#header_box
-    = @club.name
+  .span-20#lead_box
+    .span-12= @club.name
     = link_to '(edit)', edit_club_path(@club)
     = link_to '(add)', new_club_path()
   %div.span-20
@@ -22,7 +22,8 @@
     %span.span-6= @club.club_number
   %span.span-10
     %h4.meeting_background Upcoming Meetings
-    = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
+    %table
+      = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
     = link_to "(+) New Meeting", new_meeting_path
   %span.span-10
     %h4.member_background Members

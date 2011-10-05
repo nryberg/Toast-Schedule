@@ -2,13 +2,14 @@
   = "Member - " + @member.name
 .span-4
   .span-4#lead_box.member_background Member
-  .span-4#header_box.club_background 
-    = link_to "Clubs", clubs_path
-  .span-4#header_box.meeting_background 
-    = link_to "Meetings", meetings_path
+  #header_box 
+    .span-4.club_background 
+      = link_to "My Club", current_club
+    .span-4.meeting_background 
+      = link_to "Meetings", meetings_path
 
-.span-16#lead_box
-  .span-8= @member.name
+.span-18#lead_box
+  .span-12= @member.name
   .span-2= link_to '(Edit)', edit_member_path(@member)
   .span-2= link_to '(Add)', new_member_path()
 .span-16#content_box
@@ -20,9 +21,11 @@
     .span-3
       %h4 Phone
     .span-6= @member.phone
-  .span-20#content_box
-    %span.span-20
-      %h3.meeting_background Member Meetings
+  .span-12#content_box
+    %span.span-12
+      %h3.meeting_background 
+        .span-6 My Meetings
+        .span-4= link_to "All Meetings", meetings_path
       %span.span-8
         %table
           %tr
@@ -30,8 +33,8 @@
             %th Role
           = render :partial => 'role', :collection => @member.roles
         / TODO: Add in new Role function for a person
-    %span.span-20
-      %h3.club_background Member Clubs
-      %span.span-8
+    %span.span-12
+      %h3.club_background My Clubs
+      %span.span-12
         %table
           = render :partial => 'club', :collection => @member.clubs.all
