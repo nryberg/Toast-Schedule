@@ -5,14 +5,9 @@
       %ul
         - @meeting.errors.full_messages.each do |msg|
           %li= msg
-  %div.span-20
-    %span.span-3
-      %h4=f.label :meeting_date
-    %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
-  %div.span-20
-    %span.span-3
-      %h4 Theme:
-    %span.span-6= f.text_field :theme
-  %div.span-20.prepend-3
-    = f.submit 'Save'
-    = link_to 'or Back to Meeting', @meeting
+  - f.inputs do 
+    =f.input :meeting_date, :as => :string, :value => @meeting.meeting_date_formatted
+    //  %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
+    = f.input :theme, :as => :string
+  = f.buttons :commit
+  = link_to 'or Back to Meeting', @meeting

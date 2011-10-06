@@ -18,13 +18,14 @@ class Member
   validate :password, :confirmation => true  
   attr_accessor :password_confirmation  
   attr_reader :password  
-  
+
   def clubs 
     Club.where(:member_ids => id)
   end
 
  
   def my_club
+    
     Club.find(self.primary_club)
   end
 

@@ -30,6 +30,7 @@ class MembersController < ApplicationController
  
   def edit
     @member = Member.find(params[:id])
+    @club_choices = @member.clubs
     p params[:id]
     p session[:member_id].to_s
     @editing_self = (params[:id] == session[:member_id].to_s)
@@ -52,6 +53,8 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
+    @member.primary_club = current_club.id
+    @club_choices = current_club.to_a
     @editing_self = true
     respond_to do |format|
       format.html # new.html.erb
