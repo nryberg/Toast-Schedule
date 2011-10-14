@@ -1,13 +1,16 @@
 .member_background {
   background-color: #C19A7B;
+  margin: 0;
 }
 
 .meeting_background {
   background-color: #F3933C;
+  margin: 0;
 }
 
 .club_background {
   background-color: #88BEE4;
+  margin: 0;
 }
 
 .role_background {
@@ -16,11 +19,17 @@
 
 #lead_box {
   font-size: 200%;
-  margin-bottom: 15px;
+}
+
+#nav_box {
+  font-size: 150%;
+  text-align: center;
+
 }
 
 #header_box {
   font-size: 175%;
+  v-align: center;
 }
 .edit_label {
   font-size: 150%;
@@ -68,4 +77,5 @@
 .log_in_bar {
   line-height: 3em;
   font-size:50%;
+  text-align: center;
 }

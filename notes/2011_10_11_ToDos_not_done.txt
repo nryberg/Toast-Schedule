@@ -1,0 +1,5 @@
+TODO: Spread the colors out more dramatically between Meetings and Members.  It's very hard to differentiate the two.
+
+TODO: Search and add member to another club.  Search by e-mail?
+
+TODO: When a new user is built, an e-mail needs to go to the user so they can activate and pick a password.  Right now, there's no way to pick the password.   

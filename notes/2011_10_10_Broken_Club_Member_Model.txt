@@ -1,0 +1,15 @@
+04:41 PM 10/10/2011
+
+Is it necessary to build out a HABTM for clubs and members?  It's starting to look that way, but I'm not even sure it's feasible.  I can say for sure that this is becoming necessary to decouple the Member a little more from the club where the status is concerned.  Yes, it's nice that I can pull the members using the proper query pattern - but, but - it's so much damned work. 
+
+04:59 PM 10/12/2011 
+
+.... and it turns out it's not that much work after all.  Yes, there's an issue with selecting people for a club.  But that's solveable.  Actually brings up the issue of non-email aacounts.  And what to do indeed.  Gotta have a name to look someone up.  
+
+And then again there's the issue of roles.  Perhaps only Officers can change permissions?
+
+TODO: Validates uniqueness of the combination. Maybe it's okay to stack the roles.
+
+07:38 AM 10/13/2011
+
+Admin in place but need to recover password, minimum one admin per club.

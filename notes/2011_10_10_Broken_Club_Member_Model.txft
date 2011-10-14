@@ -1,0 +1,3 @@
+04:41 PM 10/10/2011
+
+Is it necessary to build out a HABTM for clubs and members?  It's starting to look that way, but I'm not even sure it's feasible.  I can say for sure that this is becoming necessary to decouple the Member a little more from the club where the status is concerned.  Yes, it's nice that I can pull the members using the proper query pattern - but, but - it's so much damned work.  

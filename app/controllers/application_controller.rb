@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
+  before_filter :administrator
  
   protect_from_forgery
   def login_required
@@ -14,7 +15,15 @@ class ApplicationController < ActionController::Base
 
 
   def current_club
-    Club.find(session[:club_id])
+    if session[:club_id] then
+      Club.find(session[:club_id])
+    else
+      Club.find(current_user.primary_club)
+    end
+  end
+
+  def current_user
+    Member.find(session[:member_id])
   end
 
   def redirect_to_stored
@@ -33,6 +42,16 @@ class ApplicationController < ActionController::Base
       else
         redirect_to login_url, :notice => "Please log in"
       end
+    end
+
+    def administrator
+      unless current_user.nil? or current_club.nil? then
+        if current_user.admin_for(current_club.id)
+        else
+          # redirect_to :action => "display"
+        end
+      end
+      
     end
     
 

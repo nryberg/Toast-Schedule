@@ -22,9 +22,11 @@
   %p#class= alert
   .container
     .span-24.site_title
-      .span-13
-        %div.log_in_bar TM Schedule
       .span-10
-        %span.log_in_bar= render "layouts/nav_login"
+        TM Schedule
+      .span-12
+        .span-10.log_in_bar= render "layouts/nav_login"
+        - if logged_in
+          .span-12.log_in_bar= render "layouts/nav_tabs"
     .span-24
       = yield

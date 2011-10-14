@@ -8,6 +8,7 @@ class Member
   key :email, String
   key :phone, String
   key :can_edit, Boolean
+  key :active, Boolean
   key :officer, String
   key :role, String
   key :salt, String
@@ -19,11 +20,26 @@ class Member
   attr_accessor :password_confirmation  
   attr_reader :password  
 
+  many :relationships 
+
   def clubs 
     Club.where(:member_ids => id)
   end
 
- 
+  def my_role_types(club_id)
+    related = Relationship.where(:member => self.id, :club => club_id).all
+    types = related.collect {|x| x.type}
+  end
+
+  def admin_for(club_id)
+    my_role_types(club_id).member?("Administrator")
+  end
+    
+  def admin_for_current_club
+    my_role_types(current_club.id).member?("Administrator")
+  end
+
+
   def my_club
     
     Club.find(self.primary_club)

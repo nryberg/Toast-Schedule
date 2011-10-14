@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p= @relationship.club_name
+%p= @relationship.member_name
+%p= @relationship.type
+
+= link_to 'Edit', edit_relationship_path(@relationship)
+\|
+= link_to 'Back', relationships_path

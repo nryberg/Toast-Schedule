@@ -13,11 +13,14 @@ class MembersController < ApplicationController
   #       doesn't work when we don't have a club set.  
     
     @club = Club.find(session[:club_id])
+    # @members_active = Member.all(:club => current_club.id, :active => 1)
+    # @members_active = Member.where(:_id => @club.member_ids, :active => true)
+    @members_active = @club.members_active
+    @members_in_active = @club.members_active
+    # @members_active = Member.all(:club => current_club.id, :active => FALSE)
     if @club then
-       @members = @club.members.sort_by(&:name)
+      @members = @club.members.sort_by(&:name)
     else
-      
-      p session[:member_id]
       @members = Member.find(session[:member_id]).sort(:name)
     end
                            

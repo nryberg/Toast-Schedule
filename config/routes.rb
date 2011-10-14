@@ -1,6 +1,8 @@
 ToastSchedule::Application.routes.draw do
 
 
+  resources :relationships
+
   resources :roles
 
   controller :sessions do
@@ -14,11 +16,13 @@ ToastSchedule::Application.routes.draw do
    resources :clubs do
      resources :meetings
      resources :templates
+     resources :relationships
    end
-   
+  
    
    resources :members do
      resources :clubs
+     resources :relationships
    end
    
    resources :meetings do

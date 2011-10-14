@@ -13,12 +13,25 @@ class Club
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :meetings
-  
+  many :relationships
+
+  def relationships
+    Relationship.where(:club => self.id).all
+  end
+
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
   end
-  
-  
+
+  def members_active
+    self.members.all(:active => true).sort! { |a,b| a.name <=> b.name }
+  end
+  def members_in_active
+    memb = self.members.all(:active => false)
+    memb << self.members.all(:active => nil)
+    memb.sort! { |a,b| a.name <=> b.name }
+  end
+ 
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

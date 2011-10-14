@@ -15,4 +15,12 @@ module ApplicationHelper
       Club.find(session[:club_id])
   end
 
+  def logged_in
+    !session[:member_id].nil?
+  end
+
+  def relationship_types
+    ["Guest", "Visitor", "Member", "Officer", "Alumni", "Administrator"]
+  end
+
 end
