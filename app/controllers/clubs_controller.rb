@@ -23,7 +23,8 @@ class ClubsController < ApplicationController
   # GET /clubs/1.xml
   def show
     @club = Club.find(params[:id])
-    session[:club_id] = @club.id
+    ap @club
+    # session[:club_id] = @club.id
     @meetings = @club.meetings.sort(:meeting_date.asc)
     @header_text = @club.name
     

@@ -13,11 +13,11 @@ class Relationship
   #   Administrator
   
   def club_name
-#    Club.find(self.club).name
+    Club.find(self.club).name
   end
     
-  def member_name
-    Member.find(self.member).name
+  def member_object
+    Member.find(self.member)
   end
 
   def is_admin

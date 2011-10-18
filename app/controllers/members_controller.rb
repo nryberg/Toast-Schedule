@@ -12,17 +12,12 @@ class MembersController < ApplicationController
   # TODO: Fix the model information for members index.  This
   #       doesn't work when we don't have a club set.  
     
-    @club = Club.find(session[:club_id])
-    # @members_active = Member.all(:club => current_club.id, :active => 1)
-    # @members_active = Member.where(:_id => @club.member_ids, :active => true)
-    @members_active = @club.members_active
-    @members_in_active = @club.members_active
-    # @members_active = Member.all(:club => current_club.id, :active => FALSE)
-    if @club then
-      @members = @club.members.sort_by(&:name)
-    else
-      @members = Member.find(session[:member_id]).sort(:name)
-    end
+    @club = current_club
+#    if @club then
+#      @members = @club.members.sort_by(&:name)
+#    else
+#      @members = Member.find(session[:member_id]).sort(:name)
+#    end
                            
 
     respond_to do |format|
@@ -34,10 +29,7 @@ class MembersController < ApplicationController
   def edit
     @member = Member.find(params[:id])
     @club_choices = @member.clubs
-    p params[:id]
-    p session[:member_id].to_s
     @editing_self = (params[:id] == session[:member_id].to_s)
-    p @editing_self
     
   end
 

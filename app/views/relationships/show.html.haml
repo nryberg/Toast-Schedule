@@ -1,9 +1,15 @@
 %p#notice= notice
 
+%h3 Club
 %p= @relationship.club_name
-%p= @relationship.member_name
+
+%h3 Member
+%p= @relationship.member_object.name
+
+
+%h3 Membership Type
 %p= @relationship.type
 
 = link_to 'Edit', edit_relationship_path(@relationship)
 \|
-= link_to 'Back', relationships_path
+= link_to 'Back', current_club

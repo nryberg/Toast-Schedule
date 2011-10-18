@@ -6,7 +6,7 @@ class Club
   key :club_number, String
   
   key :member_ids, Array
-  many :members, :in => :member_ids
+#  many :members, :in => :member_ids
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
@@ -15,16 +15,19 @@ class Club
   many :meetings
   many :relationships
 
-  def relationships
-    Relationship.where(:club => self.id).all
+  #TODO: do a better job on moving the relationship to the Relationship model
+
+  def relationships(role) 
+    Relationship.where(:club => self.id, :type => role).all
   end
 
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
   end
 
-  def members_active
-    self.members.all(:active => true).sort! { |a,b| a.name <=> b.name }
+  def members
+    # self.members.all(:active => true).sort! { |a,b| a.name <=> b.name }
+    Relationship.find(:club => self.id, :type => "Member")
   end
   def members_in_active
     memb = self.members.all(:active => false)
