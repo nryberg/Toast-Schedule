@@ -1,11 +1,12 @@
 class Club
   include MongoMapper::Document         
-  
+  timestamps!
+
   key :name, String, :required => true
   key :address, String
   key :club_number, String
   
-  key :member_ids, Array
+#  key :member_ids, Array
 #  many :members, :in => :member_ids
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -26,8 +27,7 @@ class Club
   end
 
   def members
-    # self.members.all(:active => true).sort! { |a,b| a.name <=> b.name }
-    Relationship.find(:club => self.id, :type => "Member")
+    Relationship.by_club(self.id).members.all.map { |x| x.member_object}
   end
   def members_in_active
     memb = self.members.all(:active => false)

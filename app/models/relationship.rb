@@ -1,6 +1,14 @@
 class Relationship
   include MongoMapper::Document
 
+  scope :by_club, lambda { |club_id| where(:club => club_id)}
+  scope :by_member, lambda { |member_id| where(:member => member_id)}
+  scope :members, where(:type => "Member")
+  scope :guests, where(:type => "Guest")
+  scope :officers, where(:type => "Officer")
+  scope :administrators, where(:type => "Administrator")
+  scope :visitors, where(:type => "Visitor")
+
   key :type, String
   key :club, ObjectId
   key :member, ObjectId
