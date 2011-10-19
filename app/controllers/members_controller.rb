@@ -9,16 +9,7 @@ class MembersController < ApplicationController
 
   
   def index
-  # TODO: Fix the model information for members index.  This
-  #       doesn't work when we don't have a club set.  
-    
     @club = current_club
-#    if @club then
-#      @members = @club.members.sort_by(&:name)
-#    else
-#      @members = Member.find(session[:member_id]).sort(:name)
-#    end
-                           
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +19,7 @@ class MembersController < ApplicationController
  
   def edit
     @member = Member.find(params[:id])
-    @club_choices = @member.clubs
+    @club_choices = current_club.to_a
     @editing_self = (params[:id] == session[:member_id].to_s)
     
   end
@@ -50,7 +41,7 @@ class MembersController < ApplicationController
     @member = Member.new
     @member.primary_club = current_club.id
     @club_choices = current_club.to_a
-    @editing_self = true
+    # @editing_self = true
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @member}
@@ -59,7 +50,7 @@ class MembersController < ApplicationController
   
   def create
     @member = Member.new(params[:member])
-    p @member
+    @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Guest")
     
     unless session[:club_id].nil? then 
       @club = Club.find(session[:club_id])
@@ -73,6 +64,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        @relation.save
         # Then move forward to a new club, or add 
         # to a current club.
         if session[:club_id].nil? then 

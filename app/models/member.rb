@@ -23,7 +23,7 @@ class Member
   many :relationships 
 
   def clubs 
-    Club.where(:member_ids => id)
+    Relationship.by_member(self.id).all
   end
 
   def my_role_types(club_id)

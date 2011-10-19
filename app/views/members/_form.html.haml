@@ -4,7 +4,6 @@
     = f.input :email, :as => :email
     = f.input :phone, :as => :phone
     = f.input :primary_club, :as => :select, :collection => @club_choices
-    = f.input :type, :as => :select, :collection => ["Guest", "Visitor", "Member", "Officer", "Alumni"]
     - if @editing_self
       = f.input :password
       = f.input :password_confirmation

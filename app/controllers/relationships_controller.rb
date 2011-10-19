@@ -39,7 +39,7 @@ class RelationshipsController < ApplicationController
   def edit
     
     @relationship = Relationship.find(params[:id])
-    ap @relationship
+    @member = @relationship.member_object
   end
 
   # POST /relationships

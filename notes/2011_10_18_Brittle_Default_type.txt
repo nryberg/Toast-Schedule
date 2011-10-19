@@ -1,0 +1,3 @@
+04:56 PM 10/18/2011
+
+Membership default type should be guest, but how do I define that for a new versus an edit member?  Suddenly this is really brittle and frustrating. 

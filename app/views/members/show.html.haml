@@ -34,8 +34,10 @@
           = render :partial => 'role', :collection => @member.roles
         / TODO: Add in new Role function for a person
     %span.span-12
-      %h3.club_background My Memberships
+      %h3.member_background Memberships
       %span.span-12
         %table
-          = render :partial => 'club', :collection => @member.relationships.all
-      .span-6= link_to "New Membership", new_relationship_path
+          %tr
+            %th Club
+            %th Membership
+          = render :partial => 'club', :collection => @member.clubs

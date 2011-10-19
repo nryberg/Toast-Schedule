@@ -23,6 +23,10 @@ class Relationship
   def club_name
     Club.find(self.club).name
   end
+  
+  def club_object
+    Club.find(self.club)
+  end
     
   def member_object
     Member.find(self.member)

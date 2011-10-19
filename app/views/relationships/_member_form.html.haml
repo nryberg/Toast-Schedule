@@ -5,10 +5,13 @@
       %ul
         - @relationship.errors.full_messages.each do |msg|
           %li= msg
+  %h2= @relationship.club_name
+  %h3= @relationship.member_object.name
   - f.inputs do
-    = f.input :member, :as => :select, :collection => current_club.members, :default => @member
+    = f.input :member, :as => :hidden
     = f.input :type, :as => :select, :collection => relationship_types
     = f.input :club, :as => :hidden
 
   = f.buttons :commit
   .actions
+    = f.submit 'Save'
