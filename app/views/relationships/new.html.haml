@@ -5,4 +5,11 @@
     New Membership for the 
     = current_club.name
   = render 'form'
+
+  %h2 - Or - 
+  %h3 Invite a new Member
+  = form_tag members_search_path, :method => 'get' do 
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil
+
   = link_to 'Back to Club', current_club

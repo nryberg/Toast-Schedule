@@ -3,6 +3,10 @@ class Membership
   one :club
   one :member
 
+  def self.by_name_or_email(search)
+    self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
+  end
+    
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 

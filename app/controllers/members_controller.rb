@@ -7,7 +7,13 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.xml
 
-  
+
+  def search
+    @params = params[:search]
+    @members = Member.by_name_or_email(@params)
+    ap @members
+  end
+
   def index
     @club = current_club
 

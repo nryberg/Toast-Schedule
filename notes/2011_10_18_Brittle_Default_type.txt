@@ -1,3 +1,9 @@
 04:56 PM 10/18/2011
 
-Membership default type should be guest, but how do I define that for a new versus an edit member?  Suddenly this is really brittle and frustrating. 
+Membership default type should be guest, but how do I define that for a new versus an edit member?  Suddenly this is really brittle and frustrating.
+
+But linking the members into the club takes the ownership of member data and puts it into the club.  Which maybe all well and good.  The trick then is gathering the member data from other clubs and that's breaking the line between one and the other.  NO dups, no thank you.  
+
+Feature: Different VP roles have different default views.  VP Memberships sees the list of members and tasks? VP Ed sees speech status by member?  VP Ed or maybe secretary schedules meetings - (auto select next speech in series for speaker?)
+
+Features: Email notification is getting to be critical at this point.  How do new members know they've been added?  How do old members get speaking reminders? 

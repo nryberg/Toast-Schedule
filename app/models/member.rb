@@ -49,7 +49,11 @@ class Member
     rolez = Role.where(:member_id => id).all
     rolez.sort_by {|e| e.meeting.meeting_date || 0}
   end
-  
+ 
+  def self.by_name_or_email(search)
+    self.where(:$or => [{:name => /#{search}/}, {:email=> /#{search}/}])
+  end
+ 
   
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 

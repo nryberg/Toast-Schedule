@@ -1,5 +1,6 @@
 ToastSchedule::Application.routes.draw do
 
+  match 'members/search' => 'members#search'
 
   resources :relationships
 
@@ -21,6 +22,7 @@ ToastSchedule::Application.routes.draw do
   
    
    resources :members do
+    get :search, :collection
      resources :clubs
      resources :relationships
    end

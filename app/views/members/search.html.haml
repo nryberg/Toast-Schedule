@@ -1,0 +1,5 @@
+%h2 Searching for a great member
+%p fill in the blanks for a search form.  AJAX? 
+%p= @params
+- @members.each do |member|
+  %p= member.name
