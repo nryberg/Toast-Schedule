@@ -8,12 +8,6 @@ class MembersController < ApplicationController
   # GET /members.xml
 
 
-  def search
-    @params = params[:search]
-    @members = Member.by_name_or_email(@params)
-    ap @members
-  end
-
   def index
     @club = current_club
 
@@ -22,6 +16,13 @@ class MembersController < ApplicationController
       format.xml  { render :xml => @members }
     end
   end
+
+  def search
+    @params = params[:search]
+    @members = Member.by_name_or_email(@params)
+    ap @members
+  end
+
  
   def edit
     @member = Member.find(params[:id])
