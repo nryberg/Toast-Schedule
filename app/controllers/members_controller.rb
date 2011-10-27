@@ -23,6 +23,11 @@ class MembersController < ApplicationController
     ap @members
   end
 
+  def relate
+    ap params
+    
+  end
+
  
   def edit
     @member = Member.find(params[:id])

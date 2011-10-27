@@ -6,7 +6,7 @@
         - @relationship.errors.full_messages.each do |msg|
           %li= msg
   - f.inputs do
-    = f.input :member, :as => :select, :collection => current_club.members, :default => @member
+    = f.input :member, :as => :hidden
     = f.input :type, :as => :select, :collection => relationship_types
     = f.input :club, :as => :hidden
 

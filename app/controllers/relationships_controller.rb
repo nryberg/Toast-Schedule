@@ -26,8 +26,11 @@ class RelationshipsController < ApplicationController
   def new
     @relationship = Relationship.new
     @relationship.club = current_club.id
-    ap current_user
-    @relationship.member = current_user
+    if params[:member_id] then
+      @relationship.member = params[:member_id]
+    else  
+      @relationship.member = current_user.id
+    end
 
     respond_to do |format|
       format.html # new.html.erb

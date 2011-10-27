@@ -18,6 +18,6 @@
       %th Name
       %th e-mail 
     = render :partial => 'relationship', :collection => @club.relationships("Officer")
-  = link_to '(New Membership)', new_relationship_path
+  = link_to '(New Membership)', :action => "search"
 %br
 
