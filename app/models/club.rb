@@ -6,8 +6,6 @@ class Club
   key :address, String
   key :club_number, String
   
-#  key :member_ids, Array
-#  many :members, :in => :member_ids
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
@@ -27,7 +25,8 @@ class Club
   end
 
   def members
-    Relationship.by_club(self.id).members.all.map { |x| x.member_object}
+    _members = Relationship.by_club(self.id).members.officers.all.map { |x| x.member_object}
+    _members.uniq!
   end
   def members_in_active
     memb = self.members.all(:active => false)
