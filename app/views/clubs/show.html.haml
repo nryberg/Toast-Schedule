@@ -26,4 +26,4 @@
   %span.span-10
     %h4.member_background Members
     = render :partial => 'shared/member', :collection => @club.members.sort_by(&:name)
-    = link_to "(+) New Member", new_member_path
+    = link_to "(+) New Member", members_search_path

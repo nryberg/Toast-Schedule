@@ -19,8 +19,12 @@ class MembersController < ApplicationController
 
   def search
     @params = params[:search]
-    @members = Member.by_name_or_email(@params)
-    ap @members
+    unless @params.nil?
+      @candidate = Member.by_name_or_email(@params).all
+      @existing = current_club.members.sort_by(&:name)
+      @members = @candidate - @existing
+    end
+
   end
 
   def relate

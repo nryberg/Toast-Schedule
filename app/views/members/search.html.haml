@@ -12,13 +12,26 @@
       = text_field_tag :search, params[:search]
       = submit_tag "Search", :name => nil
   .span-20
-    %h4 Candidates
-    %table
-      %th Add
-      %th Name
-      %th E-Mail
-      - @members.each do |member|
-        %tr
-          %td= link_to "(add)", new_member_relationship_path(member) 
-          %td= link_to member.name, member
-          %td= member.email
+    - unless @members.nil?
+      %h4 Candidates
+      %table
+        %th Add
+        %th Name
+        %th E-Mail
+        - @members.each do |member|
+          %tr
+            %td= link_to "(add)", new_member_relationship_path(member) 
+            %td= link_to member.name, member
+            %td= member.email
+
+    - unless @existing.nil?
+      %h4 Existing matching members
+      %table
+        %th Add
+        %th Name
+        %th E-Mail
+        - @existing.each do |member|
+          %tr
+            %td= link_to "(change)", edit_member_path(member) 
+            %td= link_to member.name, member
+            %td= member.email
