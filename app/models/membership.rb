@@ -4,7 +4,7 @@ class Membership
   one :member
 
   def self.by_name_or_email(search)
-    self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
+    # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
   end
     
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
