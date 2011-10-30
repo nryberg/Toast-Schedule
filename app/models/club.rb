@@ -25,8 +25,9 @@ class Club
   end
 
   def members
-    _members = Relationship.by_club(self.id).members.officers.all.map { |x| x.member_object}
+    _members = Relationship.by_club(self.id).members.officers.sort(:name).all.map { |x| x.member_object}
     _members.uniq!
+    _members.sort_by(&:name)
   end
   def members_in_active
     memb = self.members.all(:active => false)
