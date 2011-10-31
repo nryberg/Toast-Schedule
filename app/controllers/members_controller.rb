@@ -35,7 +35,7 @@ class MembersController < ApplicationController
  
   def edit
     @member = Member.find(params[:id])
-    @club_choices = current_club
+    @club_choices = @member.clubs
     @editing_self = (params[:id] == session[:member_id].to_s)
     
   end

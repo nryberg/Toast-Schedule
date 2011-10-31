@@ -14,16 +14,24 @@ class Member
   key :salt, String
   key :primary_club, ObjectId
   key :hashed_password, String
- 
+
+  scope :by_name,  lambda { |name| where(:name => name) } 
+
   validates_presence_of :name
   validate :password, :confirmation => true  
   attr_accessor :password_confirmation  
   attr_reader :password  
 
-  many :relationships 
+  def relationships
+    _relations = Relationship.by_member(self.id)
+
+  end
 
   def clubs 
-    Relationship.by_member(self.id).all
+    _clubs = Relationship.by_member(self.id).map { |x| x.club_object}
+    _clubs.uniq!
+    _clubs.sort_by(&:name)
+
   end
 
   def my_role_types(club_id)
