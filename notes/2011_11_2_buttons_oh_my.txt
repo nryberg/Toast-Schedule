@@ -1,0 +1,5 @@
+04:46 PM 11/02/2011
+
+TODO have to get to edit membership through the relationship controller.  How do I select the action, etc...  through the link_to?
+
+

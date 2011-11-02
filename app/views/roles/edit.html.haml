@@ -2,13 +2,7 @@
   %span#lead_box.span-4.edit_label.meeting_background  Meeting
 %span.span-16
   %h2.span-16#lead_box
-    = link_to @meeting.meeting_date_pretty, @meeting
-    = link_to '(change)', edit_meeting_path(@meeting)
-  %h3.span-6.last
-    Changing Roles
+    Changing Roles for 
+    = @meeting.meeting_date_pretty
   .span-16.prepend
     = render 'form'
-
-= link_to 'Show', @role
-\|
-= link_to 'Back', roles_path
