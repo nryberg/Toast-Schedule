@@ -1,0 +1,14 @@
+10:36 PM 11/01/2011
+
+25,000 Feet
+==========================
+
+User Experience Principles
+--------------------------
+
+* Clean pages that noave no (0) extra stuff
+* Users know where to look on a page and what's important
+* users are at most 2 clicks away from navigating to another function
+* Users can complete everthing necessary to a task on one page that fits on a single screen
+* Clea color/style and theme guidance for functions
+* obvious and direct navigation - labels vs. links, text vs. images

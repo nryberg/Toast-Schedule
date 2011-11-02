@@ -40,5 +40,7 @@
           %tr
             %th Club
             %th Membership
-          = render :partial => 'relationship', :collection => @member.relationships.all
+          %tr
+            %td= @member.relationships.count
+          // = render :partial => 'relationship', :collection => @member.relationships
 

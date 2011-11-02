@@ -23,7 +23,13 @@ class Member
   attr_reader :password  
 
   def relationships
+    @rel_hash = Hash.new
     _relations = Relationship.by_member(self.id)
+
+    _relations.each do |relate|
+      @rel_hash(relate.club_name) << relate.type
+    end
+
 
   end
 
