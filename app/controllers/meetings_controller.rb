@@ -3,7 +3,7 @@ class MeetingsController < ApplicationController
   # GET /meetings.xml
   def index
     @club = current_club
-    @meetings = @club.meetings.sort(:meeting_date).all
+    @meetings = @club.upcoming_meetings
     @header_text = @club.name
 
     respond_to do |format|

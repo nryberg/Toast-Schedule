@@ -1,4 +1,4 @@
-= form_for ([@meeting, @role]) do |f|
+= semantic_form_for ([@meeting, @role]) do |f|
   -if @role.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@role.errors.count, "error")} prohibited this role from being saved:"
@@ -7,10 +7,10 @@
           %li= msg
   %div.span-20
     %span-16
-      = f.collection_select(:member_id, @meeting.club.members, :id, :name)
-      = f.collection_select(:role_type_id, RoleType.all, :id, :name)
-      = f.label :title
-      = f.text_field :title
+      = f.inputs do 
+        = f.input :member_id, :as => :select, :collection => @meeting.club.members
+        = f.input :role_type_id, :as => :radio, :collection => RoleType.all
+        = f.input :title
       .actions
-        = f.submit 'Save'
+        = f.buttons
         = link_to ' or back to Meeting', meeting_path(@meeting)
