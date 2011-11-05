@@ -19,6 +19,14 @@ class Relationship
   #   Officer
   #   Alumni
   #   Administrator
+
+  def member_name
+    Member.find(self.member).name
+  end
+
+  def member_email
+    Member.find(self.member).email
+  end
   
   def club_name
     Club.find(self.club).name

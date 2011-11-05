@@ -64,10 +64,11 @@ class RelationshipsController < ApplicationController
   # PUT /relationships/1.xml
   def update
     @relationship = Relationship.find(params[:id])
+    @member = @relationship.member_object
 
     respond_to do |format|
       if @relationship.update_attributes(params[:relationship])
-        format.html { redirect_to(@relationship, :notice => 'Relationship was successfully updated.') }
+        format.html { redirect_to(@member, :notice => 'Relationship was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

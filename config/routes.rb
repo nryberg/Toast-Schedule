@@ -3,6 +3,8 @@ ToastSchedule::Application.routes.draw do
   match 'members/search' => 'members#search'
   match 'members/relate' => 'members#relate'
 
+  resources :memberships, :controller => "relationships"
+
   resources :relationships
 
   resources :roles

@@ -6,18 +6,15 @@
     = link_to @club.name, @club, :style => 'text-decoration: none'
   .span-20#header_box Members
   %table
-    = render :partial => 'membership', :collection => @club.relationships("Member")
+    = render :partial => 'relationship', :collection => @club.relationships("Member")
    
   .span-20#header_box Guests
   %table
-    = render :partial => 'membership', :collection => @club.relationships("Guest")
+    = render :partial => 'relationship', :collection => @club.relationships("Guest")
 
   .span-20#header_box Officers
   %table
-    %tr
-      %th Name
-      %th e-mail 
-    = render :partial => 'membership', :collection => @club.relationships("Officer")
+    = render :partial => 'relationship', :collection => @club.relationships("Officer")
   = link_to '(New Membership)', :action => "search"
 %br
 
