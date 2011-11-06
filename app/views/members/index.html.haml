@@ -1,6 +1,6 @@
 %span.span-4
   .span-4#lead_box.member_background Members
-  .span-4= link_to "(Add Membership)", new_relationship_path
+  .span-4= link_to '(New Membership)', :action => "search"
 %span.span-16
   .span-20#lead_box
     = link_to @club.name, @club, :style => 'text-decoration: none'
@@ -15,6 +15,5 @@
   .span-20#header_box Officers
   %table
     = render :partial => 'relationship', :collection => @club.relationships("Officer")
-  = link_to '(New Membership)', :action => "search"
 %br
 
