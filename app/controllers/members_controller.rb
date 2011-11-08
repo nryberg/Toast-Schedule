@@ -66,7 +66,7 @@ class MembersController < ApplicationController
   
   def create
     @member = Member.new(params[:member])
-    @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Guest")
+    @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Member")
     
     unless session[:club_id].nil? then 
       @club = Club.find(session[:club_id])

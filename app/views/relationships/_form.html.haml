@@ -7,7 +7,7 @@
           %li= msg
   - f.inputs do
     = f.input :member, :as => :hidden
-    = f.input :type, :as => :select, :collection => relationship_types
+    = f.input :type, :as => :radio, :collection => relationship_types
     = f.input :club, :as => :hidden
 
   = f.buttons :commit

@@ -10,12 +10,19 @@
     
     = form_tag members_search_path, :method => 'get' do 
       = text_field_tag :search, params[:search]
-      #test= submit_tag "Search", :name => nil
+      = submit_tag "Search", :name => nil
   .span-20
     - unless @members.nil?
       - if @members.count == 0 
-        %h3 No candidates found either matching or not already in club
+        %h3 No matching candidates found.
         %h3= link_to "Create a new member?", new_member_path
+        %h3 These great folks are already part of the club
+        %table
+          %th Name
+          - current_club.members.each do |member|
+            %tr
+              %td= link_to member.name, member
+
       - else
         %h4 Candidates
         %table

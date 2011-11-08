@@ -33,7 +33,7 @@ class RelationshipsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { redirect_to(current_club, :notice => "Membership created") }
       format.xml  { render :xml => @relationship }
     end
   end
@@ -81,10 +81,12 @@ class RelationshipsController < ApplicationController
   # DELETE /relationships/1.xml
   def destroy
     @relationship = Relationship.find(params[:id])
+    @member = @relationship.member_object
     @relationship.destroy
 
+
     respond_to do |format|
-      format.html { redirect_to(relationships_url) }
+      format.html { redirect_to(@member) }
       format.xml  { head :ok }
     end
   end
