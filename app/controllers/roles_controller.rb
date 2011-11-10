@@ -1,5 +1,28 @@
 class RolesController < ApplicationController
-  # GET /roles
+
+
+  def up
+    @role = Role.find(params[:id])
+    @role.move_up
+    @role.save
+    @meeting = @role.meeting
+    respond_to do |format|
+        format.html { redirect_to(@meeting, :notice => 'Role was successfully updated.') }
+        format.xml  { head :ok }
+    end
+  end 
+
+  def down
+    @role = Role.find(params[:id])
+    @role.move_down
+    @role.save
+    @meeting = @role.meeting
+    respond_to do |format|
+        format.html { redirect_to(@meeting, :notice => 'Role was successfully updated.') }
+        format.xml  { head :ok }
+    end
+  end 
+ # GET /roles
   # GET /roles.xml
   def index
     @roles = Role.all
@@ -9,6 +32,8 @@ class RolesController < ApplicationController
       format.xml  { render :xml => @roles }
     end
   end
+
+
 
   # GET /roles/1
   # GET /roles/1.xml
@@ -49,6 +74,7 @@ class RolesController < ApplicationController
   def create
     @meeting = Meeting.find(session[:meeting_id])
     @role = Role.create(params[:role])
+    @role.ordinal = @meeting.roles.length
     @meeting.roles << @role
     @meeting.save
     

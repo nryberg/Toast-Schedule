@@ -6,8 +6,29 @@ class Role
   key :member_id, ObjectId
   key :role_type_id, ObjectId 
   key :title, String
+  key :ordinal, Integer
+  key :up_sibling, ObjectId
+  key :down_sibling, ObjectId
 
   validates_presence_of :member_id
+
+  def move_up
+    unless self.up_sibling.nil?
+      prior = Role.find(self.up_sibling)
+      self.ordinal = prior.ordinal
+      prior.ordinal += 1
+      prior.save
+    end
+  end
+
+  def move_down
+    unless self.down_sibling.nil?
+      post = Role.find(self.down_sibling)
+      self.ordinal = post.ordinal
+      post.ordinal -= 1
+      post.save
+    end
+  end
 
   def date_meeting
     self.meeting.meeting_date

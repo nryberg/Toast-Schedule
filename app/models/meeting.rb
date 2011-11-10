@@ -1,11 +1,17 @@
 class Meeting
-#   include MongoMapper::EmbeddedDocument         
-  
   include MongoMapper::Document         
+  validates_presence_of :meeting_date
+  after_update :comb_roles
+
   key :theme, String
   key :meeting_date, Date, :index => true
   
-  validates_presence_of :meeting_date
+  def comb_roles
+    self.roles.each_index do |index|
+      self.role[index].ordinal = index
+    end
+
+  end
 
   def meeting_date_formatted
       if meeting_date.nil? then 
@@ -36,6 +42,10 @@ class Meeting
   
   def member_roles(member_id)
     
+  end
+
+  def last_role
+    roles = self.roles.sort_by(&ordinal)
   end
 # validates_presence_of :attribute
   has_many :roles, :dependent => :destroy
