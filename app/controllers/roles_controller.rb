@@ -49,12 +49,10 @@ class RolesController < ApplicationController
   # GET /roles/new
   # GET /roles/new.xml
   def new
-    if not @template.nil?
-      p "Template!"
-    end 
     session[:meeting_id] = params[:meeting_id]
     @role = Role.new
     @meeting = Meeting.find(session[:meeting_id])
+        
 
     respond_to do |format|
       format.html # new.html.erb
@@ -74,7 +72,7 @@ class RolesController < ApplicationController
   def create
     @meeting = Meeting.find(session[:meeting_id])
     @role = Role.create(params[:role])
-    @role.ordinal = @meeting.roles.length
+    # At this point, the role order should be maintained by the Member and the Role. 
     @meeting.roles << @role
     @meeting.save
     

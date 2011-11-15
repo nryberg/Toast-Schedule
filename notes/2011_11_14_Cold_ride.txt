@@ -1,0 +1,17 @@
+07:33 AM 11/14/2011
+
+Long time, no code.  
+
+Short term goals:
+Pick a theme and push it to all views - use a simplified CSS
+Enable e-mail notification 
+  Build out password recovery
+  Build out new user landing page
+Define structure and methodology for payments
+
+Single bugs
+Date format in Meeting edit is conflicted between too little and too much detail.  Maybe this whole thing should be unified and put the date and time in two separate fields. I dunno.
+
+Up/down ordinals for meeting agenda items.  What the ??
+
+

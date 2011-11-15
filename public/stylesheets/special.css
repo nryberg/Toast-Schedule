@@ -1,3 +1,7 @@
+#labeler {
+ font-weight: bold;
+}
+
 .member_background {
   background-color: #C19A7B;
   margin: 0;
@@ -67,7 +71,9 @@
 }
 
 .body {
-  /* background-color: #8AB29F; */
+  background-color: #8AB29F;
+  font-size: 125%;
+  
 }
 
 .container {
