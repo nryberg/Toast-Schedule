@@ -6,14 +6,15 @@
     = link_to '(New Meeting)', new_meeting_path()
 %span.span-16  
   .span-16#lead_box
-    .span-3#labeler Date:
+    .span-3#labeler Date
     .span-10= @meeting.meeting_date_pretty
   %h2 
-    .span-3#labeler Theme:
+    .span-3#labeler Theme
     = @meeting.theme
+  %h2 
+    .span-3#labeler Roles
   .span-16
-    .span-3#labeler Roles:
-    %span.span-8
+    %span.span-12
       %table
         = render :partial => 'role', :collection => @roles
         %tr
