@@ -13,6 +13,7 @@ class Role
   key :ordinal, Integer
 
   validates_presence_of :member_id
+  validates_presence_of :ordinal
 
   def move_up
     _prior = Role.prior(self.meeting_id, self.ordinal).sort(:ordinal.desc).first

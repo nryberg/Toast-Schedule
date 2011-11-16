@@ -72,7 +72,7 @@ class RolesController < ApplicationController
   def create
     @meeting = Meeting.find(session[:meeting_id])
     @role = Role.create(params[:role])
-    # At this point, the role order should be maintained by the Member and the Role. 
+    @role.ordinal = @meeting.roles.count
     @meeting.roles << @role
     @meeting.save
     
