@@ -5,17 +5,8 @@ class Meeting
 
   key :theme, String
   key :meeting_date, Date, :index => true
-  key :role_order, Array
   
-  def comb_roles
-    ap "At comb roles"
-    self.roles.each_index do |index|
-      self.roles[index].ordinal = index
-      self.roles[index].save
-    end
-
-  end
-
+ 
   def meeting_date_formatted
       if meeting_date.nil? then 
          ''

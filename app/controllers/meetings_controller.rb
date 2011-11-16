@@ -16,7 +16,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.xml
   def show
     @meeting = Meeting.find(params[:id])
-    @roles = @meeting.roles
+    @roles = @meeting.roles.sort_by(&:ordinal)
     
     @club = @meeting.club
     respond_to do |format|

@@ -2,31 +2,35 @@ class Role
   include MongoMapper::Document
 #   key :member_id, :typecast => 'ObjectId'
 #   key :role_type_id, :typecast => 'ObjectId'
+
+  scope :prior, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.lt => _ordinal)}
+  scope :next, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.gt => _ordinal)}
+  scope :by_meeting_id, lambda {|_meeting_id| where(:meeting_id => _meeting_id)}
   
   key :member_id, ObjectId
   key :role_type_id, ObjectId 
   key :title, String
   key :ordinal, Integer
-  key :up_sibling, ObjectId
-  key :down_sibling, ObjectId
 
   validates_presence_of :member_id
 
   def move_up
-    unless self.up_sibling.nil?
-      prior = Role.find(self.up_sibling)
-      self.ordinal = prior.ordinal
-      prior.ordinal += 1
-      prior.save
+    _prior = Role.prior(self.meeting_id, self.ordinal).sort(:ordinal.desc).first
+    unless _prior.nil?
+      _prior.ordinal += 1
+      self.ordinal -= 1
+      _prior.save
+      self.save
     end
   end
 
   def move_down
-    unless self.down_sibling.nil?
-      post = Role.find(self.down_sibling)
-      self.ordinal = post.ordinal
-      post.ordinal -= 1
-      post.save
+    _next = Role.next(self.meeting_id, self.ordinal).sort(:ordinal).first
+    unless _next.nil?
+      _next.ordinal -= 1
+      self.ordinal += 1
+      _next.save
+      self.save
     end
   end
 
