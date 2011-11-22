@@ -1,3 +1,33 @@
+#header_box {
+  border-bottom:thin solid #0B79D9;
+}
+
+#nav_box {
+  font-size: 125%;
+  text-align: right;
+
+}
+
+#log_in_bar {
+  line-height: 3em;
+  text-align: right;
+}
+
+#header_right {
+  text-align:right;
+
+}
+
+#site_title {
+  color:  #0B79D9;
+  font-size: 400%;
+  text-decoration:none;
+}
+
+#test_pattern {
+  background-color: green;
+}
+
 #labeler {
  font-weight: bold;
 }
@@ -25,16 +55,7 @@
   font-size: 200%;
 }
 
-#nav_box {
-  font-size: 150%;
-  text-align: center;
 
-}
-
-#header_box {
-  font-size: 175%;
-  v-align: center;
-}
 .edit_label {
   font-size: 150%;
 }
@@ -59,12 +80,6 @@
   font-family: 'Droid Serif Bold', arial, serif;
 }
 
-.site_title {
-  color:  #0B79D9;
-  font-size: 200%;
-  border-bottom:thin solid #0B79D9;
-  text-decoration:none;
-}
 
 #title_link{
   text-decoration: none;
@@ -80,8 +95,4 @@
   /* background-color: #F2E6CE; */
 }
 
-.log_in_bar {
-  line-height: 3em;
-  font-size:50%;
-  text-align: center;
-}
+

@@ -12,11 +12,11 @@
     .span-3#labeler Theme
     = @meeting.theme
   %h2 
-    .span-3#labeler Roles
-  .span-16
-    %span.span-12
-      %table
-        = render :partial => 'role', :collection => @roles
-        %tr
-          %td{:colspan => "2"}= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
-  
+    %span-3#labeler 
+      Roles
+  %span-12
+    %table
+      = render :partial => 'role', :collection => @roles
+      %tr
+        %td{:colspan => "2"}= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
+
