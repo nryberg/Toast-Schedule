@@ -1,10 +1,22 @@
+#action_box {
+  font-size: 125%;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 10px;
+}
+
 #header_box {
   border-bottom:thin solid #0B79D9;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 #nav_box {
   font-size: 125%;
-  text-align: right;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 0px;
+  padding-right: 0px;
 
 }
 
@@ -16,12 +28,14 @@
 #header_right {
   text-align:right;
 
+  float: right;
 }
 
 #site_title {
-  color:  #0B79D9;
+  /* color:  #0B79D9; */
   font-size: 400%;
   text-decoration:none;
+  float: left;
 }
 
 #test_pattern {
@@ -29,22 +43,20 @@
 }
 
 #labeler {
+ font-size:150%;
  font-weight: bold;
 }
 
 .member_background {
   background-color: #C19A7B;
-  margin: 0;
 }
 
 .meeting_background {
   background-color: #F3933C;
-  margin: 0;
 }
 
 .club_background {
   background-color: #88BEE4;
-  margin: 0;
 }
 
 .role_background {

@@ -12,6 +12,7 @@ Define structure and methodology for payments
 Single bugs
 Date format in Meeting edit is conflicted between too little and too much detail.  Maybe this whole thing should be unified and put the date and time in two separate fields. I dunno.
 
-Up/down ordinals for meeting agenda items.  What the ??
+Up/down ordinals for meeting agenda items. Actually works.
+
 
 

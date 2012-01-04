@@ -21,6 +21,10 @@
   %p#notice= notice 
   %p#class= alert
   .container
-    .span-24= render "layouts/header"
+    .span-24.site_title
+      .span-24#test_pattern
+        .span-10.log_in_bar= render "layouts/nav_login"
+        .span-12.log_in_bar= render "layouts/nav_tabs"
+      .span-10
     .span-24
       = yield
