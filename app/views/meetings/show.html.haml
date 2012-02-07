@@ -1,21 +1,26 @@
 %span.span-4
   .span-4#lead_box.meeting_background Meeting
   .span-4#action_box
-    = link_to '(Change)', edit_meeting_path(@meeting)
+    = link_to '(Edit)', edit_meeting_path(@meeting)
   .span-4#action_box
-    = link_to '(New Meeting)', new_meeting_path()
-%span.span-16.last 
-  .span-16.last#lead_box
+    = link_to '(Add)', new_meeting_path()
+%span.span-18.last 
+  .span-16.last 
+    .span-3#labeler Date
     = @meeting.meeting_date_pretty
   .span-16.last 
     .span-3#labeler Theme
     = @meeting.theme
-  %h2 
-    %span-3#labeler 
-      Roles
-  %span-12
-    %table
-      = render :partial => 'role', :collection => @roles
-      %tr
-        %td{:colspan => "2"}= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
+  .span-18
+    .span-3
+      #labeler Roles
+      .span-3= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
+    .span-15.last
+      %table
+        %th Role
+        %th Member
+        %th Move 
+        %th Move
+        %th Delete
+        = render :partial => 'role', :collection => @roles
 

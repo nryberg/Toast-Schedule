@@ -1,6 +1,6 @@
 %tr
-  %td= role.member_name
   %td= link_to role.role_type, edit_meeting_role_path(@meeting, role) 
+  %td= role.member_name
   %td= link_to 'Up', :controller => "roles", :action => "up", :id => role
   %td= link_to 'Down', :controller => "roles", :action => "down", :id => role
   %td= link_to 'Drop', [@meeting, role], :confirm => 'Are you sure?', :method => :delete

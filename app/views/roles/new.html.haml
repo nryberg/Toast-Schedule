@@ -1,11 +1,10 @@
-%span.span-4#lead_box
-  %span.span-4.edit_label.meeting_background  Meeting
-%span-16
+.span-4#lead_box
+  %span.span-4.meeting_background  Meeting
+.span-18.last
   .span-16#lead_box
+    Add a Role for 
     = link_to @meeting.meeting_date_pretty, meeting_path(@meeting), :style => 'text-decoration: none'
-  .span-16#lead_box
-    Add a Role:
-  .span-16.prepend-4
+  .span-16.prepend-1
     = render 'form'
 
 / = link_to 'Back', roles_path

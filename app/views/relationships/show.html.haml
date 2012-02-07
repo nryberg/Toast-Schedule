@@ -1,15 +1,26 @@
-%p#notice= notice
+%span.span-4
+  .span-4#lead_box.member_background Membership
+  - if current_user.admin_for(current_club.id)
+    .span-4#action_box
+      = link_to '(edit)', edit_relationship_path(@club)
+    .span-4#action_box
+      = link_to '(add)', new_relationship_path()
+%span.span-18.last
+  .span-18
+    .span-3#labeler Club
+    .span-14
+      = @relationship.club_name
 
-%h3 Club
-%p= @relationship.club_name
+  .span-18
+    .span-3#labeler Member
+    .span-14
+      = @relationship.member_object.name
 
-%h3 Member
-%p= @relationship.member_object.name
+  .span-18
+    .span-3#labeler Membership
+    .span-14
+      = @relationship.type
 
-
-%h3 Membership Type
-%p= @relationship.type
-
-= link_to 'Edit', edit_relationship_path(@relationship)
-\|
-= link_to 'Back', current_club
+  = link_to 'Edit', edit_relationship_path(@relationship)
+  \|
+  = link_to 'Back', current_club

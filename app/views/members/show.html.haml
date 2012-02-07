@@ -5,41 +5,37 @@
   #action_box
     .span-4= link_to '(Edit)', edit_member_path(@member)
     .span-4= link_to '(Add)', new_member_path()
-.span-18#lead_box
-  .span-12= @member.name
-.span-16#content_box
-  .span-20  
-    .span-3
-      %h4 E-Mail
-    .span-6= @member.email
-  .span-20  
-    .span-3
-      %h4 Phone
-    .span-6= @member.phone
-  .span-20  
-    .span-3
-      %h4 Primary Club
-    - if not @member.my_club.nil? then  
-      .span-6= link_to @member.my_club.name, @member.my_club 
-  .span-12#content_box
-    %span.span-12
-      %h3.meeting_background 
-        .span-6 My Meetings
-        .span-4= link_to "All Meetings", meetings_path
-      %span.span-8
+.span-20.last
+  .span-16
+    .span-4#labeler Name
+    = @member.name
+  .span-20#content_box
+    .span-20  
+      .span-4#labeler E-Mail
+      = @member.email
+    .span-20  
+      .span-4#labeler Phone
+      = @member.phone
+    .span-20  
+      .span-4#labeler.club_background Club
+      - if not @member.my_club.nil? then  
+        .span-6= link_to @member.my_club.name, @member.my_club 
+    .span-20  
+      .span-4#labeler.meeting_background Meetings
+      .span-8.last
         %table
           %tr
             %th Date
             %th Role
           = render :partial => 'role', :collection => @member.roles
-        / TODO: Add in new Role function for a person
-    %span.span-12
-      %h3.member_background Memberships
-      %span.span-12
-        %table
-          %tr
-            %th Club
-            %th Membership
-          %tr
-            = render :partial => 'membership', :collection => @member.relationships
-
+          / TODO: Add in new Role function for a person
+    .span-20.last
+      .span-4#labeler.member_background Memberships
+      .span-8.last
+        %span.span-12
+          %table
+            %tr
+              %th Membership
+              %th Club
+            %tr
+              = render :partial => 'membership', :collection => @member.relationships

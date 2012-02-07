@@ -1,0 +1,13 @@
+04:13 PM 01/09/2012
+
+After a couple of lapses, the project is back in gear.  I'm hoping that this leave of absence will give me the perspective to make this application really sing.  There are a number of areas that would benefit from tightening up and then it's time to shove this puppy out the door.
+
+ * Consistent style - the look and feel has to be simple and similar across the lines. Right now it's a hodge-podge, and not a very pretty one.  I've got some simple sketches of how I want this to look, and beyond that it should just rock.  It doesn't have to be pixel perfect - just functional.  Maybe someday when I get some money in the bank, I can hire a proper designer.
+ * Structural engineering - there's a couple of loose ends, but more or less it's ready to go.
+ * Pricing - keep it simple - $20 every six months.  Honestly I don't know how to price considering I don't know what the costs will be.
+
+
+
+
+
+
