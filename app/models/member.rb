@@ -56,7 +56,12 @@ class Member
     rolez = Role.where(:member_id => id).all
     rolez.sort_by {|e| e.meeting.meeting_date || 0}
   end
- 
+
+  def upcoming_roles
+    rolez = Role.where(:member_id => id, :meeting.meeting_date => Time.now).all
+    rolez.sort_by {|e| e.meeting.meeting_date || 0}
+  end
+
   def self.by_name_or_email(search)
     self.where(:$or => [{:name => /#{search}/}, {:email=> /#{search}/}])
   end

@@ -4,7 +4,9 @@ class Meeting
 
   key :theme, String
   key :meeting_date, Date, :index => true
-  
+
+  scope :my_roles, lambda { |my_id| roles.where(:member_id => my_id) }
+  scope :upcoming, lambda {where :meeting_date.gt => Time.now}
  
   def meeting_date_formatted
       if meeting_date.nil? then 
@@ -41,7 +43,7 @@ class Meeting
     roles = self.roles.sort_by(&ordinal)
   end
 # validates_presence_of :attribute
-  has_many :roles, :dependent => :destroy
+  many :roles, :dependent => :destroy
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :club
