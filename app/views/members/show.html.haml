@@ -21,13 +21,13 @@
       - if not @member.my_club.nil? then  
         .span-6= link_to @member.my_club.name, @member.my_club 
     .span-20  
-      .span-4#labeler.meeting_background Meetings
+      .span-4#labeler.meeting_background Upcoming Roles
       .span-16.last
         %table
           %tr
             %th Date
             %th Role
-          = render :partial => 'role', :collection => @member.roles
+          = render :partial => 'role', :collection => @member.upcoming_roles
           / TODO: Add in new Role function for a person
     .span-20.last
       .span-4#labeler.member_background Memberships

@@ -6,6 +6,7 @@ class Role
   scope :prior, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.lt => _ordinal)}
   scope :next, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.gt => _ordinal)}
   scope :by_meeting_id, lambda {|_meeting_id| where(:meeting_id => _meeting_id)}
+  scope :mine, lambda {|_member_id| where(:member_id => _member_id)}
   
   key :member_id, ObjectId
   key :role_type_id, ObjectId 

@@ -53,13 +53,15 @@ class Member
   end
 
   def roles
-    rolez = Role.where(:member_id => id).all
+    rolez = Role.mine(id).all
     rolez.sort_by {|e| e.meeting.meeting_date || 0}
   end
 
   def upcoming_roles
-    rolez = Role.where(:member_id => id, :meeting.meeting_date => Time.now).all
+    #rolez = Role.where(:member_id => id, :meeting.meeting_date => Time.now).all
+    rolez = Role.mine(id).all
     rolez.sort_by {|e| e.meeting.meeting_date || 0}
+    rolez.delete_if {|e| e.meeting.meeting_date > Date.new}
   end
 
   def self.by_name_or_email(search)
