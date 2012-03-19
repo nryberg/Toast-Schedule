@@ -2,18 +2,20 @@
   .span-4#lead_box.meeting_background Meetings
   #action_box
     .span-4= link_to '(Add)', new_meeting_path()
-.span-16
-  .span-16#lead_box
-    = link_to @club.name, @club, :style => 'text-decoration: none'
-  %h3 Upcoming Meetings
-  %table.span-16
-    %tr
-      %th Date
-      %th Theme
-    = render @meetings
-  = link_to 'New meeting', new_meeting_path
-  %h3 Past Meetings
-  %table.span-16
-    %tr
-      %th Date
-      %th Theme
+.span-20.last
+  .span-20.last
+    .span-4#labeler Upcoming 
+    .span-16.last
+      %table
+        %tr
+          %th Date
+          %th Theme
+        = render @meetings
+  .span-20.last
+    .span-4#labeler Past
+    .span-16.last
+      %table.span-16
+        %tr
+          %th Date
+          %th Theme
+        = render @past_meetings

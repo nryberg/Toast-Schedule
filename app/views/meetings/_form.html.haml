@@ -6,7 +6,7 @@
         - @meeting.errors.full_messages.each do |msg|
           %li= msg
   - f.inputs do 
-    =f.input :meeting_date, :as => :string, :value => @meeting.meeting_date_formatted
+    =f.input :meeting_date, :as => :string #, :value => @meeting.meeting_date
     //  %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
     = f.input :theme, :as => :string
   = f.buttons :commit

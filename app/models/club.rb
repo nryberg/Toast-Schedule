@@ -5,6 +5,7 @@ class Club
   key :name, String, :required => true
   key :address, String
   key :club_number, String
+  key :time_zone, String
   
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -22,6 +23,10 @@ class Club
 
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
+  end
+
+  def past_meetings
+    self.meetings.where(:meeting_date => {'$lt' => 2.day.ago.midnight}).sort(:meeting_date.desc).all
   end
 
   def members

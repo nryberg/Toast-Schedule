@@ -4,6 +4,7 @@ class MeetingsController < ApplicationController
   def index
     @club = current_club
     @meetings = @club.upcoming_meetings
+    @past_meetings = @club.past_meetings
     @header_text = @club.name
 
     respond_to do |format|
@@ -70,6 +71,7 @@ class MeetingsController < ApplicationController
   # PUT /meetings/1.xml
   def update
     @meeting = Meeting.find(params[:id])
+    ap params[:meeting]
     respond_to do |format|
       if @meeting.update_attributes(params[:meeting])
         format.html { redirect_to([@meeting], :notice => 'Meeting was successfully updated.') }

@@ -6,30 +6,33 @@
         = link_to '(edit)', edit_club_path(@club)
       .span-4
         = link_to '(add)', new_club_path()
-%span.span-18
-  .span-18
-    .span-3#labeler Name
-    .span-14= @club.name
-  .span-18
-    .span-3#labeler Address
-    .span-14
+.span-20.last
+  .span-20
+    .span-4#labeler Name
+    .span-16.last= @club.name
+  .span-20
+    .span-4#labeler Address
+    .span-16.last
       %code= @club.address
       %h5= link_to "Map it", map_to(@club.address), {"target"=>"_blank"}
-  .span-18
-    .span-3#labeler Number
-    %span.span-14= @club.club_number
-  .span-18
-    .span-3
+  .span-20
+    .span-4#labeler Number
+    %span.span-16.last= @club.club_number
+  .span-20
+    .span-4#labeler Time Zone
+    %span.span-16.last= @club.time_zone
+  .span-20
+    .span-4
       .meeting_background#labeler.last Meetings
       .span-3= link_to "(+) New Meeting", new_meeting_path
-    .span-14.prepend-1.last
-      %table.span-10.append-8
+    .span-16.last
+      %table.span-16
         %th Date
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
-  .span-18
-    .span-3
+  .span-20
+    .span-4
       .member_background#labeler.last  Members
-      .span-3= link_to "(+) New Member", members_search_path
-    .span-14.prepend-1.last
+      .span-4= link_to "(+) New Member", members_search_path
+    .span-16.last
       = render :partial => 'shared/member', :collection => @club.members
