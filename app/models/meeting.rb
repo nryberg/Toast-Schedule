@@ -6,6 +6,25 @@ class Meeting
   key :meeting_date, Date, :index => true
 
   scope :upcoming, lambda {where :meeting_date.gt => Time.now}
+
+  attr_accessor :meeting_time_part
+  attr_accessor :meeting_date_part
+
+  before_update :set_time_stamp
+
+  def meeting_date_part
+      if meeting_date.nil? then 
+        Time.now.strftime '%m/%d/%Y' 
+      else
+         meeting_date.strftime '%m/%d/%Y' 
+      end
+   
+  end
+
+#  def meeting_date_part=(value)
+#    ap value
+
+#  end
   def meeting_date_formatted
       if meeting_date.nil? then 
          ''
@@ -14,6 +33,16 @@ class Meeting
       end
     
   end
+
+  def meeting_time_part
+    
+      if meeting_date.nil? then 
+        Time.now.strftime '%I:%M %p'
+      else
+         meeting_date.strftime '%I:%M %p'
+      end
+
+  end 
   
   def meeting_date_pretty
     if meeting_date.nil? then 
@@ -63,5 +92,14 @@ class Meeting
 # Typecast
 # key :user_ids, Array, :typecast => 'ObjectId'
   
-   
+
+  private
+  def set_time_stamp
+    #self.meeting_date = @meeting_date_part.to_date
+    ap self.club.time_zone
+    fixed_date = DateTime::strptime(@meeting_date_part + " " + @meeting_time_part + " " + self.club.time_zone,"%m\/%d\/%Y %I:%M %p") 
+    ap fixed_date
+    ap fixed_date.to_time.iso8601
+
+  end
 end

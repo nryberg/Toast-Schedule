@@ -5,7 +5,7 @@
 // }); 
 var $j = jQuery.noConflict();
 $j(document).ready(function() {
-    $j('#meeting_meeting_date').datepicker();
+    $j('#meeting_meeting_date_part').datepicker();
   });
 $j('a.delete').click (function(){
     if(confirm("Are you sure?")){

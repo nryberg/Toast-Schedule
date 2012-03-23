@@ -7,7 +7,10 @@
 %span.span-18.last 
   .span-16.last 
     .span-3#labeler Date
-    = @meeting.meeting_date_pretty
+    = @meeting.meeting_date_part
+  .span-16.last 
+    .span-3#labeler Time
+    = @meeting.meeting_time_part 
   .span-16.last 
     .span-3#labeler Theme
     = @meeting.theme
