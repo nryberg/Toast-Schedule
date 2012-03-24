@@ -3,7 +3,7 @@ class Meeting
 #  validates_presence_of :meeting_date
 
   key :theme, String
-  key :meeting_date, Date, :index => true
+  key :meeting_date, Time, :index => true
 
   scope :upcoming, lambda {where :meeting_date.gt => Time.now}
 
@@ -95,11 +95,6 @@ class Meeting
 
   private
   def set_time_stamp
-    #self.meeting_date = @meeting_date_part.to_date
-    ap self.club.time_zone
-    fixed_date = DateTime::strptime(@meeting_date_part + " " + @meeting_time_part + " " + self.club.time_zone,"%m\/%d\/%Y %I:%M %p") 
-    ap fixed_date
-    ap fixed_date.to_time.iso8601
-
+    self.meeting_date = DateTime::strptime(@meeting_date_part + " " + @meeting_time_part ,"%m\/%d\/%Y %I:%M %p") 
   end
 end
