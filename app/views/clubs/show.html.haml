@@ -19,20 +19,17 @@
     .span-4#labeler Number
     %span.span-16.last= @club.club_number
   .span-20
-    .span-4#labeler Time Zone
-    %span.span-16.last= @club.time_zone
-  .span-20
     .span-4
       .meeting_background#labeler.last Meetings
-      .span-3= link_to "(+) New Meeting", new_meeting_path
     .span-16.last
       %table.span-16
         %th Date
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
+      .span-3.new_link= link_to "(+) New Meeting", new_meeting_path
   .span-20
     .span-4
       .member_background#labeler.last  Members
-      .span-4= link_to "(+) New Member", members_search_path
     .span-16.last
       = render :partial => 'shared/member', :collection => @club.members
+      .span-4.new_link= link_to "(+) New Member", members_search_path

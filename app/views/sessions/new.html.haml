@@ -1,21 +1,20 @@
 = content_for :top_title do
   TM Schedule Me - Login
 .span-4
-  .span-4#header_box.member_background Log In
-.span-16#content_box
-  = form_tag do
-    .span-20
-      .span-3
-        .email
-          %label{:for => "email"} E-Mail:
-      .span-6
-        = text_field_tag :email, params[:email]
-    .span-20
-      .span-3
-        .password
-          %label{:for => "password"} Password:
-      .span-6
-        = password_field_tag :password, params[:password]
-    .span-20.prepend-3
-      .submit
-        = submit_tag "Login"
+  .span-4#lead_box.member_background Member
+.span-20.last
+  .span-20.last
+    %h2 Log In
+  .span-20.last
+    = form_tag do
+      .span-20
+        .span-3#labeler Your E-Mail:
+        .span-10.last
+          = text_field_tag :email, params[:email]
+      .span-20
+        .span-3#labeler Password:
+        .span-10
+          = password_field_tag :password, params[:password]
+      .span-20.prepend-3.last
+        .submit
+          = submit_tag "Login"

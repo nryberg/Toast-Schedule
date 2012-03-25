@@ -21,10 +21,7 @@ class Meeting
    
   end
 
-#  def meeting_date_part=(value)
-#    ap value
 
-#  end
   def meeting_date_formatted
       if meeting_date.nil? then 
          ''
@@ -95,6 +92,8 @@ class Meeting
 
   private
   def set_time_stamp
-    self.meeting_date = DateTime::strptime(@meeting_date_part + " " + @meeting_time_part ,"%m\/%d\/%Y %I:%M %p") 
+    if not @meeting_time_part.nil? then
+      self.meeting_date = DateTime::strptime(@meeting_date_part + " " + @meeting_time_part ,"%m\/%d\/%Y %I:%M %p") 
+    end
   end
 end

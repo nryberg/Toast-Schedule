@@ -1,4 +1,5 @@
 %tr
   %td= link_to role.meeting.meeting_date_pretty,[role.meeting.club, role.meeting]
+  %td= link_to role.meeting.meeting_time_part,[role.meeting.club, role.meeting]
   %td= role.role_type
   /%td= link_to meeting.meeting_date_pretty, club_meeting_path(@club, meeting) 

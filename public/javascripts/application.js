@@ -3,11 +3,12 @@
 // $(function (){  
 //     $("#agenda_meeting_date").datepicker();  
 // }); 
-var $j = jQuery.noConflict();
-$j(document).ready(function() {
-    $j('#meeting_meeting_date_part').datepicker();
+// var $j = jQuery.noConflict();
+$(document).ready(function() {
+    $('#meeting_meeting_date_part').datepicker();
+    $('#meeting_meeting_time_part').timepicker();
   });
-$j('a.delete').click (function(){
+$('a.delete').click (function(){
     if(confirm("Are you sure?")){
         return false;
     } else {
@@ -16,15 +17,4 @@ $j('a.delete').click (function(){
     }
 });
 
-
-function remove_fields(link) {
-  $j(link).prev("input[type=hidden]").val("1");
-  $j(link).closest(".fields").hide();
-}
-
-function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $j(link).parent().before(content.replace(regexp, new_id));
-}
 

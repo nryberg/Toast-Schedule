@@ -27,6 +27,7 @@
           %table
             %tr
               %th Date
+              %th Time
               %th Role
             = render :partial => 'role', :collection => @member.upcoming_roles
             / TODO: Add in new Role function for a person
@@ -37,6 +38,7 @@
           %table
             %tr
               %th Date
+              %th Time
               %th Role
             = render :partial => 'role', :collection => @member.past_roles
     .span-20.last

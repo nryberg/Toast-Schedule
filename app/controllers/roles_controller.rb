@@ -75,7 +75,8 @@ class RolesController < ApplicationController
     @role.ordinal = @meeting.roles.count
     @meeting.roles << @role
     @meeting.save
-    
+   
+    #TODO: fix this save above - is it really necessary?
     
 
     respond_to do |format|
