@@ -24,6 +24,7 @@
     .span-16.last
       %table.span-16
         %th Date
+        %th Time
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
       .span-3.new_link= link_to "(+) New Meeting", new_meeting_path
