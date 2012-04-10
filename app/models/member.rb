@@ -58,13 +58,15 @@ class Member
   end
 
   def upcoming_roles
+    #scope :upcoming, lambda {where(["meeting.meeting_date >= ?", Time.new.iso8601.to_s])}
+    
     rolez = Role.mine(id).all
-    rolez.sort_by {|e| e.meeting.meeting_date || 0}
-    rolez.delete_if {|e| e.meeting.meeting_date >= Date.new}
+    rolez.delete_if{|e| e.meeting.meeting_date >= Date.new}
   end
 
   def past_roles
     rolez = Role.mine(id).all
+    rolez.delete_if {|e| e.meeting.meeting_date.nil?}
     rolez.sort_by {|e| e.meeting.meeting_date || 0}
     rolez.delete_if {|e| e.meeting.meeting_date < Date.new}
   end

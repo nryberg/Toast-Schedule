@@ -7,6 +7,7 @@ class Role
   scope :next, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.gt => _ordinal)}
   scope :by_meeting_id, lambda {|_meeting_id| where(:meeting_id => _meeting_id)}
   scope :mine, lambda {|_member_id| where(:member_id => _member_id)}
+  scope :past, lambda {where("meeting.meeting_date < ?", Date.new)}
   
   key :member_id, ObjectId
   key :role_type_id, ObjectId 

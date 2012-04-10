@@ -18,12 +18,13 @@
     .span-3
       #labeler Roles
     .span-15.last
-      %table
-        %th Role
-        %th Member
-        %th Move 
-        %th Move
-        %th Delete
-        = render :partial => 'role', :collection => @roles
-      .span-3= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
+      - if @roles.count > 1 then 
+        %table
+          %th Role
+          %th Member
+          %th Move 
+          %th Move
+          %th Delete
+          = render :partial => 'role', :collection => @roles
+      .span-3.new_link= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 
 
