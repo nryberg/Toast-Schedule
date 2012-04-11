@@ -20,7 +20,7 @@
     %span.span-16.last= @club.club_number
   .span-20
     .span-4
-      .meeting_background#labeler.last Meetings
+      .meeting_background#labeler.last Upcoming Meetings
     .span-16.last
       %table.span-16
         %th Date
@@ -28,6 +28,7 @@
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
       .span-3.new_link= link_to "(+) New Meeting", new_meeting_path
+      .span-3.new_link= link_to "(->) All Meetings", meetings_path
   .span-20
     .span-4
       .member_background#labeler.last  Members

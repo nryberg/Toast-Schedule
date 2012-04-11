@@ -3,7 +3,7 @@
 .span-20.last
   - if @meetings.count > 0 then
     .span-20.last
-      .span-4#labeler Upcoming 
+      .span-4#labeler.meeting_background Upcoming 
       .span-16.last
         %table
           %tr
@@ -13,7 +13,7 @@
           = render @meetings
   - if @past_meetings.count > 0 then
     .span-20.last
-      .span-4#labeler Past
+      .span-4#labeler.meeting_background Past
       .span-16.last
         %table
           %tr
