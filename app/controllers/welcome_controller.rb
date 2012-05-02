@@ -6,5 +6,9 @@ class WelcomeController < ApplicationController
     @clubname = "TM Schedule Me"
     
   end
+
+  def about
+
+  end
   
 end

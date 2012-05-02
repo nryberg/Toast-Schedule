@@ -1,5 +1,5 @@
 ToastSchedule::Application.routes.draw do
-
+  match 'about' => 'welcome#about', :as => :about
   match 'members/search' => 'members#search'
   match 'members/relate' => 'members#relate'
 
