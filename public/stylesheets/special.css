@@ -1,7 +1,8 @@
 #footer {
-  border-top: thin solid #0B79D9;
+  border-top: 1px dotted #666;
   text-align: right;
   font-size: 125%;
+  margin-top: 20px;
 }
 
 #action_box {
