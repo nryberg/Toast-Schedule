@@ -1,3 +1,8 @@
+.value {
+  font-size: 125%;
+  
+  }
+
 #footer {
   border-top: 1px dotted #666;
   text-align: right;

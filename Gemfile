@@ -23,6 +23,8 @@ group :production do
 end
 group :development, :test do
   gem 'mongrel', '>= 1.2.0.pre2'
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 gem 'log_buddy'
