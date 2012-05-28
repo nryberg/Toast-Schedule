@@ -1,14 +1,14 @@
-= semantic_form_for([@club, @meeting]) do |f|
+= semantic_form_for ([@club, @meeting]) do |f|
   -if @meeting.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@meeting.errors.count, "error")} prohibited this meeting from being saved:"
       %ul
         - @meeting.errors.full_messages.each do |msg|
           %li= msg
-  - f.inputs do 
-    =f.input :meeting_date_part, :as => :string
-    =f.input :meeting_time_part, :as => :string
-    //  %span.span-12= f.text_field :meeting_date, :value => @meeting.meeting_date_formatted
-    = f.input :theme, :as => :string
+  .span-10.append-7
+    = f.inputs do
+      =f.input :meeting_date_part, :as => :string, :label => "Date"
+      =f.input :meeting_time_part, :as => :string, :label => "Time"
+      = f.input :theme, :as => :string
   = f.buttons :commit
-  = link_to 'or Back to Meeting', @meeting
+  = link_to '<- Back to Meeting', @meeting

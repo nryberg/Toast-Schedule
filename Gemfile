@@ -19,6 +19,10 @@ gem 'mongomapper_ext'
 #gem 'rspec', '>=2.6.0.rc4'
 gem 'haml'
 gem 'haml-rails'
+
+# Avoiding WARN  Could not determine content-length of response body error on webrick
+gem 'thin'
+
 group :production do
 end
 group :development, :test do

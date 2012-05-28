@@ -9,15 +9,15 @@
 .span-20.last
   .span-20
     .span-4#labeler Name
-    .span-16.last= @club.name
+    .span-16.last.value= @club.name
   .span-20
     .span-4#labeler Address
-    .span-16.last
+    .span-16.last.value
       %code= @club.address
       %h5= link_to "Map it", map_to(@club.address), {"target"=>"_blank"}
   .span-20
     .span-4#labeler Number
-    %span.span-16.last= @club.club_number
+    %span.span-16.last.value= @club.club_number
   .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings
