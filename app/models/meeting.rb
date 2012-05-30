@@ -64,8 +64,13 @@ class Meeting
   end
 
   def last_role
-    roles = self.roles.sort_by(&ordinal)
+    self.roles.first(:order => :ordinal.desc)
   end
+  
+  def first_role
+    self.roles.first(:oder => :ordinal)
+  end
+  
 # validates_presence_of :attribute
   many :roles, :dependent => :destroy
 

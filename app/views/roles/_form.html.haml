@@ -6,11 +6,11 @@
         - @role.errors.full_messages.each do |msg|
           %li= msg
   %div.span-20
-    %span-16
+    %span-12
       = f.inputs do 
         = f.input :member_id, :as => :select, :collection => @meeting.club.members
-        = f.input :role_type_id, :as => :radio, :collection => RoleType.all, :label => "Role"
+        = f.input :role_type_id, :as => :select, :collection => RoleType.all, :label => "Role"
         = f.input :title
       .actions
         = f.buttons
-        = link_to ' or back to Meeting', meeting_path(@meeting)
+        = link_to ' <- Back to Meeting', meeting_path(@meeting)

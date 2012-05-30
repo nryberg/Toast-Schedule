@@ -5,8 +5,6 @@
   = ": Not you?"
   = link_to "Logout", logout_path
 - else
-  Not a member? 
-  = link_to "Register", new_member_path
-  Or 
   = link_to "Sign In", login_path
-
+  = " Not a member? "
+  = link_to "Register", new_member_path

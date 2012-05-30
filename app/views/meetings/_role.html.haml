@@ -4,3 +4,4 @@
   %td= link_to 'Up', :controller => "roles", :action => "up", :id => role
   %td= link_to 'Down', :controller => "roles", :action => "down", :id => role
   %td= link_to 'Drop', [@meeting, role], :confirm => 'Are you sure you want to delete this role?', :method => :delete
+  %td= role.ordinal
