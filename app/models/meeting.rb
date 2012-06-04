@@ -59,6 +59,17 @@ class Meeting
     
   end
   
+  def refactor_roles
+    counter = 0
+    roles = self.roles.all(:order => :ordinal)
+    roles.each do |role|
+      role.ordinal = counter
+      role.save
+      counter += 1
+    end
+  
+  end
+  
   def member_roles(member_id)
     
   end

@@ -94,9 +94,11 @@ class RolesController < ApplicationController
   # PUT /roles/1.xml
   def update
     @role = Role.find(params[:id])
+    @meeting = @role.meeting
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
+        @meeting.refactor_roles
         format.html { redirect_to([@role.meeting.club, @role.meeting], :notice => 'Role was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -113,6 +115,7 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
     @meeting = @role.meeting
     @role.destroy
+    @meeting.refactor_roles
     p @meeting
 
     respond_to do |format|

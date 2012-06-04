@@ -71,6 +71,7 @@ class MeetingsController < ApplicationController
   # PUT /meetings/1.xml
   def update
     @meeting = Meeting.find(params[:id])
+    @meeting.refactor_roles
     ap params[:meeting]
     respond_to do |format|
       if @meeting.update_attributes(params[:meeting])
