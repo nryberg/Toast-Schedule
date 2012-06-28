@@ -2,10 +2,8 @@
   %td= link_to role.role_type, edit_meeting_role_path(@meeting, role) 
   %td= role.member_name
   - if role.ordinal > 0 
-    %td= link_to 'Up', :controller => "roles", :action => "up", :id => role
+    %td= link_to '^ Up ^', :controller => "roles", :action => "up", :id => role
   - else
     %td 
   - if role.ordinal < (@meeting.roles.count - 1)
-    %td= link_to 'Down', :controller => "roles", :action => "down", :id => role
-  - else
-    %td
+    %td= link_to 'v Down v', :controller => "roles", :action => "down", :id => role

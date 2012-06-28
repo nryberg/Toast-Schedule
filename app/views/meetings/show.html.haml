@@ -22,7 +22,6 @@
         %table
           %th Role
           %th Member
-          %th Move 
           %th Move
           = render :partial => 'role', :collection => @roles
       .span-3.new_link= link_to '(+ Add Role)', new_meeting_role_path(@meeting, @role) 

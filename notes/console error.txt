@@ -1,0 +1,5 @@
+# Use this to set the database connection in console.
+# Got to be a better way.
+
+MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+MongoMapper.database = "toast_schedule"
