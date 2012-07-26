@@ -3,9 +3,9 @@
   - if current_user.admin_for(current_club.id)
     #action_box
       .span-4
-        = link_to '(edit)', edit_club_path(@club)
+        = link_to '(Change)', edit_club_path(@club)
       .span-4
-        = link_to '(add)', new_club_path()
+        = link_to '(Add New)', new_club_path()
 .span-20.last
   .span-20
     .span-4#labeler Name

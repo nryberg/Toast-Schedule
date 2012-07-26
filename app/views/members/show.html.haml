@@ -20,7 +20,7 @@
       .span-4#labeler.club_background Club
       - if not @member.my_club.nil? then  
         .span-6.value= link_to @member.my_club.name, @member.my_club 
-    - if @member.upcoming_roles.count > 0 then
+    - if @member.has_upcoming_roles  then
       .span-20  
         .span-4#labeler.meeting_background Upcoming Roles
         .span-16.last

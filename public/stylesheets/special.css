@@ -1,4 +1,13 @@
+label 
+  {
+ font-size:125%;
+ font-weight: bold;
+ }
 
+.input {
+  color : red;
+  }
+  
 .value {
   font-size: 125%;
   

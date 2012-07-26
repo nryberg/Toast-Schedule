@@ -33,6 +33,13 @@ class Member
 
   end
 
+  def has_upcoming_roles
+    rolez = Role.mine(id).all
+    rolez.delete_if{|e| e.meeting.meeting_date >= Date.new}
+    (rolez.count > 0) ||= False
+          
+  end
+  
   def my_role_types(club_id)
     related = Relationship.where(:member => self.id, :club => club_id).all
     types = related.collect {|x| x.type}

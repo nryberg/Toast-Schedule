@@ -3,9 +3,7 @@
   .edit_label.meeting_background Meeting
   .span-4#action_box
     = link_to '(remove)', @meeting,:confirm => "Are you sure?", :method => :delete
-  .span-4#action_box
-    = link_to '<- Back to Meeting', @meeting
-
+ 
 .span-18.last
   %p
   = render 'form'
