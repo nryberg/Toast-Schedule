@@ -34,9 +34,7 @@ class Member
   end
 
   def has_upcoming_roles
-    rolez = Role.mine(id).all
-    rolez.delete_if{|e| e.meeting.meeting_date >= Date.new}
-    (rolez.count > 0) ||= False
+    Role.where(:member_id => self.id, :date_meeting.gte => Time.new).count
           
   end
   

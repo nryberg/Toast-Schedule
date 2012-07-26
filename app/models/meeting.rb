@@ -76,7 +76,11 @@ class Meeting
 
 
 # validates_presence_of :attribute
-  many :roles, :dependent => :destroy
+  many :roles, :dependent => :destroy do
+    def mine(id)
+      where(:member_id => id)
+    end
+  end
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :club
