@@ -29,6 +29,15 @@ class Club
     self.meetings.where(:meeting_date => {'$lt' => 2.day.ago.midnight}).sort(:meeting_date.desc).all
   end
 
+  def has_upcoming_meetings
+    self.meetings.upcoming > 0
+  end
+  
+  def has_past_meetings
+    self.meetings.past > 0
+  end
+  
+  
   def members
     _members = Relationship.by_club(self.id).members.officers.sort(:name).all.map { |x| x.member_object}
     _members.uniq!

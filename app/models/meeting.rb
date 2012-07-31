@@ -6,6 +6,7 @@ class Meeting
   key :meeting_date, Time, :index => true
 
   scope :upcoming, lambda {where :meeting_date.gt => Time.now}
+  scope :past, lambda {where :meeting_date.lt => Time.now}
 
   attr_accessor :meeting_time_part
   attr_accessor :meeting_date_part

@@ -3,7 +3,7 @@ class MeetingsController < ApplicationController
   # GET /meetings.xml
   def index
     @club = current_club
-    @meetings = @club.upcoming_meetings
+    @upcoming_meetings = @club.upcoming_meetings
     @past_meetings = @club.past_meetings
     @header_text = @club.name
 
