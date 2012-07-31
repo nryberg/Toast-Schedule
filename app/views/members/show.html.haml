@@ -20,17 +20,16 @@
       .span-4#labeler.club_background Club
       - if not @member.my_club.nil? then  
         .span-6.value= link_to @member.my_club.name, @member.my_club 
-    - if @member.has_upcoming_roles  then
-      .span-20  
-        .span-4#labeler.meeting_background Upcoming Roles
-        .span-16.last
-          %table
-            %tr
-              %th.value Date
-              %th.value Time
-              %th.value Role
-            = render :partial => 'role', :collection => @member.upcoming_roles
-            / TODO: Add in new Role function for a person
+    .span-20  
+      .span-4#labeler.meeting_background Upcoming Roles
+      .span-16.last
+        %table
+          %tr
+            %th.value Date
+            %th.value Time
+            %th.value Role
+          = render :partial => 'role', :collection => @member.upcoming_roles
+          / TODO: Add in new Role function for a person
     - if @member.past_roles.count > 0 then
       .span-20  
         .span-4#labeler.meeting_background Past Roles
