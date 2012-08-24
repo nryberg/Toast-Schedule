@@ -1,0 +1,69 @@
+# Pricing Plans #
+
+## Amounts
+* Starter = 6 / 29 / 56
+* Essential = 8 / 39 / 78
+* Advanced = 10 / 49 / 90
+
+## Timing ## 
+_45 Day free trial_
+  
+* Monthly
+* Half Yearly = 10% discount
+* Annually = 25% discount
+
+
+## Features
+
+### Low
+* Unlimited Membership
+* Unlimited Meetings
+* Unlimited Roles
+
+### Medium 
+* Notifications : e-mails to members
+* Roles : Member Speeches
+* Support : e-mail
+
+_Also includes_
+
+* Calendar : Google Calendar (ICS?)
+
+### High
+* Notifications : Guests
+* Roles : Officers, Guest Tracking
+* Support : Chat
+
+_Also includes_
+
+* History : Past roles and speeches
+
+
+
+## Future features to be pushed down the chain
+* Notifications :  Facebook, Twitter
+* Roles : Membership management, track payment (accept??)
+* Support : Phone
+
+_Also Includes_
+
+* Contests : Market, track, publish
+* Club Website (Static!)
+* Goals : Show VP stats - Membership
+* iPhone/Android app : Speech Tracking, agenda
+
+### Other Approaches
+
+#### Members
+* 15/30/45 
+* 10/20/30
+
+#### Number of events 
+* weekly
+* biweekly
+* monthly
+
+
+## Scratchpad
+
+  

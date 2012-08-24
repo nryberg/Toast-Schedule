@@ -4,7 +4,10 @@
     = link_to '(Change)', edit_meeting_path(@meeting)
   .span-4#action_box
     = link_to '(Add New)', new_meeting_path()
-%span.span-18.last 
+%span.span-18.last
+  - if @meeting.roles.empty? 
+    .span-16.last
+      "You have no roles" 
   .span-16.last 
     .span-3#labeler Date
     .value= @meeting.meeting_date_part
