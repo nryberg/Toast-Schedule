@@ -1,6 +1,7 @@
 class PlatesController < ApplicationController
   # GET /plates
   # GET /plates.xml
+
   def index
     @template = Template.find(params[:template_id])
     @plates = @template.plates.all

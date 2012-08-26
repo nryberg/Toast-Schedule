@@ -55,8 +55,10 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
-    @member.primary_club = current_club.id
-    @club_choices = current_club.to_a
+    if not current_club.nil? then
+	@member.primary_club = current_club.id
+    	@club_choices = current_club.to_a
+	end if
     # @editing_self = true
     respond_to do |format|
       format.html # new.html.erb
