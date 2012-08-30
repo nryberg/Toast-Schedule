@@ -16,6 +16,13 @@ class WelcomeController < ApplicationController
   def register
   end
   def newmember
+
+    @params = params[:search]
+    unless params[:search].nil?
+      @clubs = Club.searchable_text(params[:search]).all
+    end
+
+
   end
 
   def newclub

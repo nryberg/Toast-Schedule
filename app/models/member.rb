@@ -74,7 +74,7 @@ class Member
     rolez.delete_if {|e| e.meeting.meeting_date > Time.new}
   end
 
-def self.by_name_or_email(search)
+  def self.by_name_or_email(search)
     self.where(:$or => [{:name => /#{search}/}, {:email=> /#{search}/}])
   end
  

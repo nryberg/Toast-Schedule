@@ -5,8 +5,26 @@
   .span-16.last#lead_box Let's find your club
   .span-16.last Getting invited to a club is as simple as locating the club and requesting guest access. 
   .span-16.last The club administrator is looking forward to your e-mail and will grant you access as quickly as possible.
+  .span-16.last Enter the club name, club number or part of the address to locate the club you'd like to join.
   .span-16.last
-    = form_tag club_search_path, :method => 'get' do 
+    = form_tag welcome_newmember_path, :method => 'get' do 
       = text_field_tag :search, params[:search]
       = submit_tag "Search", :name => nil
+  .span-16
+    - unless @clubs.nil?
+      - if @clubs.count == 0 
+        %em No clubs match that description.  
+        %p Please try a different search term.
+      - else
+        %h4 Clubs
+        %table
+          %th Name
+          %th Club Number
+          %th Address
+          - @club.each do |club|
+            %tr
+              / %td= link_to "(add)", new_member_relationship_path(member) 
+              /%td= link_to member.name, member
+              %td= club.name
+
 

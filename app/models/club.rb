@@ -7,6 +7,7 @@ class Club
   key :club_number, String
   key :time_zone, String
   
+  scope :by_name,  lambda { |name| where(:name => name) } 
   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
@@ -49,6 +50,9 @@ class Club
     memb.sort! { |a,b| a.name <=> b.name }
   end
  
+  def self.searchable_text(search)
+    self.where(:$or => [{:name => /#{search}/}, {:club_number => /#{search}/}, {:address => /#{search}/}])
+  end
 # one :model
 
 # Callbacks ::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

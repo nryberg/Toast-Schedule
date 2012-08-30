@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  skip_before_filter :authorize, :only => [:show, :new, :create]
+  skip_before_filter :authorize, :only => [:show, :new, :create, :search]
   skip_before_filter :administrator, :only => [:show, :new, :create]
 
   # GET /clubs
@@ -99,6 +99,14 @@ class ClubsController < ApplicationController
       format.html { redirect_to(clubs_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def search
+    @params = params[:search]
+    unless params[:search].nil?
+      @clubs = Club.searchable_text(params[:search]).all
+    end
+
   end
   
   protected

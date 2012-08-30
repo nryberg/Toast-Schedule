@@ -1,0 +1,26 @@
+%span.span-4
+  .span-4#lead_box.club_background Clubs
+%span.span-16
+  .span-20#header_box Search for another great club?
+   
+  .span-20
+    
+    = form_tag clubs_search_path, :method => 'get' do 
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search", :name => nil
+  .span-20
+    - unless @clubs.nil?
+      - if @clubs.count == 0 
+        %h3 No matching clubs found.
+      - else
+        %h4 Clubs
+        %table
+          %th Name
+          %th Club Number
+          %th Address
+          - @club.each do |club|
+            %tr
+              / %td= link_to "(add)", new_member_relationship_path(member) 
+              /%td= link_to member.name, member
+              %td= club.name
+
