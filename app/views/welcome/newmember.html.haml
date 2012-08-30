@@ -21,7 +21,7 @@
           %th Name
           %th Club Number
           %th Address
-          - @club.each do |club|
+          - @clubs.each do |club|
             %tr
               / %td= link_to "(add)", new_member_relationship_path(member) 
               /%td= link_to member.name, member
