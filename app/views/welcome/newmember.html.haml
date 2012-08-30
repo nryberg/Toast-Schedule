@@ -1,0 +1,12 @@
+%span.span-4
+  .span-4#header_box.member_background Member
+  .span-2= link_to '(return)', @member
+.span-16
+  .span-16.last#lead_box Let's find your club
+  .span-16.last Getting invited to a club is as simple as locating the club and requesting guest access. 
+  .span-16.last The club administrator is looking forward to your e-mail and will grant you access as quickly as possible.
+  .span-16.last
+    = form_tag club_search_path, :method => 'get' do 
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search", :name => nil
+

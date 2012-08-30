@@ -56,9 +56,17 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     if not current_club.nil? then
-	@member.primary_club = current_club.id
+	    @member.primary_club = current_club.id
     	@club_choices = current_club.to_a
 	end if
+    @member = Member.new
+    ap @member
+    redirect_to(new_member_url)
+
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.xml  { render :xml => @member}
+    #end
     # @editing_self = true
     respond_to do |format|
       format.html # new.html.erb

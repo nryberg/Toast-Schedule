@@ -15,4 +15,10 @@ class WelcomeController < ApplicationController
   end
   def register
   end
+  def newmember
+  end
+
+  def newclub
+  end
+
 end
