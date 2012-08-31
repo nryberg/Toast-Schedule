@@ -3,6 +3,7 @@ ToastSchedule::Application.routes.draw do
   match 'pricing' => 'welcome#pricing', :as => :pricing
   match 'welcome/register' => 'welcome#register'
   match 'welcome/newmember' => 'welcome#newmember'
+  match 'welcome/newclub' => 'welcome#newclub'
   match 'members/search' => 'members#search'
   match 'clubs/search' => 'clubs#search'
   match 'members/relate' => 'members#relate'

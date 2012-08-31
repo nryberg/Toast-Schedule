@@ -76,9 +76,10 @@ class MembersController < ApplicationController
   
   def create
     @member = Member.new(params[:member])
-    @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Member")
+    
     
     unless session[:club_id].nil? then 
+      @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Member")
       @club = Club.find(session[:club_id])
       @club.members << @member
       @club.save
@@ -90,7 +91,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        @relation.save
+        unless @relation.nil? then @relation.save end
         # Then move forward to a new club, or add 
         # to a current club.
         if session[:club_id].nil? then 

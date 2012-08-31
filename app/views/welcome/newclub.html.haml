@@ -1,0 +1,33 @@
+.span-4
+  .span-4#lead_box.club_background New Club
+  .span-2= link_to '(return)', welcome_register_path
+.span-16
+  .span-16.last#lead_box Let's start a new club!
+  %p Starting a new club takes a few simple steps. 
+  .span-16.last 
+    .span-1#lead_box.member_background
+      1
+    .span-15.last
+      %p Tell us a little about you - just your name and e-mail address for now. 
+  .span-16.last 
+    .span-1#lead_box.club_background
+      2
+    .span-15.last
+      Fill in the basic details on your new club - name, club number and address are sufficient.
+      %p You are automatically the club administrator and you can start adding members right away.
+  .span-16.last 
+    .span-1#lead_box.meeting_background
+      3 
+    .span-15.last
+      Your club gets a free 30 day trial period on TM Schedule.  
+      %p If you're not satisfied, simply let the trial period expire and that's that!  If you are delighted, and we hope you will be, you will be asked to choose a plan and provide billing information. 
+  %span.span-16
+    %span.span-last#header_box 
+      New member
+      = semantic_form_for ([@member]) do |f|
+        .span-10.append-7
+          = f.inputs do
+            =f.input :name, :as => :string, :label => 'Your name'
+            =f.input :email, :as => :string, :label => 'Your E-mail'
+        .span-10
+          = f.buttons :commit

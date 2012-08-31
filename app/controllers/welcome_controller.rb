@@ -26,6 +26,7 @@ class WelcomeController < ApplicationController
   end
 
   def newclub
+    @member = Member.new
   end
 
 end
