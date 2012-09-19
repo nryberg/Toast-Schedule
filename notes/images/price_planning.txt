@@ -1,9 +1,9 @@
 # Pricing Plans #
 
 ## Amounts
-* Starter = 6 / 29 / 56
-* Essential = 8 / 39 / 78
-* Advanced = 10 / 49 / 90
+* Starter = 6 / 30 / 54
+* Essential = 8 / 40 / 72
+* Advanced = 10 / 50 / 90
 
 ## Timing ## 
 _45 Day free trial_

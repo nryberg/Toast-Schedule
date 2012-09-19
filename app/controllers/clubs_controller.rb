@@ -38,6 +38,7 @@ class ClubsController < ApplicationController
   # GET /clubs/new.xml
   def new
     @club = Club.new
+    ap @club
 
     respond_to do |format|
       format.html # new.html.erb

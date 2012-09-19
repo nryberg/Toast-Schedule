@@ -58,7 +58,7 @@ class MembersController < ApplicationController
     if not current_club.nil? then
 	    @member.primary_club = current_club.id
     	@club_choices = current_club.to_a
-	end if
+	  end if
     @member = Member.new
     ap @member
     redirect_to(new_member_url)
@@ -95,6 +95,7 @@ class MembersController < ApplicationController
         # Then move forward to a new club, or add 
         # to a current club.
         if session[:club_id].nil? then 
+          @club = Club.new
           format.html { redirect_to(new_club_url, :notice => 'Member was successfully created.') }
         else
           format.html { redirect_to(@club, :notice => 'Member was successfully created.') }
