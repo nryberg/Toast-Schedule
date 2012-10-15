@@ -74,8 +74,14 @@ class Meeting
   def member_roles(member_id)
     
   end
+  
+  def role_first 
+    role = self.roles.first(:order => :ordinal)
+  end
 
-
+  def role_last
+    role = self.roles.last(:order => :ordinal)
+  end
 # validates_presence_of :attribute
   many :roles, :dependent => :destroy do
     def mine(id)
@@ -83,6 +89,14 @@ class Meeting
     end
   end
 
+  def role_promote(a_role)
+    roles = self.roles.all(:order => :ordinal)
+    roles.each do |a_role| 
+
+    end 
+
+
+  end
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
    belongs_to :club
 

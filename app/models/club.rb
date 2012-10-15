@@ -6,6 +6,9 @@ class Club
   key :address, String
   key :club_number, String
   key :time_zone, String
+  key :plan_initial, Date
+  key :plan_renewal, Date
+  key :plan_type, String
   
   scope :by_name,  lambda { |name| where(:name => name) } 
   

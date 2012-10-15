@@ -21,13 +21,16 @@ class Role
   validates_presence_of :ordinal
 
   def move_up
+
     _prior = Role.prior(self.meeting_id, self.ordinal).sort(:ordinal.desc).first
     unless _prior.nil?
       _prior.ordinal += 1
       self.ordinal -= 1
       _prior.save
       self.save
+
     end
+    self.meeting.refactor_roles
   end
 
   def move_down
@@ -38,6 +41,7 @@ class Role
       _next.save
       self.save
     end
+    self.meeting.refactor_roles
   end
 
   def date_meeting

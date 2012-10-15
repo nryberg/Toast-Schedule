@@ -1,0 +1,6 @@
+07:40 AM 09/26/2012
+
+Fighting with the roles.  Editing roles inside of a meeting is driving me crazy.  It's a slightly different form of data entry that's triggering some weird hitherto unknown OCD compulsions.
+
+Move the role management up into the meeting itself.  This messing around with peer management is not working. 
+
