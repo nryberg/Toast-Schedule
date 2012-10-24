@@ -2,6 +2,7 @@ class Membership
   include MongoMapper::Document    
   one :club
   one :member
+  key :type, String
 
   def self.by_name_or_email(search)
     # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all

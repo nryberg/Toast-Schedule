@@ -14,7 +14,7 @@ class Member
   key :salt, String
   key :primary_club, ObjectId
   key :hashed_password, String
-
+  
   scope :by_name,  lambda { |name| where(:name => name) } 
 
   validates_presence_of :name

@@ -141,4 +141,5 @@ label
   /* background-color: #F2E6CE; */
 }
 
-
+/* really annoying hack to hide the ui datepicker garbage */ 
+#ui-datepicker-div { display: none; }
