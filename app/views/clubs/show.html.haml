@@ -19,6 +19,14 @@
     .span-4#labeler Number
     %span.span-16.last.value= @club.club_number
   .span-20
+    .span-4#labeler Plan Type
+    .span-16.last.value
+      = @club.plan_type
+      = link_to '(plans)', "/pricing"
+  .span-20
+    .span-4#labeler Plan Renewal Date
+    .span-16.last.value= "TODO: Add in the renewal date"
+  .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings
     .span-16.last
