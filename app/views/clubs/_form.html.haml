@@ -4,7 +4,7 @@
       = f.input :name, :as => :string
       = f.input :address, :as => :text, :required => false, :input_html => { :rows => 4}
       = f.input :club_number, :as => :string, :required => false
-      = f.input :plan_type, :as => :select, :collection => ["Essential", "Starter"]
+      = f.input :plan_type, :as => :radio, :collection => ["Essential", "Starter"]
   .span-10.last
     = f.buttons :commit
     = link_to '<- Back to club', @club

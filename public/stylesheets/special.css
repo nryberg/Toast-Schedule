@@ -143,3 +143,16 @@ label
 
 /* really annoying hack to hide the ui datepicker garbage */ 
 #ui-datepicker-div { display: none; }
+
+/* Table tweaks for pricing */
+table.pricing {
+  font-size: 150%;
+}
+
+td.number {
+  text-align: center;
+}
+
+td.italic {
+  font-style: italic;
+}
