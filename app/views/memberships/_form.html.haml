@@ -2,6 +2,6 @@
   .span-10.last.append-6
     = f.inputs do
       = f.input :type, :as => :radio, :collection => ['Guest', 'Member', 'Officer', 'Alumni']
-      = f.input :member, :as => :hidden
-      = f.input :club, :as => :hidden
+      = f.input :member, :as => :hidden, :value => @membership.member.id
+      = f.input :club, :as => :hidden, :value => @membership.club.id
     = f.buttons :commit
