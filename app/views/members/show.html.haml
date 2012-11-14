@@ -14,10 +14,7 @@
       .span-4#labeler E-Mail
       .value= @member.email
     .span-20  
-      .span-4#labeler Phone
-      .value= @member.phone
-    .span-20  
-      .span-4#labeler.club_background Primary Club
+      .span-4#labeler.club_background My Club
       - if not @member.my_club.nil? then  
         .span-6.value= link_to @member.my_club.name, @member.my_club 
     .span-20  

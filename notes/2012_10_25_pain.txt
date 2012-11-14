@@ -1,0 +1,22 @@
+04:53 PM 10/24/2012
+
+For the longest time, I've been putting the split between clubs and members into its own world primarily because of the power members. People who attend multiple clubs.  I kept thinking that perhaps they'd like to see their roles in multiple clubs.  And I think that's still true - however, it's not the type of situation that requires a heavy duty class on its own.
+
+And that's the rub - some people can and should be administrators for their club.  They should have the ability to edit the information in that particular club.  However, that ability is only a per club basis.   And probably only a few people are ever going to edit multiple clubs.
+
+Here's a couple of scenarios of pain:
+
+1) Users are put in with generic e-mail addresses - test at test dot com.  Now when the user logs in - which club do they go to?
+2) Users have unique  e-mail addresses, but DO use multple clubs.  What club do they see?  What do they administer?  
+3) There are millions of clubs - yay!  But now on the drop down for primary club - it's really out of hand.  
+4) How do I handle displaying all of this crap?  Should it be on a separate page?  I think so.  Something like the administrator page should be different.  Something not typically available to the smarter set. :)
+
+Clubs "own" members.  Members can belong to multiple clubs - sure - that was the idea of adding new members by searching for them combined with the new member dialog.
+
+I'm trapped by the class of member discussion - admin/readonly/public.  Officer/Regular/Guest.  
+
+Officer => admin.  It's as simple as that.  Won't worry about who's what at this point - that's just gravy for the boat later on.  For now - simply assume that:
+
+1) An admin for one club cannot alter the member role in another club.
+2) Without admin - you can't see the options to change roles
+3) 

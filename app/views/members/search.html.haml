@@ -31,7 +31,7 @@
           %th E-Mail
           - @members.each do |member|
             %tr
-              %td= link_to "(add)", new_member_relationship_path(member) 
+              %td= link_to "(add)", new_member_membership_path(member)
               %td= link_to member.name, member
               %td= member.email
 

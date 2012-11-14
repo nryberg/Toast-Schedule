@@ -6,13 +6,14 @@ class Member
   key :name, String
   
   key :email, String
-  key :phone, String
-  key :can_edit, Boolean
-  key :active, Boolean
-  key :officer, String
-  key :role, String
+  key :can_edit, Boolean  # Can Edit if they are an officer.  The first user is Secretary by default
+  key :active, Date
+  #key :officer, String # Add this later 
+  #key :membership, String  # Guest, Member, Officer, Alumni
+
+  #Password 
   key :salt, String
-  key :primary_club, ObjectId
+  key :primary_club, ObjectId  # TODO: Migrate to just the club
   key :hashed_password, String
   
   scope :by_name,  lambda { |name| where(:name => name) } 
@@ -22,16 +23,18 @@ class Member
   attr_accessor :password_confirmation  
   attr_reader :password  
 
-  def relationships
-    _relations = Relationship.by_member(self.id).all
-  end
+  many :memberships
 
-  def clubs 
-    _clubs = Relationship.by_member(self.id).map { |x| x.club_object}
-    _clubs.uniq!
-    _clubs.sort_by(&:name)
+#  def relationships
+#    _relations = Relationship.by_member(self.id).all
+#  end
 
-  end
+#  def clubs 
+#    _clubs = Relationship.by_member(self.id).map { |x| x.club_object}
+#    _clubs.uniq!
+#    _clubs.sort_by(&:name)
+
+#  end
 
   def has_upcoming_roles
     Role.where(:member_id => self.id, :date_meeting.gte => Time.new).count

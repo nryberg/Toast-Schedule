@@ -9,6 +9,7 @@ class Club
   key :plan_initial, Date
   key :plan_renewal, Date
   key :plan_type, String
+  key :members, Hash
   
   scope :by_name,  lambda { |name| where(:name => name) } 
   
@@ -17,13 +18,13 @@ class Club
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :meetings
-  many :relationships
+  many :memberships
 
   #TODO: do a better job on moving the relationship to the Relationship model
 
-  def relationships(role) 
-    Relationship.where(:club => self.id, :type => role).all
-  end
+#  def relationships(role) 
+#    Relationship.where(:club => self.id, :type => role).all
+#  end
 
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
@@ -41,17 +42,18 @@ class Club
     self.meetings.past > 0
   end
   
-  
-  def members
-    _members = Relationship.by_club(self.id).members.officers.sort(:name).all.map { |x| x.member_object}
-    _members.uniq!
-    _members.sort_by(&:name)
-  end
-  def members_in_active
-    memb = self.members.all(:active => false)
-    memb << self.members.all(:active => nil)
-    memb.sort! { |a,b| a.name <=> b.name }
-  end
+# TODO: Refactor in the membership management 
+
+#  def members
+#    _members = Relationship.by_club(self.id).members.officers.sort(:name).all.map { |x| x.member_object}
+#    _members.uniq!
+#    _members.sort_by(&:name)
+#  end
+#  def members_in_active
+#    memb = self.members.all(:active => false)
+#    memb << self.members.all(:active => nil)
+#    memb.sort! { |a,b| a.name <=> b.name }
+#  end
  
   def self.searchable_text(search)
     self.where(:$or => [{:name => /#{search}/}, {:club_number => /#{search}/}, {:address => /#{search}/}])
