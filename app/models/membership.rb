@@ -1,7 +1,7 @@
 class Membership
   include MongoMapper::Document    
-  one :club
-  one :member
+  belongs_to :club
+  belongs_to :member
   key :type, String
 
   def self.by_name_or_email(search)
