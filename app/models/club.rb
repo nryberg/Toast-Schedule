@@ -9,7 +9,6 @@ class Club
   key :plan_initial, Date
   key :plan_renewal, Date
   key :plan_type, String
-  key :members, Hash
   
   scope :by_name,  lambda { |name| where(:name => name) } 
   
@@ -21,10 +20,6 @@ class Club
   many :memberships
 
   #TODO: do a better job on moving the relationship to the Relationship model
-
-#  def relationships(role) 
-#    Relationship.where(:club => self.id, :type => role).all
-#  end
 
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
@@ -42,11 +37,19 @@ class Club
     self.meetings.past > 0
   end
 
-  def members
-    memberships = self.memberships.where(:type => 'Member').all
-    #memb += membership.member.name
+  def active_members
+    self.memberships.where(:type => 'Member').all
   end
   
+  def officers
+    memberships = self.memberships.where(:type => 'Officer').all
+  end
+  
+  def guests
+    x = self.memberships.find_all_by_type('Guest')
+    ap x
+  end
+
 # TODO: Refactor in the membership management 
 
 #  def members

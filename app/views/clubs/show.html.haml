@@ -41,7 +41,22 @@
     .span-4
       .member_background#labeler.last  Members
     .span-16.last
-      - @club.members do |membership|
+      - @club.active_members.each do |membership|
+        %p= link_to membership.member.name, membership.member
+      / = render :partial => 'shared/member', :collection => @club.memberships
+  .span-20
+    .span-4
+      .member_background#labeler.last Officers
+    .span-16.last
+      - @club.officers.each do |membership|
+        %p= link_to membership.member.name, membership.member
+      / = render :partial => 'shared/member', :collection => @club.memberships
+      .span-4.new_link= link_to "(+) New Member", new_member_path
+  .span-20
+    .span-4
+      .member_background#labeler.last Guests
+    .span-16.last
+      - @club.guests.each do |membership|
         %p= link_to membership.member.name, membership.member
       / = render :partial => 'shared/member', :collection => @club.memberships
       .span-4.new_link= link_to "(+) New Member", new_member_path

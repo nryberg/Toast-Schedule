@@ -63,6 +63,12 @@ class MembersController < ApplicationController
   end
   
   def create
+
+    # TODO : Build out duplication testing for member.  If they already exist, move the user
+    #        to a recovery where they can simply assign that person a new role.
+    #        This may cause problems with duplicates with similar but different names.
+    #         09:59 PM 11/14/2012
+
     #ap params
     @member = Member.new
     @member.name = params[:member][:name]
