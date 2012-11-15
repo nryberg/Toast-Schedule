@@ -3,10 +3,9 @@
     = f.inputs do
       = f.input :name, :as => :string
       = f.input :email, :as => :email
-      = f.input :phone, :as => :phone
-      = f.input :primary_club, :as => :select, :collection => @club_choices
       - if @editing_self
         = f.input :password
         = f.input :password_confirmation
+      = f.input :type, :as => :radio, :collection => ['Guest', 'Member', 'Officer', 'Alumni'], :value => 'Guest'
     // TODO: Select for relationship and default to member?  Guest?   
     = f.buttons :commit

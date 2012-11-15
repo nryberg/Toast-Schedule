@@ -41,6 +41,11 @@ class Club
   def has_past_meetings
     self.meetings.past > 0
   end
+
+  def members
+    memberships = self.memberships.where(:type => 'Member').all
+    #memb += membership.member.name
+  end
   
 # TODO: Refactor in the membership management 
 

@@ -55,19 +55,7 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
-    if not current_club.nil? then
-	    @member.primary_club = current_club.id
-    	@club_choices = current_club.to_a
-	  end if
-    @member = Member.new
-    ap @member
-    redirect_to(new_member_url)
-
-    #respond_to do |format|
-    #  format.html # new.html.erb
-    #  format.xml  { render :xml => @member}
-    #end
-    # @editing_self = true
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @member}
@@ -75,14 +63,14 @@ class MembersController < ApplicationController
   end
   
   def create
-    @member = Member.new(params[:member])
+    #ap params
+    @member = Member.new
+    @member.name = params[:member][:name]
+    @member.email = params[:member][:email]
     
     
     unless session[:club_id].nil? then 
-      @relation = Relationship.new(:club => current_club.id, :member => @member.id, :type => "Member")
-      @club = Club.find(session[:club_id])
-      @club.members << @member
-      @club.save
+      @membership = Membership.new(:club => current_club, :member => @member, :type => params[:member][:type])
     end
     
     if session[:member_id].nil? then
@@ -91,15 +79,8 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        unless @relation.nil? then @relation.save end
-        # Then move forward to a new club, or add 
-        # to a current club.
-        if session[:club_id].nil? then 
-          @club = Club.new
-          format.html { redirect_to(new_club_url, :notice => 'Member was successfully created.') }
-        else
-          format.html { redirect_to(@club, :notice => 'Member was successfully created.') }
-        end
+        unless @membership.nil? then @membership.save end
+        format.html { redirect_to(current_club,  :notice => 'Member was successfully created.') }
       else
         format.html { render :action => "new" }
       end
