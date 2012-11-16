@@ -70,27 +70,36 @@ class MembersController < ApplicationController
     #         09:59 PM 11/14/2012
 
     #ap params
-    @member = Member.new
-    @member.name = params[:member][:name]
-    @member.email = params[:member][:email]
-    
-    
-    unless session[:club_id].nil? then 
-      @membership = Membership.new(:club => current_club, :member => @member, :type => params[:member][:type])
-    end
-    
-    if session[:member_id].nil? then
-      session[:member_id] = @member.id
-    end
 
-    respond_to do |format|
-      if @member.save
-        unless @membership.nil? then @membership.save end
-        format.html { redirect_to(current_club,  :notice => 'Member was successfully created.') }
-      else
-        format.html { render :action => "new" }
+    @member = Member.find_by_email(params[:member][:email])
+    @membership_test =  Membership.find_by_member_id_and_club_id(@member.id, current_club.id) 
+
+    if !@membership_test.nil? then
+      redirect_to(edit_membership_url(@membership_test), :notice => 'Person is already a part of this club')
+    else
+      @member = Member.new
+      @member.name = params[:member][:name]
+      @member.email = params[:member][:email]
+      
+      
+      
+      unless session[:club_id].nil? then 
+        @membership = Membership.new(:club => current_club, :member => @member, :type => params[:member][:type])
       end
-    end
+      
+      if session[:member_id].nil? then
+        session[:member_id] = @member.id
+      end
+
+      respond_to do |format|
+        if @member.save
+          unless @membership.nil? then @membership.save end
+          format.html { redirect_to(current_club,  :notice => 'Member was successfully created.') }
+        else
+          format.html { render :action => "new" }
+        end
+      end
+    end #if !membership already existed
   end
   
    # PUT /members/1
