@@ -33,9 +33,9 @@ class MembershipsController < ApplicationController
 
   def update
     @membership = Membership.find(params[:id])
-    @membership.type = params[:type]
+    @membership.type = params[:membership][:type]
     respond_to do |format|
-      if @membership.update_attributes()
+      if @membership.save
         format.html { redirect_to(current_club, :notice => 'Member was successfully updated.') }
         format.xml  { head :ok }
       else
