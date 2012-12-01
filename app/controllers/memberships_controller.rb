@@ -1,4 +1,13 @@
 class MembershipsController < ApplicationController
+
+  def index
+    @members = current_club.memberships
+    @officers = current_club.membership_by_type('Officer')
+    @guests = current_club.membership_by_type('Guest')
+    @alumni = current_club.membership_by_type('Alumni')
+
+
+  end
   def edit
     @membership  = Membership.find(params[:id])
     

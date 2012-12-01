@@ -37,6 +37,18 @@ class Club
     self.meetings.past > 0
   end
 
+  def membership_by_type(type = "")
+    #TODO Fix the member search by type so we can exclude better
+
+    if type == "" then 
+      @mbrs = self.memberships.where(:type => 'Member').all
+    else
+
+      @mbrs = self.memberships.where(:type => type).all
+    end
+
+    @mbrs.map {|x| x.member}
+  end
   def active_members
     self.memberships.where(:type => 'Member').all
   end

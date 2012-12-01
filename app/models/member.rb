@@ -41,9 +41,13 @@ class Member
     Role.where(:member_id => self.id, :date_meeting.gte => Time.new).count
           
   end
-  
+  def last_five_roles
+          
+    self.roles.sort_by{|e| e.date_meeting }
+  end
+ 
   def my_role_types(club_id)
-    related = Relationship.where(:member => self.id, :club => club_id).all
+    related = Membership.where(:member_id => self.id, :club_id => club_id).all
     types = related.collect {|x| x.type}
   end
 

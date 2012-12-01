@@ -6,6 +6,4 @@
       - if @editing_self
         = f.input :password
         = f.input :password_confirmation
-      = f.input :type, :as => :radio, :collection => ['Guest', 'Member', 'Officer', 'Alumni'], :value => 'Guest'
-    // TODO: Select for relationship and default to member?  Guest?   
     = f.buttons :commit

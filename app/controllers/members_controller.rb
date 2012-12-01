@@ -35,7 +35,7 @@ class MembersController < ApplicationController
  
   def edit
     @member = Member.find(params[:id])
-    @club_choices = @member.clubs
+    #@club_choices = @member.clubs
     @editing_self = (params[:id] == session[:member_id].to_s)
     
   end
@@ -76,6 +76,9 @@ class MembersController < ApplicationController
 
     if !@membership_test.nil? then
       redirect_to(edit_membership_url(@membership_test), :notice => 'Person is already a part of this club')
+    elsif !@member.nil? then
+      
+      redirect_to(edit_member_url(@member), :notice => 'Person is in scheduler, but not this club')
     else
       @member = Member.new
       @member.name = params[:member][:name]
@@ -106,6 +109,7 @@ class MembersController < ApplicationController
   # PUT /members/1.xml
   def update
     @member = Member.find(params[:id])
+
 
     respond_to do |format|
       if @member.update_attributes(params[:member])

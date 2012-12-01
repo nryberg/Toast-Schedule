@@ -4,6 +4,11 @@ class Membership
   belongs_to :member
   key :type, String
 
+    # Types include: Guest, Member, Officer, Administrator, Alumni
+    # Members can have multiple memberships, but they are nominally exclusive - most guests 
+    # are not any other role.
+
+  scope :by_type,  lambda { |name| where(:type=> name) } 
   def self.by_name_or_email(search)
     # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
   end

@@ -8,7 +8,7 @@
   %div.span-20
     %span-12
       = f.inputs do 
-        = f.input :member_id, :as => :select, :collection => @meeting.club.members
+        = f.input :member_id, :as => :select, :collection => @members
         = f.input :role_type_id, :as => :select, :collection => RoleType.all, :label => "Role"
         = f.input :title
       .actions
