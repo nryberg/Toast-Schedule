@@ -2,12 +2,17 @@ require 'digest/sha2'
 
 class Member
   include MongoMapper::Document         
-  
+  before_create { generate_token(:auth_token) }  
+
   key :name, String
   
   key :email, String
   key :can_edit, Boolean  # Can Edit if they are an officer.  The first user is Secretary by default
   key :active, Date
+
+  key :auth_token, String
+  key :password_reset_token, String 
+  key :password_reset_sent_at, Time
   #key :officer, String # Add this later 
   #key :membership, String  # Guest, Member, Officer, Alumni
 
@@ -86,7 +91,13 @@ class Member
     self.where(:$or => [{:name => /#{search}/}, {:email=> /#{search}/}])
   end
  
-  
+ 
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Member.exists?(column => self[column])
+  end
+
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 
 #   and password defined, then they will not be able to 

@@ -5,14 +5,17 @@ module ApplicationHelper
   end
 
   def current_user
-    Member.find(session[:member_id])
+    Member.find({:auth_token => cookies[:auth_token]}) 
+    #Member.find(session[:member_id])
   end
 
   def current_club
+    m = Member.find({:auth_token => cookies[:auth_token]}) 
     if session[:club_id].nil? then
-      session[:club_id] = current_user.primary_club
+      session[:club_id] = m.my_club("id")
     end 
-      Club.find(session[:club_id])
+    #Club.find(session[:club_id])
+    m.my_club
   end
 
   def logged_in

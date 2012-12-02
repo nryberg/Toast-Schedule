@@ -1,4 +1,5 @@
 ToastSchedule::Application.routes.draw do
+
   match 'about' => 'welcome#about', :as => :about
   match 'pricing' => 'welcome#pricing', :as => :pricing
   match 'welcome/register' => 'welcome#register'
@@ -11,6 +12,7 @@ ToastSchedule::Application.routes.draw do
   match 'roles/down/:id' => 'roles#down'
 
   resources :memberships
+  resources :password_resets
 
   resources :roles
 
