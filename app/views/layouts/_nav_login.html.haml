@@ -1,7 +1,7 @@
-- if session[:member_id]
+- if current_user 
   = "Signed in as "
   %b
-    =link_to session[:member_name], member_path(session[:member_id])
+    =link_to current_user.name, member_path(current_user)
   = ": Not you?"
   = link_to "Logout", logout_path
 - else

@@ -50,7 +50,7 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.xml
   def create
-    @club = Club.find(session[:club_id])
+    @club = current_club # Club.find(session[:club_id])
     
     @meeting = Meeting.new(params[:meeting])
     @club.meetings << @meeting
