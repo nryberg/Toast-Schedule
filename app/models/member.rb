@@ -98,6 +98,12 @@ class Member
     end while Member.exists?(column => self[column])
   end
 
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    MemberMailer.password_reset(self).deliver
+  end
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 
 #   and password defined, then they will not be able to 

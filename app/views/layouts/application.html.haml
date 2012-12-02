@@ -2,7 +2,7 @@
 
 %html
 %head
-  %title= @header_text
+  %title= @header_text || "TM Schedule Me"
   = stylesheet_link_tag("blueprint/screen.css")
   = stylesheet_link_tag("blueprint/ie.css")
   = stylesheet_link_tag "blueprint/print.css", :media => "print"
