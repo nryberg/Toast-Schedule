@@ -67,7 +67,7 @@ class Member
 
   def my_club
     
-    Club.find(self.primary_club)
+    Club.find(self.primary_club.to_s)
   end
 
   def roles

@@ -7,11 +7,14 @@ class SessionsController < ApplicationController
 
   def create
     if member = Member.authenticate(params[:email], params[:password])
+      ap member
       if params[:remember_me]
         cookies.permanent[:auth_token] = member.auth_token
       else
         cookies[:auth_token] = member.auth_token
       end
+
+      ap cookies
 
       #TODO pull out the session stuff and replace with cookie
       session[:member_id] = member.id
