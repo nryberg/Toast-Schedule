@@ -1,4 +1,4 @@
-- if session[:member_id]
+- if current_user 
   #nav_box
     .span-3.member_background
       = link_to 'My Info', current_user

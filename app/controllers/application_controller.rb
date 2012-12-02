@@ -15,12 +15,14 @@ class ApplicationController < ActionController::Base
 
 
   def current_club
-    ap session
-    if session[:club_id] then
-      Club.find(session[:club_id])
-    else
-      Club.find(current_user.primary_club)
-    end
+    #ap session
+    #if session[:club_id] then
+    #  Club.find(session[:club_id])
+    #else
+    #  Club.find(current_user.primary_club)
+    #end
+
+    current_user.my_club
   end
 
   def current_user
@@ -42,8 +44,8 @@ class ApplicationController < ActionController::Base
 
   protected
     def authorize
-      if Member.find_by_id(session[:member_id])
-        @member_signed_in = Member.find(session[:member_id])
+      if Member.find_by_auth_token(cookies[:auth_token])
+        @member_signed_in = Member.find_by_auth_token(cookies[:auth_token])
       else
         redirect_to login_url, :notice => "Please log in"
       end
