@@ -57,7 +57,7 @@ class Member
   end
 
   def admin_for(club_id)
-    my_role_types(club_id).member?("Administrator")
+    Membership.where(:member_id => self.id, :club_id => club_id, :type => "Admin").count > 0
   end
     
   def admin_for_current_club

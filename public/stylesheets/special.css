@@ -149,10 +149,15 @@ table.pricing {
   font-size: 150%;
 }
 
-td.number {
+th.number, td.number {
   text-align: center;
 }
 
 td.italic {
   font-style: italic;
+  text-align: center;
 }
+
+ul.pricing {
+  font-size: 125%;
+  }

@@ -9,6 +9,7 @@ class Club
   key :plan_initial, Date
   key :plan_renewal, Date
   key :plan_type, String
+  key :billing_period, String
   
   scope :by_name,  lambda { |name| where(:name => name) } 
   
@@ -47,10 +48,11 @@ class Club
       @mbrs = self.memberships.where(:type => type).all
     end
 
-    @mbrs.map {|x| x.member}
+    out = @mbrs.map {|x| x.member}
+    out.sort_by {|x| x.name} 
   end
   def active_members
-    self.memberships.where(:type => 'Member').all
+    self.membership_by_type('Member')
   end
   
   def officers

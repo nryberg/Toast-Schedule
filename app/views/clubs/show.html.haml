@@ -43,6 +43,8 @@
       .span-4.new_link= link_to "(+) New Member", new_member_path
       .span-3.new_link= link_to "(->) All Members", memberships_path
     .span-16.last
-      - @club.active_members.each do |membership|
-        %p= link_to membership.member.name, membership.member
-      / = render :partial => 'shared/member', :collection => @club.memberships
+      %table.span-16
+        %th Name
+        = render :partial => 'shared/member', :collection => @club.active_members
+        /- @club.active_members.each do |membership|
+        /%p= link_to membership.member.name, membership.member
