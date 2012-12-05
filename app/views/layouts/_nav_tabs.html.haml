@@ -1,8 +1,10 @@
 - if current_user 
   #nav_box
-    .span-3.member_background
-      = link_to 'My Info', current_user
-    .span-3.club_background
-      = link_to 'My Club', current_club
+    .span-2.member_background
+      = link_to 'Me', current_user
+    .span-2.club_background
+      = link_to 'Club', current_club
     .span-3.meeting_background
-      = link_to 'Meetings', meetings_path 
+      = link_to 'Calendar', meetings_path 
+    .span-3.member_background
+      = link_to 'Members', memberships_path 
