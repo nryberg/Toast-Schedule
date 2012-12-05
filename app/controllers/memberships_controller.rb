@@ -1,7 +1,8 @@
 class MembershipsController < ApplicationController
 
   def index
-    @members = current_club.memberships
+    @club = current_club
+    @members = current_club.active_members
     @officers = current_club.membership_by_type('Officer')
     @guests = current_club.membership_by_type('Guest')
     @alumni = current_club.membership_by_type('Alumni')
