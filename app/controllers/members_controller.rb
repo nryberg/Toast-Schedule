@@ -69,16 +69,24 @@ class MembersController < ApplicationController
     #        This may cause problems with duplicates with similar but different names.
     #         09:59 PM 11/14/2012
 
+    # 11:33 PM 12/04/2012
+    # This whole section needs to be cleaned up.  There's a lot of confusion going on here. 
+
     #ap params
 
     @member = Member.find_by_email(params[:member][:email])
-    @membership_test =  Membership.find_by_member_id_and_club_id(@member.id, current_club.id) 
 
-    if !@membership_test.nil? then
-      redirect_to(edit_membership_url(@membership_test), :notice => 'Person is already a part of this club')
-    elsif !@member.nil? then
-      
-      redirect_to(edit_member_url(@member), :notice => 'Person is in scheduler, but not this club')
+    if @member.nil? then  # they're not in the club
+
+    else
+      @membership_test =  Membership.find_by_member_id_and_club_id(@member.id, current_club.id) 
+
+      if !@membership_test.nil? then
+        redirect_to(edit_membership_url(@membership_test), :notice => 'Person is already a part of this club')
+      elsif !@member.nil? then
+        
+        redirect_to(edit_member_url(@member), :notice => 'Person is in scheduler, but not this club')
+      end
     else
       @member = Member.new
       @member.name = params[:member][:name]
