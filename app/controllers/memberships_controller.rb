@@ -1,11 +1,28 @@
 class MembershipsController < ApplicationController
 
   def index
+
+    # TODO: DRY this out.  Honestly.  
+    # 04:51 PM 12/05/2012
+    # Maybe just fetch the different types (excluding admin/officer) 
+    # and walk through the array.
+  
+    # TODO: Implement some sort of scoping for roles
+    # Role   -  View
+    # Guests - active members and no e-mail
+    # Active - Active members and no e-mail (?)
+    # Officers - All
+    # Admin - All, however only admin can change anything - need trap for losing your last admin
+    # Alumni - Active members, each other (?)
+    # 
+
+
     @club = current_club
     @members = current_club.active_members
     @officers = current_club.membership_by_type('Officer')
     @guests = current_club.membership_by_type('Guest')
     @alumni = current_club.membership_by_type('Alumni')
+    @admins = current_club.membership_by_type('Admin')
 
 
   end
