@@ -1,8 +1,16 @@
-%h1 Reset Password
-
-= form_tag password_resets_path, :method => :post do 
-  .field
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  .actions
-    = submit_tag "Reset Password" 
+%h1 
+.span-4
+  .span-4#lead_box.member_background Member
+.span-20.last
+  .span-20.last
+    %h2 Reset Password
+  .span-20.last
+    = form_tag password_resets_path, :method => :post do 
+      .span-4
+        .field
+          = label_tag :email
+      .span-16.last
+        = text_field_tag :email, params[:email]
+      .span-20.prepend-4.last.actions
+        = submit_tag "Reset Password" 
+        = link_to "Nevermind!", login_path
