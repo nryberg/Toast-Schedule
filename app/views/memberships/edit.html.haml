@@ -5,3 +5,4 @@
     %span.span-last#lead_box Edit membership information for:
     %h2= link_to @membership.member.name, @membership.member
     = render 'form'
+    = link_to '(remove)', @membership,:confirm => "Are you sure?", :method => :delete

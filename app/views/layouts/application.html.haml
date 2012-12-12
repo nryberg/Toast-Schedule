@@ -10,10 +10,11 @@
   = stylesheet_link_tag("formtastic_changes")
   = stylesheet_link_tag("formtastic")
   = stylesheet_link_tag("special.css")
+  = javascript_include_tag 'jquery', 'rails', 'application'
+  = javascript_include_tag "jquery-ui.min.js", "application"
+  = stylesheet_link_tag "jquery-ui.css"
   = csrf_meta_tag
 %body
-  - if notice 
-    %p#notice= notice 
   %p#class= alert
   .container
     .span-24#header
@@ -23,6 +24,10 @@
         .span-10.log_in_bar#header_right= render "layouts/nav_login"
         .span-11.prepend-1.log_in_bar.last= render "layouts/nav_tabs"
     = yield
-    .span-24#footer= render "layouts/nav_footer"
-    
-    
+    .span-24.last#footer
+      .span-16
+        - if notice 
+          %p#notice= notice 
+        - else
+          %p
+      .span-8.last= render "layouts/nav_footer"
