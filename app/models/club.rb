@@ -22,6 +22,18 @@ class Club
 
   #TODO: do a better job on moving the relationship to the Relationship model
 
+  def next_renewal_date
+    period = case self.billing_period
+      when "Monthly" then 1
+      when "Six Months" then 6
+      when "Annual" then 12
+    end
+    start = self.plan_renewal || DateTime.now
+    out = (start >> period).strftime("%m/%d/%Y")
+
+
+  end
+
   def upcoming_meetings
     self.meetings.where(:meeting_date => {'$gt' => 2.day.ago.midnight}).sort(:meeting_date).all
   end

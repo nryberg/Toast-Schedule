@@ -5,7 +5,13 @@
       = f.input :address, :as => :text, :required => false, :input_html => { :rows => 4}
       = f.input :club_number, :as => :string, :required => false
       = f.input :plan_type, :as => :radio, :collection => ["Essential", "Starter"]
+      .span-10.last
+        .span-10 Essential starts at $6 per month
+        .span-10 Start starts at $8 per month
       = f.input :billing_period, :as => :radio, :collection => ["Monthly", "Six Months", "Annual"]
+      .span-10.last
+        .span-10 Get one month free for a six month subscription
+        .span-10 Get two months free for an annual subscription
   .span-10.last
     = f.buttons :commit
     = link_to '<- Back to club', @club

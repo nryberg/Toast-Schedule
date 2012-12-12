@@ -24,8 +24,13 @@
       = @club.plan_type
       = link_to '(plans)', "/pricing"
   .span-20
+    .span-4#labeler Billing Period
+    .span-16.last.value
+      = @club.billing_period
+      = link_to '(plans)', "/pricing"
+  .span-20
     .span-4#labeler Plan Renewal Date
-    .span-16.last.value= "TODO: Add in the renewal date"
+    .span-16.last.value= @club.next_renewal_date
   .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings

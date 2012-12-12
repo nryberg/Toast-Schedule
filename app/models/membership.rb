@@ -1,5 +1,6 @@
 class Membership
   include MongoMapper::Document    
+  timestamps!
   belongs_to :club
   belongs_to :member
   key :type, String

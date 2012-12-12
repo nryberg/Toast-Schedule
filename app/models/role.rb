@@ -2,6 +2,7 @@ class Role
   include MongoMapper::Document
 #   key :member_id, :typecast => 'ObjectId'
 #   key :role_type_id, :typecast => 'ObjectId'
+  timestamps!
 
   scope :prior, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.lt => _ordinal)}
   scope :next, lambda {|_meeting_id, _ordinal| where(:meeting_id => _meeting_id, :ordinal.gt => _ordinal)}

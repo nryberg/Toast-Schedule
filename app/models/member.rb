@@ -4,6 +4,8 @@ class Member
   include MongoMapper::Document         
   before_create { generate_token(:auth_token) }  
 
+  timestamps!
+
   key :name, String
   
   key :email, String

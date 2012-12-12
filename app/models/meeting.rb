@@ -2,6 +2,7 @@ class Meeting
   include MongoMapper::Document         
 #  validates_presence_of :meeting_date
 
+  timestamps!
   key :theme, String
   key :meeting_date, Time, :index => true
 
