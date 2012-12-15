@@ -27,6 +27,7 @@ class Club
       when "Monthly" then 1
       when "Six Months" then 6
       when "Annual" then 12
+      when nil then 0
     end
     start = self.plan_renewal || DateTime.now
     out = (start >> period).strftime("%m/%d/%Y")

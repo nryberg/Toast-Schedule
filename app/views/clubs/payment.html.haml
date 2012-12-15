@@ -1,0 +1,15 @@
+=form_tag "", :method => :post, :id => "payment_form" do 
+  .form-row
+    %label Card Number
+    =text_field_tag  :type => "text", :size => "20", :autocomplete=> "off", :class => "card-number"
+  .form-row
+    %label CVC
+    = text_field_tag :type => "text", :size => "4", :autocomplete=> "off", :class => "card-cvc"
+  .form-row
+    %label Expiration (MM/YYYY)
+    = text_field_tag :type =>"text",  :size => "2",  :class => "card-expiry-month"
+    %span-20 /
+    = text_field_tag :type => "text", :size => "4", :class => "card-expiry-year"
+
+
+  = submit_tag "Submit Payment",  :class => 'submit-button'

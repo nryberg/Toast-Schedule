@@ -40,6 +40,8 @@ gem 'rails3-generators'
 gem 'jquery-rails', '>=0.2.5'
 gem 'jquery_datepicker'
 gem 'awesome_print'
+
+gem 'stripe'
 # Use unicorn as the web server
 # gem 'unicorn'
 
