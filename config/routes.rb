@@ -7,7 +7,6 @@ ToastSchedule::Application.routes.draw do
   match 'welcome/newclub' => 'welcome#newclub'
   match 'members/search' => 'members#search'
   match 'clubs/search' => 'clubs#search'
-  match 'payment' => 'clubs#payment'
 
   match 'roles/up/:id' => 'roles#up'
   match 'roles/down/:id' => 'roles#down'
@@ -30,6 +29,7 @@ ToastSchedule::Application.routes.draw do
      resources :meetings
      resources :templates
      resources :memberships
+     resources :billings
    end
   
    

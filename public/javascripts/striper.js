@@ -17,3 +17,20 @@ $(document).ready(function() {
     return false;
   });
 });
+
+function stripeResponseHandler(status, response) {
+    if (response.error) {
+        ...
+        // show the errors on the form
+        $(".payment-errors").text(response.error.message);
+        $(".submit-button").removeAttr("disabled");
+    } else {
+        var form$ = $("#payment-form");
+        // token contains id, last4, and card type
+        var token = response['id'];
+        // insert the token into the form so it gets submitted to the server
+        form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+        // and submit
+        form$.get(0).submit();
+    }
+}

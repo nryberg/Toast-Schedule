@@ -4,6 +4,12 @@ class ClubsController < ApplicationController
 
   # GET /clubs
   # GET /clubs.xml
+
+  def payment 
+    ap params
+
+
+  end
   def index
     if session[:member_id] then
        @clubs = Member.find(session[:member_id]).clubs.sort(:name).all
@@ -78,8 +84,8 @@ class ClubsController < ApplicationController
 
     respond_to do |format|
       if @club.update_attributes(params[:club])
-        format.html { redirect_to(@club, :notice => 'Club was successfully updated.') }
-        format.xml  { head :ok }
+          format.html { redirect_to(@club, :notice => 'Club was successfully updated.') }
+          format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @club.errors, :status => :unprocessable_entity }
@@ -104,6 +110,11 @@ class ClubsController < ApplicationController
     unless params[:search].nil?
       @clubs = Club.searchable_text(params[:search]).all
     end
+
+  end
+
+  def billing
+
 
   end
   

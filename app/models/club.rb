@@ -19,6 +19,7 @@ class Club
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :meetings
   many :memberships
+  many :billings
 
   #TODO: do a better job on moving the relationship to the Relationship model
 
