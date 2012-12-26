@@ -10,6 +10,7 @@ ToastSchedule::Application.routes.draw do
 
   match 'roles/up/:id' => 'roles#up'
   match 'roles/down/:id' => 'roles#down'
+  match 'clubs/:id/billings/new' => 'billings#new', :via => [:post, :get]
 
   resources :memberships
   resources :password_resets
@@ -29,7 +30,9 @@ ToastSchedule::Application.routes.draw do
      resources :meetings
      resources :templates
      resources :memberships
-     resources :billings
+     resources :billings do
+      post 'new'
+    end
    end
   
    

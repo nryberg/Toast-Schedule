@@ -1,6 +1,6 @@
 %h1 Billing - New
-= form_for ([@club, @billing]) do |f| 
-  / = f.hidden_field :billing_id
+= form_for @billing do |f| 
+  = f.hidden_field :billing_id
   .field 
     = label_tag :card_number, "Credit Card Number"
     = text_field_tag :card_number, nil, name: nil

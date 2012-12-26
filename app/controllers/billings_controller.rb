@@ -6,7 +6,8 @@ class BillingsController < ApplicationController
 
   def new
     @billing = Billing.new
-    @billing.club = current_club()
-    @billing.member = current_user
+    @club = current_club()
+    # @billing.club = current_club()
+    # @billing.member = current_user
   end
 end
