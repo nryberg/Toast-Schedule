@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
+  :address              => "smtp.mandrillapp.com",
   :port                 => 587,
-  :domain               => "rybergs.com",
-  :user_name            => "tmschedule@rybergs.com",
-  :password             => "QVgxpd42oMPt",
+  :domain               => "tmschedule.me",
+  :user_name            => "info@tmschedule.me",
+  :password             => "cbaf3e82-5279-4448-9a8e-03f4716dffd8",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
