@@ -1,0 +1,179 @@
+label 
+  {
+ font-size:125%;
+ font-weight: bold;
+ }
+
+.input {
+  color : red;
+  }
+  
+.value {
+  font-size: 125%;
+  
+  }
+
+#footer {
+  border-top: 1px dotted #666;
+  text-align: right;
+  font-size: 125%;
+  margin-top: 20px;
+}
+
+#action_box {
+  font-size: 125%;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 10px;
+}
+#header {
+  border-bottom:1px dotted #666;
+  margin-bottom: 9px;
+}
+
+#header_box {
+  border-bottom:thin solid #0B79D9;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.new_link {
+  margin-bottom: 1em;
+  margin-left: 1em;
+  font-weight: bold;
+  font-style: italic;
+
+  }
+
+#nav_box {
+  font-size: 125%;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 0px;
+  padding-right: 0px;
+
+}
+
+.log_in_bar {
+  line-height: 3em;
+  text-align: right;
+}
+
+#header_right {
+  text-align:right;
+  float: right;
+}
+
+#site_title {
+  /* color:  #0B79D9; */
+  font-size: 300%;
+  text-decoration:none;
+  float: left;
+}
+
+#test_pattern {
+  background-color: green;
+}
+
+#labeler {
+ font-size:125%;
+ font-weight: bold;
+ margin-bottom: 10px;
+}
+
+.member_background {
+  background-color: #C19A7B;
+}
+
+.meeting_background {
+  background-color: #F3933C;
+}
+
+.club_background {
+  background-color: #88BEE4;
+}
+
+.role_background {
+  background-color: #FFFFFF;
+}
+
+#lead_box {
+  font-size: 200%;
+}
+
+
+.edit_label {
+  font-size: 150%;
+}
+
+#content_box {
+  padding-top: 15px;
+}
+
+.side_entry {
+  padding-left: 10px;
+}
+
+.font_pacifico {
+  font-family: 'Pacifico', arial, serif; 
+}
+
+.font_droid_serif {
+  font-family: 'Droid Serif', arial, serif;
+}
+
+.font_droid_serif_bold {
+  font-family: 'Droid Serif Bold', arial, serif;
+}
+
+
+#title_link{
+  text-decoration: none;
+}
+
+.body {
+  background-color: #8AB29F;
+  font-size: 125%;
+  
+}
+
+.container {
+  /* background-color: #F2E6CE; */
+}
+
+/* really annoying hack to hide the ui datepicker garbage */ 
+#ui-datepicker-div { display: none; }
+
+/* Table tweaks for pricing */
+table.pricing {
+  font-size: 150%;
+}
+
+th.number, td.number {
+  text-align: center;
+}
+
+td.italic {
+  font-style: italic;
+  text-align: center;
+}
+
+ul.pricing {
+  font-size: 125%;
+  }
+
+.space_top {
+  padding-top: 1em;
+  }
+
+#notice { background-color: #A4E7A0; 
+  border: 1px solid #26722D;
+  text-align: left;}
+
+#error { background-color: #F0A8A8; border: 1px solid #900; }
+#notice, #error { width: 90%; margin: 0 auto 10px auto; padding: 5px; }
+#notice p, #error p { margin-left: 20px; padding: 0; font-size: .75em; color: #000; }
+#notice a, #error a { text-decoration: none; padding: 0 3px; }
+#notice a { border: 1px solid #26722D; color: #26722D; }
+#error a { border: 1px solid #900; color: #900; }
+#notice a:hover, #error a:hover { color: #333; border: 1px solid #333; }

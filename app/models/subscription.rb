@@ -1,4 +1,4 @@
-class Subscription < ActiveRecord::Base
+class Subscription 
   include MongoMapper::Document         
   timestamps!
 
