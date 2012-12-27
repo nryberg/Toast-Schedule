@@ -4,7 +4,7 @@ class Meeting
 
   timestamps!
   key :theme, String
-  key :meeting_date, Time, :index => true
+  key :meeting_date, Time
 
   scope :upcoming, lambda {where :meeting_date.gt => Time.now}
   scope :past, lambda {where :meeting_date.lt => Time.now}
