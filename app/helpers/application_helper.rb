@@ -4,7 +4,7 @@ module ApplicationHelper
          address
   end
 
-  def current_user
+  def current_user  
     Member.find({:auth_token => cookies[:auth_token]}) 
     #Member.find(session[:member_id])
   end

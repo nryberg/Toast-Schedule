@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       #params[:id] = member.id
       #@member_signed_in = member
       #@member = @member_signed_in
-      redirect_to current_user
+      redirect_to member
     else
       redirect_to login_url, :notice => "Incorrect e-mail or password"
     end
