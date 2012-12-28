@@ -58,17 +58,20 @@ class Member
     types = related.collect {|x| x.type}
   end
 
-  def admin_for(club_id)
-    Membership.where(:member_id => self.id, :club_id => club_id, :type => "Admin").count > 0
+  def admin_for(club)
+    Membership.where(:member_id => self.id, :club_id => club.id, :type => "Admin").count > 0
   end
     
-  def admin_for_current_club
-    my_role_types(current_club.id).member?("Administrator")
-  end
+#  def admin_for_current_club
+#    my_role_types(session[:club_id]).member?("Administrator")
+
+    # If you're going to break a rule, break it hard!
+    # TODO Refactor this into a proper separate class
+
+# end
 
 
   def my_club
-    
     Club.find(self.primary_club.to_s)
   end
 

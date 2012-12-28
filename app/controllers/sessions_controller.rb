@@ -7,18 +7,21 @@ class SessionsController < ApplicationController
 
   def create
     if member = Member.authenticate(params[:email], params[:password])
+      if member.auth_token.nil? 
+        member.generate_token(:auth_token)
+        member.save
+      end
+
       if params[:remember_me]
         cookies.permanent[:auth_token] = member.auth_token
       else
         cookies[:auth_token] = member.auth_token
       end
+      
+      session[:club_id] = member.primary_club
 
-      #TODO pull out the session stuff and replace with cookie
-      #session[:member_id] = member.id
-      #session[:member_name] = member.name
-      #params[:id] = member.id
-      #@member_signed_in = member
-      #@member = @member_signed_in
+      ap "Here is my auth_token " + member.auth_token
+      
       redirect_to member
     else
       redirect_to login_url, :notice => "Incorrect e-mail or password"

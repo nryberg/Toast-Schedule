@@ -5,12 +5,12 @@ module ApplicationHelper
   end
 
   def current_user  
-    Member.find({:auth_token => cookies[:auth_token]}) 
-    #Member.find(session[:member_id])
+    auth_token = cookies.permanent[:auth_token] || cookies[:auth_token] 
+    Member.find({:auth_token => auth_token}) 
   end
 
   def current_club
-    current_user.my_club
+    Club.find(session[:club_id])
 
     # TODO: Cleaned out the garbage, but we're still going to have issues with users admin'ing multiple clubs.
     #       Hardly seems worth another call - why not just go for the gusto.

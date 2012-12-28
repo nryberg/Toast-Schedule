@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
 
     def administrator
       unless current_user.nil? or current_club.nil? then
-        if current_user.admin_for(current_club.id)
+        if current_user.admin_for(current_club)
         else
           # redirect_to :action => "display"
         end

@@ -22,7 +22,7 @@
     .span-16.last
       %table
         = render :partial => 'member', :collection => @officers
-  - if current_user.admin_for(current_club.id)
+  - if current_user.admin_for(current_club)
     .span-20
       .span-4#labeler Administrators
       .span-16.last
