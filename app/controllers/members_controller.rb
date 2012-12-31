@@ -9,8 +9,8 @@ class MembersController < ApplicationController
 
 
   def index
-    @club = current_club
-
+    #@club = Club.find(current_club
+    @club = Club.find(session[:club_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @members }
