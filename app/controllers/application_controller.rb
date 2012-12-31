@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def current_club
+#  def current_club
     #ap session
     #if session[:club_id] then
     #  Club.find(session[:club_id])
@@ -22,16 +22,16 @@ class ApplicationController < ActionController::Base
     #  Club.find(current_user.primary_club)
     #end
 
-    current_user.my_club
-  end
+#    current_user.my_club
+#  end
 
-  def current_user
+#  def current_user
 
-    @current_user ||= Member.find_by_auth_token( cookies[:auth_token]) if cookies[:auth_token]
+#    @current_user ||= Member.find_by_auth_token( cookies[:auth_token]) if cookies[:auth_token]
     #Member.find(session[:member_id])
-  end
+#  end
 
-  helper_method :current_user
+#  helper_method :current_user
 
   def redirect_to_stored
     if return_to = session[:return_to]

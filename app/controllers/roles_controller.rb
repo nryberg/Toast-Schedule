@@ -67,7 +67,6 @@ class RolesController < ApplicationController
   def edit
     @role = Role.find(params[:id])
     @members = current_club.membership_by_type  #Club.find(session[:club_id]).members
-    #ap current_club
     @meeting = Meeting.find(params[:meeting_id])
   end
 

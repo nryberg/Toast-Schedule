@@ -28,7 +28,6 @@ class MembersController < ApplicationController
   end
 
   def relate
-    ap params
     
   end
 
@@ -83,7 +82,6 @@ class MembersController < ApplicationController
 
 
 
-    #ap params
 
     @member = Member.find_by_email(params[:member][:email])
     message = "(Blank)"

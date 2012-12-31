@@ -19,8 +19,6 @@ class SessionsController < ApplicationController
       end
       
       session[:club_id] = member.primary_club
-
-      ap "Here is my auth_token " + member.auth_token
       
       redirect_to member
     else

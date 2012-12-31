@@ -75,7 +75,6 @@ class Club
   
   def guests
     x = self.memberships.find_all_by_type('Guest')
-    ap x
   end
 
 # TODO: Refactor in the membership management 

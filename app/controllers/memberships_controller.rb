@@ -37,7 +37,6 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
     @membership.member = @member
     @membership.club = current_club
-    ap @member
   end
 
   def create

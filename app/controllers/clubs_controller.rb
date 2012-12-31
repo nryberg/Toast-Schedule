@@ -5,11 +5,6 @@ class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.xml
 
-  def payment 
-    ap params
-
-
-  end
   def index
     if session[:member_id] then
        @clubs = Member.find(session[:member_id]).clubs.sort(:name).all
