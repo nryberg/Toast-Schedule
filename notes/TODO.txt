@@ -1,3 +1,1 @@
-06:28 AM 08/17/2011   TODO: When club not set, members and meetings don't work.  Structural issue that should be caught with rethink.
-07:25 AM 08/17/2011   TODO: Research auto reload for CSS building
-                      TODO: Notify when bad logon - right now there's nothing.  
+04:46 PM 01/02/2013 Add search box for clubs - default to current user's clubs for now.

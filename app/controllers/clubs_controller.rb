@@ -6,18 +6,17 @@ class ClubsController < ApplicationController
   # GET /clubs.xml
 
   def index
-    if session[:member_id] then
-       @clubs = Member.find(session[:member_id]).clubs.sort(:name).all
-    else
-      # TODO: This won't scale - need to have better way of finding clubs
-      #       or simply don't do an index. 
-      @clubs = Club.all
+    if current_user then
+      memberships = current_user.memberships
+      all_clubs = memberships.collect {|mbrs| mbrs.club}
+      @clubs = all_clubs.uniq.sort {|a,b| a.name <=> b.name}
+#      @clubs = Member.find(session[:member_id]).clubs.sort(:name).all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @clubs }
+      end
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @clubs }
-    end
   end
 
   # GET /clubs/1
@@ -26,8 +25,8 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @meetings = @club.meetings.sort(:meeting_date.asc)
     @header_text = @club.name
+    session[:club_id] = @club.id
     
-    #TODO: Fix the friggin date problems
 
     respond_to do |format|
       format.html # show.html.erb
@@ -55,10 +54,12 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    if session[:member_id] then
-      @club.members << Member.find(session[:member_id])
-    end
-    
+    membership = Membership.new
+    membership.club = @club
+    membership.member = current_user
+    membership.type = "Admin"
+    membership.save
+
     session[:club_id] = @club.id
 
     respond_to do |format|

@@ -14,10 +14,6 @@
       .span-4#labeler E-Mail
       .value= @member.email
     .span-20  
-      .span-4#labeler.club_background My Club
-      - if not @member.my_club.nil? then  
-        .span-6.value= link_to @member.my_club.name, @member.my_club 
-    .span-20  
       .span-4#labeler.meeting_background Roles
       .span-16.last
         %table
@@ -30,7 +26,6 @@
     .span-20.last
       .span-4
         #labeler.member_background Memberships
-        = link_to "Add Membership", new_member_membership_path(@member) 
         
       .span-8.last
         %span.span-12

@@ -16,6 +16,8 @@ ToastSchedule::Application.routes.draw do
   resources :password_resets
 
   resources :roles
+  match 'billings/confirm_payment' => 'billings#confirm'
+  resources :billings 
 
   controller :sessions do
     get 'login' => :new
@@ -30,9 +32,6 @@ ToastSchedule::Application.routes.draw do
      resources :meetings
      resources :templates
      resources :memberships
-     resources :billings do
-      post 'new'
-    end
    end
   
    

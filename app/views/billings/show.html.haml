@@ -1,0 +1,20 @@
+.span-4
+  .span-4#lead_box.club_background Club
+.span-20.last
+  %h1 Billing Completed
+  .span-20
+    .span-4#labeler Club
+    .span-16.last.value=  @billing.club.name
+  .span-20
+    .span-4#labeler Renewal Period
+    .span-16.last.value=  @billing.referenceId
+  .span-20
+    .span-4#labeler Created
+    .span-16.last.value=  @billing.created_pretty_date
+  .span-20
+    .span-4#labeler Amount
+    .span-16.last.value=  number_to_currency(@billing.amount)
+  .span-20
+    .span-4#labeler By
+    .span-16.last.value=  @billing.member.name
+

@@ -1,11 +1,11 @@
 %span.span-4
   .span-4#lead_box.club_background Club
-  - if current_user.admin_for(current_club)
-    #action_box
+  #action_box
+    - if current_user.admin_for(current_club)
       .span-4
         = link_to '(Change)', edit_club_path(@club)
-      .span-4
-        = link_to '(Add New)', new_club_path()
+    .span-4
+      = link_to '(Add New)', new_club_path()
 .span-20.last
   .span-20
     .span-4#labeler Name
@@ -19,18 +19,11 @@
     .span-4#labeler Number
     %span.span-16.last.value= @club.club_number
   .span-20
-    .span-4#labeler Plan Type
-    .span-16.last.value
-      = @club.plan_type
-      = link_to '(plans)', "/pricing"
-  .span-20
-    .span-4#labeler Billing Period
-    .span-16.last.value
-      = @club.billing_period
-      = link_to '(plans)', "/pricing"
-  .span-20
     .span-4#labeler Plan Renewal Date
-    .span-16.last.value= @club.next_renewal_date
+    .span-16.last.value
+      = @club.next_renewal_date
+      = "(" + @club.billing_period 
+      = " renewal) "
   .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings

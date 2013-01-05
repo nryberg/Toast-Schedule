@@ -1,16 +1,3 @@
 %h1 Billing - New
-= form_for ([@club, @billing]) do |f| 
-  / = f.hidden_field :billing_id
-  .field 
-    = label_tag :card_number, "Credit Card Number"
-    = text_field_tag :card_number, nil, name: nil
-  .field 
-    = label_tag :card_code, "Security code on card (CVV)"
-    = text_field_tag :card_code, nil, name: nil
-  .field
-    = label_tag :card_month, "Card Expiration"
-    = select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}
-    = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}
-  .actions
-    = f.submit "Submit"
-
+.span-20.last
+  .span-20.last= render 'subscribe_button_starter_month'

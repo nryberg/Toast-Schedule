@@ -42,6 +42,12 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @roles = Role.where(:member_id => params[:id]).sort(:meeting_date.desc).all
+
+    #TODO: Fix the concatenation and grouping problem with clubs and members  Maybe a hash??
+    mships = @member.memberships.collect {|mship| mship.type}
+    @memberships = mships.join(", ")
+
+
      
 
     respond_to do |format|
