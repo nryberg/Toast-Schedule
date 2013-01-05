@@ -1,1 +1,2 @@
 04:46 PM 01/02/2013 Add search box for clubs - default to current user's clubs for now.
+11:07 PM 01/04/2013 Finish up the billing process. Put together billing e-mail  and clean up landing pages

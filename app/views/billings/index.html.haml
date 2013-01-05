@@ -1,4 +1,16 @@
 %h1 Billings
-%p= @billings.count
+%table
+  %tr
+    %th Billing Date
+    %th Amount
+    %th Posted by
+    %th Period
+  - @billings.each do |billing|
+    %tr
+      %td= link_to billing.created_pretty_date, billing
+      %td= number_to_currency(billing.amount)
+      %td= billing.member.name
+      %td= billing.referenceId
 
+  
 
