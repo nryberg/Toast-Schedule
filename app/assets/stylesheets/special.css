@@ -20,6 +20,9 @@ label
   margin-top: 20px;
 }
 
+#image_box {
+  margin-top: 20px;
+}
 #action_box {
   font-size: 125%;
   font-weight: bold;
@@ -177,3 +180,6 @@ ul.pricing {
 #notice a { border: 1px solid #26722D; color: #26722D; }
 #error a { border: 1px solid #900; color: #900; }
 #notice a:hover, #error a:hover { color: #333; border: 1px solid #333; }
+
+#button_update {
+  }
