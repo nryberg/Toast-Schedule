@@ -11,7 +11,10 @@
         = f.input :member_id, :as => :select, :collection => @members
         = f.input :role_type_id, :as => :select, :collection => RoleType.all, :label => "Role"
         = f.input :title
-      .actions
-        = f.buttons
-    .span-20= link_to 'Drop', @role, :confirm => 'Are you sure you want to delete this role?', :method => :delete
-    .span-20= link_to ' <- Back to Meeting', meeting_path(@meeting)
+      .span-12.prepend-2.last 
+        %input{:type=>'image', :value => 'submit', :src => "/images/update_meeting_button.png"}
+        - if @role.created_at?
+          = link_to image_tag("delete_meeting_button.png"), @role,:confirm => "Are you sure?", :method => :delete
+        = link_to image_tag("cancel_meeting_button.png"), meeting_path(@meeting)
+    
+ 

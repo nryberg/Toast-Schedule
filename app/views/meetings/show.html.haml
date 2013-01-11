@@ -1,9 +1,7 @@
 %span.span-4
   .span-4#lead_box.meeting_background Meeting
-  .span-4#action_box
-    = link_to '(Change)', edit_meeting_path(@meeting)
-  .span-4#action_box
-    = link_to '(Add New)', new_meeting_path()
+  .span-4= link_to image_tag("change_meeting_button.png"), edit_meeting_path(@meeting)
+  .span-4= link_to image_tag("add_meeting_button.png"), new_meeting_path()
 %span.span-18.last
   - if @meeting.roles.empty? 
     .span-16.last
@@ -28,5 +26,4 @@
           %th Move
           = render :partial => 'role', :collection => @roles
       / .span-3.new_link= link_to '(+ Change Roles)', edit_meeting_roles_path(@meeting) 
-      .span-3.new_link= link_to '(+ Add a Role)', new_meeting_role_path(@meeting, @role) 
-
+      .span-3.new_link= link_to image_tag("add_new_role_meeting_button.png"), new_meeting_role_path(@meeting, @role) 

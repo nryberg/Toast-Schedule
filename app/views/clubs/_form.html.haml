@@ -5,10 +5,6 @@
       = f.input :address, :as => :text, :required => false, :input_html => { :rows => 4}
       = f.input :club_number, :as => :string, :required => false
       = f.input :billing_period, :as => :radio, :collection => ["Monthly", "Six Months", "Annual"]
-      = link_to "Plans", pricing_path
-  .span-10.last 
-    = link_to image_tag("update_club_button.png"), new_club_path()
-    = f.buttons do
-      #button_update
-        = f.submit
+  .span-10.prepend-2.last 
+    %input{:type=>'image', :value => 'submit', :src => "/images/update_club_button.png"}
 

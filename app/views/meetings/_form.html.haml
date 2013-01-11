@@ -10,7 +10,6 @@
       =f.input :meeting_date_part, :as => :string, :label => "Date"
       =f.input :meeting_time_part, :as => :string, :label => "Time"
       = f.input :theme, :as => :string
-  .span-10
-    = f.buttons :commit
-  .span-10
-    = link_to '<- Back to Meeting', @meeting
+  .span-10.prepend-2.last 
+    %input{:type=>'image', :value => 'submit', :src => "/images/update_meeting_button.png"}
+    = link_to image_tag("cancel_meeting_button.png"), @meeting

@@ -1,7 +1,6 @@
 .span-4
   .span-4#lead_box.meeting_background Meetings
-  .span-4#action_box
-    = link_to '(Add New)', new_meeting_path()
+  .span-4= link_to image_tag("add_meeting_button.png"), new_meeting_path()
 .span-20.last
   - if @club.meetings.upcoming then
     .span-20.last

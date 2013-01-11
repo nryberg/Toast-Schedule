@@ -6,4 +6,5 @@
       - if @editing_self
         = f.input :password
         = f.input :password_confirmation
-    = f.buttons :commit
+  .span-10.prepend-2.last 
+    %input{:type=>'image', :value => 'submit', :src => "/images/update_member_button.png"}

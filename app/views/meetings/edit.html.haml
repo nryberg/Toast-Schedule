@@ -1,9 +1,7 @@
 %div{:type=>"text", :id=>"datepicker"} 
 .span-4
   .edit_label.meeting_background Meeting
-  .span-4#action_box
-    = link_to '(remove)', @meeting,:confirm => "Are you sure?", :method => :delete
- 
+  .span-4= link_to image_tag("delete_meeting_button.png"), @meeting,:confirm => "Are you sure?", :method => :delete
 .span-18.last
   %p
   = render 'form'
