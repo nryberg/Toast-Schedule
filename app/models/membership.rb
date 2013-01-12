@@ -5,7 +5,7 @@ class Membership
   belongs_to :member
   key :type, String
 
-    # Types include: Guest, Member, Officer, Administrator, Alumni
+    # Types include: Guest, Member, Officer
     # Members can have multiple memberships, but they are nominally exclusive - most guests 
     # are not any other role.
 

@@ -2,12 +2,12 @@
   %td= link_to role.role_type, edit_meeting_role_path(@meeting, role) 
   %td= role.member_name
   - if role != @meeting.role_first
-    %td= link_to '^ Up ^', :controller => "roles", :action => "up", :id => role
+    %td= link_to image_tag("move_up_role_button.png"), :controller => "roles", :action => "up", :id => role
   - else
     %td
       %br
   - if role != @meeting.role_last
-    %td= link_to 'v Down v', :controller => "roles", :action => "down", :id => role
+    %td= link_to image_tag("move_down_role_button.png"), :controller => "roles", :action => "down", :id => role
   - else
     %td 
       %br
