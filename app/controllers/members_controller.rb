@@ -44,11 +44,7 @@ class MembersController < ApplicationController
     @roles = Role.where(:member_id => params[:id]).sort(:meeting_date.desc).all
 
     #TODO: Fix the concatenation and grouping problem with clubs and members  Maybe a hash??
-    mships = @member.memberships.collect {|mship| mship.type}
-    @memberships = mships.join(", ")
-
-
-     
+    @memberships = @member.memberships
 
     respond_to do |format|
       format.html # show.html.erb
@@ -86,28 +82,25 @@ class MembersController < ApplicationController
     #   2) Pull the membership, build if it doesn't exist
     #   3) Move to the membership edit
 
+    # 08:09 PM 01/12/2013
+    # Getting down to brass tacks.  Keep it simple stupid.  Memberships will be in the background - can be guest, member or
+    # officer based on the timestamp for each value
 
-
-
-    @member = Member.find_by_email(params[:member][:email])
     message = "(Blank)"
-
-    if @member.nil? then  # they're not in the System
-      @member = Member.new
-      @member.name = params[:member][:name]
-      @member.email = params[:member][:email]
-    end 
-
+    email = params[:member][:email]
+    @member = Member.find_by_email(email) || Member.new(params[:id])
+   
     @membership =  Membership.find_by_member_id_and_club_id(@member.id, current_club.id) 
 
     if @membership.nil? then # they don't yet have a membership
       @membership = Membership.new(:club => current_club, :member => @member, :type => 'Guest')
     end
+    @membership.member_at = Time.new
+    @membership.save
       
     respond_to do |format|
-        if @membership.save 
-          unless @membership.nil? then @membership.save end
-          format.html { redirect_to(edit_membership_path(@membership),  :notice => 'Member was successfully created.') }
+        if @member.save 
+          format.html { redirect_to(@member,  :notice => 'Member was successfully created.') }
         else
           format.html { render :action => "new" }
         end

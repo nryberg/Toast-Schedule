@@ -4,8 +4,11 @@ class Membership
   belongs_to :club
   belongs_to :member
   key :type, String
-
-    # Types include: Guest, Member, Officer
+  key :guest_at, Time
+  key :member_at, Time
+  key :officer_at, Time
+  key :member_type, Array
+    # Types include: Guest, Member, Officer, Alumni
     # Members can have multiple memberships, but they are nominally exclusive - most guests 
     # are not any other role.
 
@@ -13,7 +16,23 @@ class Membership
   def self.by_name_or_email(search)
     # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
   end
-    
+
+  def guest_status
+    if self.guest_at.nil? then
+      "-"
+    elsif
+      "Guest"
+    end
+  end
+ 
+  def member_status
+    if self.member_at.nil? then
+      "-"
+    elsif
+      "Member"
+    end
+  end
+   
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 

@@ -14,7 +14,7 @@
       .span-4#labeler E-Mail
       .value= @member.email
     .span-20  
-      .span-4#labeler.meeting_background Roles
+      .span-4#labeler.meeting_background Calendar
       .span-16.last
         %table
           %tr
@@ -25,13 +25,15 @@
           / TODO: Add in new Role function for a person
     .span-20.last
       .span-4
-        #labeler.member_background Memberships
+        #labeler.club_background Clubs
         
       .span-8.last
         %span.span-12
           %table
             %tr
               %th Club
-              %th Membership
+              %th Guest
+              %th Member
+              %th Officer
             %tr
-              = render :partial => 'membership', :collection => @member.memberships
+              = render :partial => 'membership', :collection => @memberships

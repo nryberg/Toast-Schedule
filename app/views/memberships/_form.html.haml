@@ -1,7 +1,7 @@
 = semantic_form_for @membership do |f|
   .span-10.last.append-6
     = f.inputs do
-      = f.input :type, :as => :radio, :collection => ['Guest', 'Member', 'Officer', 'Alumni', 'Admin']
       = f.input :member, :as => :hidden, :value => @membership.member.id
       = f.input :club, :as => :hidden, :value => @membership.club.id
+      = f.input :member_type, :as => :radio, :collection => ['Guest', 'Member', 'Officer', 'Alumni', 'Admin']
     = f.buttons :commit

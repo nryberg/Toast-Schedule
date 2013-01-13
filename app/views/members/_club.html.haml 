@@ -1,5 +1,4 @@
 %tr
   %td= link_to membership.club.name, club_path(membership.club)
-  %td= membership.guest_status
-  %td= membership.member_status
+  %td= membership.type
   %td= link_to "(Change)", edit_membership_path(membership)
