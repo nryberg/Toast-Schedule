@@ -1,5 +1,12 @@
 %tr
   %td= link_to membership.club.name, club_path(membership.club)
-  %td= membership.guest_status
-  %td= membership.member_status
-  %td= link_to "(Change)", edit_membership_path(membership)
+  %td
+    - if membership.is_guest 
+      = image_tag("check_mark_small.png") 
+  %td
+    - if membership.is_member
+      .image_center= image_tag("check_mark_small.png") 
+  %td
+    - if membership.is_officer
+      .image_center= image_tag("check_mark_small.png") 
+  %td= link_to image_tag("change_member_button_small.png"), edit_membership_path(membership)

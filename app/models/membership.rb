@@ -17,20 +17,16 @@ class Membership
     # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
   end
 
-  def guest_status
-    if self.guest_at.nil? then
-      "-"
-    elsif
-      "Guest"
-    end
+  def is_guest
+    !self.guest_at.nil? 
   end
  
-  def member_status
-    if self.member_at.nil? then
-      "-"
-    elsif
-      "Member"
-    end
+  def is_member
+    !self.member_at.nil? 
+  end
+
+  def is_officer
+    !self.officer_at.nil?
   end
    
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::

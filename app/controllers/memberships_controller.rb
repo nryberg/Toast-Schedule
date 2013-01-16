@@ -28,6 +28,7 @@ class MembershipsController < ApplicationController
   end
   def edit
     @membership  = Membership.find(params[:id])
+
     
   end
 
@@ -58,6 +59,7 @@ class MembershipsController < ApplicationController
   end
 
   def update
+    ap params
     @membership = Membership.find(params[:id])
     @membership.type = params[:membership][:type]
     respond_to do |format|
