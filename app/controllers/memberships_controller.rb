@@ -1,22 +1,13 @@
 class MembershipsController < ApplicationController
 
   def index
-
-    # TODO: DRY this out.  Honestly.  
-    # 04:51 PM 12/05/2012
-    # Maybe just fetch the different types (excluding admin/officer) 
-    # and walk through the array.
   
     # TODO: Implement some sort of scoping for roles
     # Role   -  View
     # Guests - active members and no e-mail
-    # Active - Active members and no e-mail (?)
+    # Member - Active members and no e-mail (?)
     # Officers - All
-    # Admin - All, however only admin can change anything - need trap for losing your last admin
-    # Alumni - Active members, each other (?)
-    # 
-
-
+    
     @club = current_club
     @members = current_club.active_members
     @officers = current_club.membership_by_type('Officer')
@@ -59,12 +50,14 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    ap params
+    
     @membership = Membership.find(params[:id])
-    @membership.type = params[:membership][:type]
+    @membership.flag_as_guest(params[:membership][:is_guest])
+    @membership.flag_as_officer(params[:membership][:is_officer])
+    @membership.flag_as_member(params[:membership][:is_member])
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to(current_club, :notice => 'Member was successfully updated.') }
+        format.html { redirect_to(@membership.member, :notice => 'Member was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

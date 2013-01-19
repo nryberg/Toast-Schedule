@@ -2,7 +2,12 @@
   .span-4#lead_box.member_background Membership
 %span.span-20.last
   %span.span-16
-    %span.span-last#lead_box Edit membership information for:
-    %h2= link_to @membership.member.name, @membership.member
+    %span.span-last#lead_box 
+      Edit membership information for
+      = @membership.member.name
+      in the
+      = @membership.club.name
+      club.
+    
     = render 'form'
     = link_to '(remove)', @membership,:confirm => "Are you sure?", :method => :delete

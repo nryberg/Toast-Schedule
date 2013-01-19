@@ -3,5 +3,7 @@
     = f.inputs do
       = f.input :member, :as => :hidden, :value => @membership.member.id
       = f.input :club, :as => :hidden, :value => @membership.club.id
-      = f.input :membership_type, :as => :check_boxes, :collection => ['Guest', 'Member', 'Officer']
+      = f.input :is_guest, :as => :boolean
+      = f.input :is_member, :as => :boolean
+      = f.input :is_officer, :as => :boolean
     = f.buttons :commit

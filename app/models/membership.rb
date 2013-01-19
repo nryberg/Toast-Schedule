@@ -20,7 +20,19 @@ class Membership
   def is_guest
     !self.guest_at.nil? 
   end
+
+  def flag_as_guest(check_value)
+    check_value == "1" ? self.guest_at = Time.new : self.guest_at = nil 
+  end
+
+  def flag_as_member(check_value)
+    check_value == "1" ? self.member_at = Time.new : self.member_at = nil 
+  end
  
+  def flag_as_officer(check_value)
+    check_value == "1" ? self.officer_at = Time.new : self.officer_at = nil 
+  end
+
   def is_member
     !self.member_at.nil? 
   end
