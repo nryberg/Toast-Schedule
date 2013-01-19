@@ -7,20 +7,19 @@ class Membership
   key :guest_at, Time
   key :member_at, Time
   key :officer_at, Time
-  key :member_type, Array
-    # Types include: Guest, Member, Officer, Alumni
-    # Members can have multiple memberships, but they are nominally exclusive - most guests 
-    # are not any other role.
-
-  scope :by_type,  lambda { |name| where(:type=> name) } 
-  def self.by_name_or_email(search)
-    # self.where(:$or => [{:name => #{search}, {:email => #{search}]).all
-  end
-
+  
   def is_guest
     !self.guest_at.nil? 
   end
 
+  def is_member
+    !self.member_at.nil? 
+  end
+
+  def is_officer
+    !self.officer_at.nil?
+  end
+ 
   def flag_as_guest(check_value)
     check_value == "1" ? self.guest_at = Time.new : self.guest_at = nil 
   end
@@ -33,13 +32,6 @@ class Membership
     check_value == "1" ? self.officer_at = Time.new : self.officer_at = nil 
   end
 
-  def is_member
-    !self.member_at.nil? 
-  end
-
-  def is_officer
-    !self.officer_at.nil?
-  end
    
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute

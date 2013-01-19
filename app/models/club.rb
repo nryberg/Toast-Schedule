@@ -66,9 +66,8 @@ class Club
     out.sort_by {|x| x.name} 
   end
   def active_members
-    self.membership_by_type('Member')
+    self.memberships.where(:member_at => {'$ne' => nil}).all.map {|x| x.member}
   end
-  
   def officers
     memberships = self.memberships.where(:type => 'Officer').all
   end

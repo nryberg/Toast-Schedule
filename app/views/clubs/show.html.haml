@@ -41,6 +41,6 @@
     .span-16.last
       %table.span-16
         %th Name
-        = render :partial => 'shared/member', :collection => @club.active_members
+        = render :partial => 'shared/member', :collection => @active_members
         /- @club.active_members.each do |membership|
         /%p= link_to membership.member.name, membership.member
