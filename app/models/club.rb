@@ -65,6 +65,12 @@ class Club
     out = @mbrs.map {|x| x.member}
     out.sort_by {|x| x.name} 
   end
+
+  def all_memberships
+    memberships = self.memberships.all.map{|x| x.member}
+    memberships.uniq.sort_by {|x| x.name}
+  end
+
   def active_members
     self.memberships.where(:member_at => {'$ne' => nil}).all.map {|x| x.member}
   end

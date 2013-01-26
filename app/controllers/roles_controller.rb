@@ -52,7 +52,7 @@ class RolesController < ApplicationController
     session[:meeting_id] = params[:meeting_id]
     @role = Role.new
     @meeting = Meeting.find(session[:meeting_id])
-    @members = current_club.membership_by_type()
+    @members = current_club.active_members
       
     # TODO Reconcile pulling all members.  This is painful.  It must be easier than this.
     #       What kind of users do you want to pull?  How are you pulling them as collection?

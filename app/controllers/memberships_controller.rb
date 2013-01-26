@@ -36,7 +36,9 @@ class MembershipsController < ApplicationController
     
     @membership.member = Member.find(params[:membership][:member])
     @membership.club = Club.find(params[:membership][:club])
-    @membership.type = params[:membership][:type]
+    @membership.flag_as_guest(params[:membership][:is_guest])
+    @membership.flag_as_officer(params[:membership][:is_officer])
+    @membership.flag_as_member(params[:membership][:is_member])
 
     respond_to do |format|
       if @membership.save

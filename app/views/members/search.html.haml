@@ -19,7 +19,7 @@
         %h3 These great folks are already part of the club
         %table
           %th Name
-          - current_club.members.each do |member|
+          - current_club.active_members.each do |member|
             %tr
               %td= link_to member.name, member
 
