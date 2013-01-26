@@ -3,11 +3,9 @@
 %span.span-20.last
   %span.span-16
     %span.span-last#lead_box 
-      Edit membership information for
-      = @membership.member.name
-      in the
-      = @membership.club.name
-      club.
-    
-    = render 'form'
-    = link_to '(remove)', @membership,:confirm => "Are you sure?", :method => :delete
+      %div Editing membership information for
+      %div
+        .loud= @membership.member.name + " in the "
+      %div= @membership.club.name + " club."
+    .member_opts 
+      = render 'form'
