@@ -1,14 +1,13 @@
-%span.span-4
+.span-4
   .span-4#lead_box.member_background Members
   #action_box
-    .span-4= link_to '(Add)', new_member_path()
-%span.span-16
+    .span-4= link_to image_tag("add_member_button.png"), members_search_path
+.span-16
   .span-20
     .span-4#labeler Members 
     .span-16.last
       %table
         = render :partial => 'member', :collection => @members
-   
   .span-20
     .span-4#labeler Guests
     .span-16.last
@@ -19,10 +18,3 @@
     .span-16.last
       %table
         = render :partial => 'member', :collection => @officers
-  - if current_user.admin_for(current_club)
-    .span-20
-      .span-4#labeler Administrators
-      .span-16.last
-        %table
-          = render :partial => 'member', :collection => @admins
-   

@@ -2,12 +2,9 @@
   .span-4#lead_box.member_background Memberships
   // .span-4= link_to "(Add Membership)", new_relationship_path
 %span.span-16
-  .span-20#lead_box
-    = link_to current_club.name, current_club, :style => 'text-decoration: none'
-  .span-20#header_box Search for another great member by name or e-mail:
-   
+  .span-last#lead_box Add member to #{current_club.name}
+  .span-20 Search for another great member by name or e-mail:
   .span-20
-    
     = form_tag members_search_path, :method => 'get' do 
       = text_field_tag :search, params[:search]
       = submit_tag "Search", :name => nil
@@ -31,7 +28,8 @@
           %th E-Mail
           - @members.each do |member|
             %tr
-              %td= link_to "(add)", new_member_membership_path(member)
+    .span-4= link_to image_tag("add_member_button.png"), members_search_path
+              %td= link_to image_tag("add_member_button.png"), new_member_membership_path(member)
               %td= link_to member.name, member
               %td= member.email
 

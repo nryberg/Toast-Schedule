@@ -75,11 +75,11 @@ class Club
     self.memberships.where(:member_at => {'$ne' => nil}).all.map {|x| x.member}
   end
   def officers
-    memberships = self.memberships.where(:type => 'Officer').all
+    self.memberships.where(:officer_at => {'$ne' => nil}).all.map {|x| x.member}
   end
   
   def guests
-    x = self.memberships.find_all_by_type('Guest')
+    self.memberships.where(:guest_at => {'$ne' => nil}).all.map {|x| x.member}
   end
 
 # TODO: Refactor in the membership management 

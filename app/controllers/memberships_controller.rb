@@ -10,10 +10,8 @@ class MembershipsController < ApplicationController
     
     @club = current_club
     @members = current_club.active_members
-    @officers = current_club.membership_by_type('Officer')
-    @guests = current_club.membership_by_type('Guest')
-    @alumni = current_club.membership_by_type('Alumni')
-    @admins = current_club.membership_by_type('Admin')
+    @officers = current_club.officers
+    @guests = current_club.guests
 
 
   end
