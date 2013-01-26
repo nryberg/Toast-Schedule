@@ -58,8 +58,8 @@ class Member
     types = related.collect {|x| x.type}
   end
 
-  def admin_for(club)
-    Membership.where(:member_id => self.id, :club_id => club.id, :type => "Admin").count > 0
+  def officer_for(club)
+    self.memberships[0].is_officer
   end
     
 #  def admin_for_current_club

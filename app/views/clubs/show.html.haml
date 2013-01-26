@@ -1,7 +1,7 @@
 %span.span-4
   .span-4#lead_box.club_background Club
   #action_box
-    - if current_user.admin_for(current_club)
+    - if current_user.officer_for(current_club)
       .span-4#image_box
         = link_to image_tag("change_club_button.png"), edit_club_path(@club)
     .span-4#image_box
