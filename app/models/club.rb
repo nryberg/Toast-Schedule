@@ -52,22 +52,12 @@ class Club
     self.meetings.past > 0
   end
 
-  def membership_by_type(type = "")
-    #TODO Fix the member search by type so we can exclude better
-
-    if type == "" then 
-      @mbrs = self.memberships.where(:type => 'Member').all
-    else
-
-      @mbrs = self.memberships.where(:type => type).all
-    end
-
-    out = @mbrs.map {|x| x.member}
-    out.sort_by {|x| x.name} 
+  def all_members
+    members = self.memberships.all.map{|x| x.member}
   end
 
   def all_memberships
-    memberships = self.memberships.all.map{|x| x.member}
+    emberships = self.memberships.all.map{|x| x.member}
     memberships.uniq.sort_by {|x| x.name}
   end
 
