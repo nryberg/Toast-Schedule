@@ -25,8 +25,6 @@ class Member
   
   scope :by_name,  lambda { |name| where(:name => name) } 
 
-  validates_presence_of :name
-  validates_presence_of :email
   validate :password, :confirmation => true  
   attr_accessor :password_confirmation  
   attr_reader :password  
