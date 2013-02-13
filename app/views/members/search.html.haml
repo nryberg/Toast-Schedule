@@ -3,7 +3,7 @@
   // .span-4= link_to "(Add Membership)", new_relationship_path
 %span.span-16
   .span-last#lead_box Add member to #{current_club.name}
-  .span-20 Search for another great member by name or e-mail:
+  .span-20 Let's start with an e-mail address
   .span-20
     = form_tag members_search_path, :method => 'get' do 
       = text_field_tag :search, params[:search]

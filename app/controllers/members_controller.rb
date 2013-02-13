@@ -18,11 +18,27 @@ class MembersController < ApplicationController
   end
 
   def search
+
+    #TODO This entire section needs to be taken out and shot.
+    #     Fix it.
+    #     Until then - go with the simplest possible model.  Go back to the original add member route and trap
+    #     the problems where they lie.
+    #     10:09 PM 02/12/2013
+
     @params = params[:search]
+    current_club = Club.find(session[:club_id]) 
     unless params[:search].nil?
-      @candidate = Member.by_name_or_email(params[:search]).all
+      @search_string = params[:search]
+      @candidate = Member.find_by_email(@search_string)
+      if @candidate
+        @candidate.memberships.each {|x| ap x}
+        #@membership = Membership.first(:member_id => @candidate.id, :club_id => session[:club_id])  ||= Membership.new
+        @membership.club = current_club
+        @membership.member = @candidate
+        redirect_to @membership
+      end if
+      
       @existing = current_club.all_members
-      ap @existing
       @members = @candidate - @existing
     end
 
@@ -44,7 +60,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @roles = Role.where(:member_id => params[:id]).sort(:meeting_date.desc).all
 
-    @memberships = @member.memberships.sort_by {|m| m.club.name}
+    @memberships = @member.active_memberships.sort_by {|m| m.club.name}
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,6 +72,7 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
+    @member.email = @search_string ||= ""
     
     respond_to do |format|
       format.html # new.html.erb
@@ -88,7 +105,7 @@ class MembersController < ApplicationController
 
     message = "(Blank)"
     email = params[:member][:email]
-    @member = Member.find_by_email(email) || Member.new(params[:id])
+    @member = Member.find_by_email(email) || Member.new(params[:member])
    
     @membership =  Membership.find_by_member_id_and_club_id(@member.id, current_club.id) 
 

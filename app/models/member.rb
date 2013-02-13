@@ -59,6 +59,14 @@ class Member
   def officer_for(club)
     self.memberships[0].is_officer
   end
+
+  def active_memberships
+    self.memberships.select {|x| x.is_active}
+  end 
+
+  def has_membership(in_club_id)
+    Membership.where(:club_id => in_club_id, :member => self.id).first
+  end
     
 #  def admin_for_current_club
 #    my_role_types(session[:club_id]).member?("Administrator")

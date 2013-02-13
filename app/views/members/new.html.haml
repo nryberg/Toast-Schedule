@@ -1,11 +1,7 @@
 .span-4
   .span-4#lead_box.member_background Member
 .span-16
-  .span-16.last#lead_box New members take three simple steps
-  .span-15.prepend-1.last#instructions
-    .span-15.last 1) Enter an email address
-    .span-15.last 2) Enter the member's name
-    .span-15.last 3) Select a membership type
+  .span-16.last#lead_box= "Adding a new member to #{current_club.name}"
 
   = render 'form'
   / = link_to 'All Members', members_path
