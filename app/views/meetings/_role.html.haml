@@ -1,5 +1,6 @@
 %tr
   %td= link_to role.role_type, edit_meeting_role_path(@meeting, role) 
+  %td= role.ordinal
   %td= role.member_name
   - if role != @meeting.role_first
     %td= link_to image_tag("move_up_role_button.png"), :controller => "roles", :action => "up", :id => role

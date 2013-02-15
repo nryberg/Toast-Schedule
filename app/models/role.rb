@@ -21,10 +21,27 @@ class Role
   validates_presence_of :member_id
   validates_presence_of :ordinal
 
-  def move_up
+  def is_first
+    self.ordinal == 0
+  end
 
-    _prior = Role.prior(self.meeting_id, self.ordinal).sort(:ordinal.desc).first
-    unless _prior.nil?
+  def is_last
+    self.ordinal == self.meeting.roles.count
+  end
+
+  def meeting_index
+    self.meeting.roles.index(self)
+  end
+
+  def move_up
+    unless self.is_first
+#     meet = self.meeting
+#     my_index = self.meeting_index 
+#     swapped = meet.roles[my_index - 1]
+#     meet.roles[my_index] = swapped
+#     meet.roles[my_index - 1] = self
+#     meet.save
+      _prior = Role.prior(self.meeting_id, self.ordinal).sort(:ordinal.desc).first
       _prior.ordinal += 1
       self.ordinal -= 1
       _prior.save
