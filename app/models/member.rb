@@ -57,7 +57,8 @@ class Member
   end
 
   def officer_for(club)
-    self.memberships[0].is_officer
+    mos = self.memberships.select {|x| x.is_officer && x.club == club}
+    mos.count > 0
   end
 
   def active_memberships

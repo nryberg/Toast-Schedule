@@ -30,20 +30,20 @@
   .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings
-      .span-3.new_link= link_to image_tag("add_explicit_meeting_button.png"), new_meeting_path
     .span-16.last
       %table.span-16
         %th Date
         %th Time
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
+      .span-3.new_link= link_to image_tag("add_explicit_meeting_button.png"), new_meeting_path
   .span-20
     .span-4
       .member_background#labeler.last  Members
-      .span-4.new_link= link_to image_tag("add_explicit_member_button.png"), new_member_path
     .span-16.last
       %table.span-16
         %th Name
         = render :partial => 'shared/member', :collection => @active_members
         /- @club.active_members.each do |membership|
         /%p= link_to membership.member.name, membership.member
+      .span-4.new_link= link_to image_tag("add_explicit_member_button.png"), new_member_path
