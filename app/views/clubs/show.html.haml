@@ -21,9 +21,12 @@
   .span-20
     .span-4#labeler Plan Renewal Date
     .span-16.last.value
+    - if @club.billing_period
       = @club.next_renewal_date
       = "(" + @club.billing_period 
       = " renewal) "
+    - else
+      = "Your club does not yet have a billing period"
   .span-20
     .span-4
       .meeting_background#labeler.last Upcoming Meetings

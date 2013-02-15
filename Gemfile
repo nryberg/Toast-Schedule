@@ -43,7 +43,7 @@ gem 'jquery-rails', '>=0.2.5'
 gem 'jquery_datepicker'
 gem 'awesome_print'
 
-#gem 'stripe'
+gem 'stripe'
 # Use unicorn as the web server
 # gem 'unicorn'
 
