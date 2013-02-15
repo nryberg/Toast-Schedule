@@ -23,7 +23,10 @@
         %table
           %th Role
           %th Member
-          %th Move
+          - if @meeting.on_future_date
+            %th Move
           = render :partial => 'role', :collection => @roles
       / .span-3.new_link= link_to '(+ Change Roles)', edit_meeting_roles_path(@meeting) 
-      .span-3.new_link= link_to image_tag("add_new_role_meeting_button.png"), new_meeting_role_path(@meeting, @role) 
+
+      - if @meeting.on_future_date
+        .span-3.new_link= link_to image_tag("add_new_role_meeting_button.png"), new_meeting_role_path(@meeting, @role) 

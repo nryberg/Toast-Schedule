@@ -14,6 +14,12 @@ class Meeting
 
   before_update :set_time_stamp
 
+  def on_future_date
+    #TODO back date a little to accomodate today's meetings
+    self.meeting_date > Time.new  
+
+  end 
+
   def meeting_date_part
       if meeting_date.nil? then 
         Time.now.strftime '%m/%d/%Y' 
