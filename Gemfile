@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+#gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'SystemTimer'
 ####
 ## Add these as defaults for new projects
@@ -43,7 +43,7 @@ gem 'jquery-rails', '>=0.2.5'
 gem 'jquery_datepicker'
 gem 'awesome_print'
 
-gem 'stripe'
+#gem 'stripe'
 # Use unicorn as the web server
 # gem 'unicorn'
 
