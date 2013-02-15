@@ -1,3 +1,4 @@
 04:46 PM 01/02/2013 Add search box for clubs - default to current user's clubs for now.
 11:07 PM 01/04/2013 Finish up the billing process. Put together billing e-mail  and clean up landing pages
-09:23 PM 02/14/2013 
+09:23 PM 02/14/2013 Low Add a real calendar or build it out on Google Calendars??
+
