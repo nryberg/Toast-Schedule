@@ -1,7 +1,16 @@
 ToastSchedule::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
-
-  # The production environment is meant for finished, "live" apps.
+  
+  config.action_mailer.smtp_settings = {
+    :address              => ENV['SMTP_HOST'],
+    :port                 => ENV['SMTP_PORT'], 
+    :domain               => 'www.tmschedule.me',
+    :user_name            => ENV['SMTP_USERNAME'],
+    :password             => ENV['SMTP_PASSWORD'],
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+ 
+ # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -50,7 +59,7 @@ ToastSchedule::Application.configure do
   # Mail config
   # TODO: Change the host to TMSchedule for production after testing is done
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'tmschedule.me' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true

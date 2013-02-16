@@ -44,11 +44,6 @@ class MembersController < ApplicationController
 
   end
 
-  def relate
-    
-  end
-
- 
   def edit
     @member = Member.find(params[:id])
     #@club_choices = @member.clubs
@@ -133,6 +128,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
+        Emailer.welcome_email(@member).deliver
         format.html { redirect_to(@member, :notice => 'Member was successfully updated.') }
         format.xml  { head :ok }
       else
