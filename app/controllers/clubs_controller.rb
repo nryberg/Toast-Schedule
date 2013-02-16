@@ -25,10 +25,8 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @meetings = @club.meetings.sort(:meeting_date.asc)
     @active_members = @club.active_members
-    @active_members.each do |m| 
-      ap m
-    end
     @header_text = @club.name
+    @tester = ENV['SMTP_USERNAME']
     session[:club_id] = @club.id
     
 
