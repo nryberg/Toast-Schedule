@@ -5,3 +5,4 @@ tmp/**/*
 *~
 stripe.rb
 .env
+email.yml
