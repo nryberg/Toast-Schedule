@@ -2,12 +2,6 @@ class MembershipsController < ApplicationController
 
   def index
   
-    # TODO: Implement some sort of scoping for roles
-    # Role   -  View
-    # Guests - active members and no e-mail
-    # Member - Active members and no e-mail (?)
-    # Officers - All
-    
     @club = current_club
     @members = current_club.active_members
     @officers = current_club.officers

@@ -54,9 +54,6 @@ class RolesController < ApplicationController
     @meeting = Meeting.find(session[:meeting_id])
     @members = current_club.active_members
       
-    # TODO Reconcile pulling all members.  This is painful.  It must be easier than this.
-    #       What kind of users do you want to pull?  How are you pulling them as collection?
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @role }

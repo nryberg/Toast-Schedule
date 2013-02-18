@@ -20,7 +20,6 @@ class Member
 
   #Password 
   key :salt, String
-  key :primary_club, ObjectId  # TODO: Migrate to just the club
   key :hashed_password, String
   
   scope :by_name,  lambda { |name| where(:name => name) } 
@@ -69,14 +68,6 @@ class Member
     Membership.where(:club_id => in_club_id, :member => self.id).first
   end
     
-#  def admin_for_current_club
-#    my_role_types(session[:club_id]).member?("Administrator")
-
-    # If you're going to break a rule, break it hard!
-    # TODO Refactor this into a proper separate class
-
-# end
-
 
   def my_club
     Club.find(self.primary_club.to_s)

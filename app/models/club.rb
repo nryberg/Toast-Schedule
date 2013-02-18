@@ -21,7 +21,6 @@ class Club
   many :memberships
   many :billings
 
-  #TODO: do a better job on moving the relationship to the Relationship model
 
   def next_renewal_date
     period = case self.billing_period
@@ -74,16 +73,6 @@ class Club
 
 # TODO: Refactor in the membership management 
 
-#  def members
-#    _members = Relationship.by_club(self.id).members.officers.sort(:name).all.map { |x| x.member_object}
-#    _members.uniq!
-#    _members.sort_by(&:name)
-#  end
-#  def members_in_active
-#    memb = self.members.all(:active => false)
-#    memb << self.members.all(:active => nil)
-#    memb.sort! { |a,b| a.name <=> b.name }
-#  end
  
   def self.searchable_text(search)
     self.where(:$or => [{:name => /#{search}/}, {:club_number => /#{search}/}, {:address => /#{search}/}])
