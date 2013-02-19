@@ -26,7 +26,7 @@ class ClubsController < ApplicationController
     @meetings = @club.meetings.sort(:meeting_date.asc)
     @active_members = @club.active_members
     @header_text = @club.name
-    @tester = ENV['SMTP_USERNAME']
+    
     session[:club_id] = @club.id
     
 
