@@ -2,4 +2,5 @@
 11:07 PM 01/04/2013 Finish up the billing process. Put together billing e-mail  and clean up landing pages
 09:23 PM 02/14/2013 Low Add a real calendar or build it out on Google Calendars??
 04:36 PM 02/18/2013 Refactor membership grab for club - four separate attr's that basically do the same thing.  DRY! See club.rb
+04:39 PM 02/18/2013 Add in new Role function for a person in member show
 
