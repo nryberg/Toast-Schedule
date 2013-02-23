@@ -1,5 +1,6 @@
 class MemberMailer < ActionMailer::Base
   default from: "tmschedule@rybergs.com"
+  default to: "demo_account@rybergs.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -11,5 +12,11 @@ class MemberMailer < ActionMailer::Base
     @member = member
 
     mail :to => member.email, :subject => "Password Reset Request"
+  end
+
+  def welcome_confirm_new_user(member)
+    @member = member
+
+    mail :subject => "Welcome to TM Schedule!"
   end
 end
