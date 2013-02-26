@@ -16,7 +16,10 @@ class MemberMailer < ActionMailer::Base
 
   def welcome_confirm_new_user(member)
     @member = member
-    attachments.inline['tmschedule_me_web_icon.png'] = File.read("#{Rails.root}/images/tmschedule_me_web_icon.png")
+
+    @validate_url = "/validate/#{@member.validation_token}"
+
+    #attachments.inline['tmschedule_me_web_icon.png'] = File.read("#{ENV['SERVER_NAME']}/images/tmschedule_me_web_icon.png")
     mail :subject => "Welcome to TM Schedule!"
   end
 end

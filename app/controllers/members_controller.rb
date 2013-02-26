@@ -7,6 +7,15 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.xml
 
+  def validate
+    @member = Member.find_by_validation_token(params[:id])
+    @member.validated_at =  Time.zone.now
+    cookies[:auth_token] = @member.auth_token
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+
+  end
 
   def index
     #@club = Club.find(current_club

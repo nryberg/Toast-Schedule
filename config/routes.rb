@@ -6,6 +6,7 @@ ToastSchedule::Application.routes.draw do
   match 'welcome/newmember' => 'welcome#newmember'
   match 'welcome/newclub' => 'welcome#newclub'
   match 'members/search' => 'members#search'
+  match 'members/validate' => 'members#validate'
   match 'clubs/search' => 'clubs#search'
 
   match 'roles/up/:id' => 'roles#up'
