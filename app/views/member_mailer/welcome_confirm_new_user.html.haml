@@ -1,3 +1,30 @@
-%h1 Welcome to TM Schedule!
+%table 
+  %tr
+    %td
+      %a{:href=> "http://www.tmschedule.me"}
+        %img{:source=>"#{Rails.root}/images/tmschedule_me_web_icon.png"}
+    %td="#{Rails.root}/images/tmschedule_me_web_icon.png"
+  %tr
+    %td
+      %h1 Welcome to TM Schedule!
+
+%h3= "Dear #{@member.name} -"
+
+%p 
+  TM Schedule Me is your new home for managing roles and club events.
+
+%p 
+  Please confirm your email address by clicking the following link:
+
+%p 
+  Or copy and paste the the following text into your browser's navigation bar.
+
+%p
+  We wish you the best of luck with all of your future speeches!
+
+%h4 TM Schedule Me!
+
+// = image_tag attachments['tmschedule_me_web_icon.png']
+
 
 
