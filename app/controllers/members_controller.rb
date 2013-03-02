@@ -7,12 +7,22 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.xml
 
+  def validate_me
+    @member = Member.find(params[:id])
+    @member.send_validation_email
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def validate
     @member = Member.find_by_validation_token(params[:id])
     @member.validated_at =  Time.zone.now
     cookies[:auth_token] = @member.auth_token
     respond_to do |format|
-      format.html # index.html.erb
+      if @member.save 
+        format.html # index.html.erb
+      end
     end
 
   end

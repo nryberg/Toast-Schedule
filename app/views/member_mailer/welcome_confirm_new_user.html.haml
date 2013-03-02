@@ -17,8 +17,7 @@
   Please confirm your email address by clicking the following link:
 
 %p
-  %a{:href => url_for(:host => "localhost:3000",
-              :controller => "members",
+  %a{:href => url_for(:controller => "members",
               :action => "validate",
               :id => @member.validation_token)} Confirm Me!
 
