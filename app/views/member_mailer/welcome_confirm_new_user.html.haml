@@ -1,11 +1,6 @@
 %table 
   %tr
     %td
-      %a{:href=> "http://www.tmschedule.me"}
-        %img{:source=>"#{Rails.root}/images/tmschedule_me_web_icon.png"}
-    %td="#{Rails.root}/images/tmschedule_me_web_icon.png"
-  %tr
-    %td
       %h1 Welcome to TM Schedule!
 
 %h3= "Dear #{@member.name} -"
@@ -24,6 +19,11 @@
 
 %p 
   Or copy and paste the the following text into your browser's navigation bar.
+
+%p= url_for(:controller => "members",
+              :action => "validate",
+              :id => @member.validation_token, 
+              :only_path => false)
 
 %p
   We wish you the best of luck with all of your future speeches!

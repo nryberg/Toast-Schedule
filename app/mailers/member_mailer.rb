@@ -1,6 +1,8 @@
 class MemberMailer < ActionMailer::Base
   default from: "tmschedule@rybergs.com"
-  default to: "demo_account@rybergs.com"
+  if Rails.env != 'production'
+    #default to: "demo_account@rybergs.com"
+  end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -19,6 +21,6 @@ class MemberMailer < ActionMailer::Base
 
     @validate_url = "/validate/#{@member.validation_token}"
 
-    mail :subject => "Welcome to TM Schedule!"
+    mail :subject => "Welcome to TM Schedule!", :to => member.email
   end
 end
