@@ -22,10 +22,11 @@
         .span-20  
           .span-4#labeler Validation Requested
           .span-14 A validation e-mail has been sent on #{@member.validation_sent_at.strftime("%A, %b %d, %Y")}
-      -else
-        .span-20  
-          .span-4#labeler Validated Me!
-          .span-4= link_to "Validate Me!", :controller => "members", :action => "validate_me"
+      //-else
+
+    .span-20  
+      .span-4#labeler Validated Me!
+      .span-4= link_to "Validate Me!", :controller => "members", :action => "validate_me"
     .span-20  
       .span-4#labeler.meeting_background Calendar
       .span-16.last
