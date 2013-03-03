@@ -13,6 +13,12 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module ToastSchedule
   class Application < Rails::Application
+    if Rails.env != 'production'
+      config.action_mailer.default_url_options = { :host => "localhost:3000" }
+    else
+      config.action_mailer.default_url_options = { :host => "tmschedule.me" }
+    end
+      
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

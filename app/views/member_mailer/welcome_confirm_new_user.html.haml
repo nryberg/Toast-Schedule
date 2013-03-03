@@ -19,7 +19,8 @@
 %p
   %a{:href => url_for(:controller => "members",
               :action => "validate",
-              :id => @member.validation_token)} Confirm Me!
+              :id => @member.validation_token, 
+              :only_path => false)} Confirm Me!
 
 %p 
   Or copy and paste the the following text into your browser's navigation bar.
