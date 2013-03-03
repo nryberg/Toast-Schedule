@@ -3,6 +3,6 @@ if Rails.env != 'production'
   ActionMailer::Base.smtp_settings = email_settings[Rails.env] unless email_settings[Rails.env].nil?
   ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 else
-  ActionMailer::Base.default_url_options[:host] = "tmschedule.me"
+  ActionMailer::Base.default_url_options[:host] = "www.tmschedule.me"
 end
 
