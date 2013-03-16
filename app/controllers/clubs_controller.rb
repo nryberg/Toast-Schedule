@@ -56,14 +56,17 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
+
     membership = Membership.new
     membership.club = @club
     membership.member = current_user
-    membership.type = "Admin"
+    membership.officer_at = Time.new
+    membership.member_at = Time.new
     membership.save
+    @club.plan_renewal = 30.days.from_now
+    @club.plan_initial = Time.new
 
     session[:club_id] = @club.id
-
     respond_to do |format|
       if @club.save
         format.html { redirect_to(@club, :notice => 'Club was successfully created.') }
@@ -79,6 +82,7 @@ class ClubsController < ApplicationController
   # PUT /clubs/1.xml
   def update
     @club = Club.find(params[:id])
+    
 
     respond_to do |format|
       if @club.update_attributes(params[:club])

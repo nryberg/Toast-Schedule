@@ -56,7 +56,7 @@ class Club
   end
 
   def all_memberships
-    emberships = self.memberships.all.map{|x| x.member}
+    memberships = self.memberships.all.map{|x| x.member}
     memberships.uniq.sort_by {|x| x.name}
   end
 
