@@ -1,5 +1,7 @@
 class MembershipsController < ApplicationController
 
+  before_filter :check_officer_count, :only => :update
+
   def index
   
     @club = current_club
@@ -69,6 +71,18 @@ class MembershipsController < ApplicationController
       format.html { redirect_to(members_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private 
+
+  def check_officer_count
+    officer_count = current_club.officers.count
+    if officer_count <= 1 && current_user.officer_for(current_club) then
+      @members = current_club.active_members  
+      redirect_to(nominate_officer_path, :notice => 'Please select one other member to be an officer.')
+    end
+      
+
   end
   
 

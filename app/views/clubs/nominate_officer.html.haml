@@ -1,0 +1,10 @@
+%h2 Nominate Officer
+
+= form_tag  do
+  .span-4
+    = hidden_field_tag "membership_type", "officer"
+    = select_tag "New Officer: ",options_from_collection_for_select(current_club.active_members, "id", "name")
+    = submit_tag(value="Nominate")
+
+
+
