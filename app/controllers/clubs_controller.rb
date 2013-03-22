@@ -120,10 +120,6 @@ class ClubsController < ApplicationController
 
   end
 
-  def nominate_officer
-    
-
-  end
   
   protected
   

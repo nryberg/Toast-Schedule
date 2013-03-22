@@ -73,12 +73,35 @@ class MembershipsController < ApplicationController
     end
   end
 
+
+  def nominate_officer
+    @membership = Membership.where(:member_id => params["Officer"]).first
+    if @membership
+
+      @membership.officer_at = Time.new
+      @old_officer = Membership.where(:member_id => params['old_officer']).first
+      @old_officer.officer_at = nil
+      if @membership.save && @old_officer.save
+        
+        redirect_to(@membership.member, :notice => 'Member was succesfully promoted to officer.')
+      end
+    end
+
+
+
+
+
+    
+
+  end
+
   private 
 
   def check_officer_count
     officer_count = current_club.officers.count
     if officer_count <= 1 && current_user.officer_for(current_club) then
       @members = current_club.active_members  
+      @old_officer = current_user.id
       redirect_to(nominate_officer_path, :notice => 'Please select one other member to be an officer.')
     end
       
