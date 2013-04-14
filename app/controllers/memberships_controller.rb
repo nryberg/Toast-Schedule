@@ -101,7 +101,6 @@ class MembershipsController < ApplicationController
     officer_count = current_club.officers.count
     if officer_count <= 1 && current_user.officer_for(current_club) then
       @members = current_club.active_members  
-      @old_officer = current_user.id
       redirect_to(nominate_officer_path, :notice => 'Please select one other member to be an officer.')
     end
       

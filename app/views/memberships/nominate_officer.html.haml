@@ -6,7 +6,7 @@
 = form_tag  do
   .span-4
     = hidden_field_tag "membership_type", "officer"
-    = hidden_field_tag "old_officer",  @old_officer
+    = hidden_field_tag "old_officer", current_user.id 
     = select_tag "Officer",options_from_collection_for_select(current_club.active_members, "id", "name")
     = submit_tag(value="Nominate")
 
