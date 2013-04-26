@@ -75,6 +75,7 @@ class MembershipsController < ApplicationController
 
 
   def nominate_officer
+    ap params
     @membership = Membership.where(:member_id => params["Officer"]).first
     if @membership
 
