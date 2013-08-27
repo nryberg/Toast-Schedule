@@ -9,7 +9,8 @@ ToastSchedule::Application.routes.draw do
   match 'members/validate' => 'members#validate'
   match 'members/validate_me/:id' => 'members#validate_me'
   match 'clubs/search' => 'clubs#search'
-  match 'nominate_officer' => 'memberships#nominate_officer', :as => :nominate_officer, :via => [:get, :post]
+  match 'nominate_officer' => 'memberships#start_nominating_officer', :as => :nominate_officer, :via => [:get]
+  match 'nominate_officer' => 'memberships#finish_nominating_officer', :as => :nominate_officer, :via => [:post]
 
   match 'roles/up/:id' => 'roles#up'
   match 'roles/down/:id' => 'roles#down'

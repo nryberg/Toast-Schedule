@@ -74,25 +74,24 @@ class MembershipsController < ApplicationController
   end
 
 
-  def nominate_officer
+  def finish_nominating_officer
     ap params
+
+    # This is the old model
     @membership = Membership.where(:member_id => params["Officer"]).first
-    if @membership
 
-      @membership.officer_at = Time.new
-      @old_officer = Membership.where(:member_id => params['old_officer']).first
-      @old_officer.officer_at = nil
-      if @membership.save && @old_officer.save
-        
-        redirect_to(@membership.member, :notice => 'Member was succesfully promoted to officer.')
-      end
-    end
+    # Fetch old membership
+    @old_membership = Membership.where(:member_id => params["old_officer"]).first
 
+    # Fetch new membership
+    @new_membership = Membership.where(:member_id => params["Officer"]).first
 
+    @old_membership.flag_as_officer(0)
+    @new_membership.flag_as_officer(1)
 
-
-
-    
+    @old_membership.save
+    @new_membership.save
+    redirect_to(@membership.member, :notice => 'Member was succesfully promoted to officer.')
 
   end
 
@@ -100,7 +99,12 @@ class MembershipsController < ApplicationController
 
   def check_officer_count
     officer_count = current_club.officers.count
-    if officer_count <= 1 && current_user.officer_for(current_club) then
+    # This wouldn't flag for any reason _BUT_ the fact that the current officer is removing 
+    # their own officer role.  In test and dev this doesn't trigger becuase you're not always officer.
+    
+    # if officer_count <= 1 && current_user.officer_for(current_club) then
+    
+    if officer_count <= 1 then
       @members = current_club.active_members  
       redirect_to(nominate_officer_path, :notice => 'Please select one other member to be an officer.')
     end
