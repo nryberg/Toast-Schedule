@@ -7,7 +7,19 @@ class Membership
   key :guest_at, Time
   key :member_at, Time
   key :officer_at, Time
-  
+ 
+  def to_s
+    s = Array.new
+    if self.is_guest  then
+      s << 'Guest'
+    elsif self.is_member then
+      s << 'Member'
+    elsif self.is_officer then
+      s << 'Officer'
+    end
+    s.join(", ")
+  end
+      
   def is_guest
     !self.guest_at.nil? 
   end
