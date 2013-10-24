@@ -1,0 +1,4 @@
+To do
+07:37 AM 10/21/2013
+
+Guests need a temporary member object - mostly to be checked against the officer test for the options.  What if we turned this upside down and fixed the officer logic.  That whole piece feels --- ooky

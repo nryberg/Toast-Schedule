@@ -25,6 +25,9 @@
             %tr
               / %td= link_to "(add)", new_member_relationship_path(member) 
               /%td= link_to member.name, member
-              %td= club.name
+              %td= link_to club.name, club
+              %td= club.club_number
+              %td= club.address
+          
 
 

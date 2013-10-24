@@ -18,6 +18,7 @@ class Member
   key :validation_token, String 
   key :validation_sent_at, Time
   key :validated_at, Time
+  key :guest_at, Time
  #key :officer, String # Add this later 
   #key :membership, String  # Guest, Member, Officer, Alumni
 
@@ -111,11 +112,19 @@ class Member
     MemberMailer.password_reset(self).deliver
   end
 
+  def guest
+    !self.guest_at.nil?
+  end
+
   def send_validation_email
     self.generate_token(:validation_token)
     self.validation_sent_at = Time.zone.now
     save!
     MemberMailer.welcome_confirm_new_user(self).deliver
+  end
+
+  def self.new_guest
+    new { |u| u.guest_at = Time.zone.now}
   end
 #   Pulling out the required password.  
 #   HOWEVER: If the user doesn't have an e-mail 

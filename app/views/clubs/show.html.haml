@@ -1,7 +1,7 @@
 %span.span-4
   .span-4#lead_box.club_background Club
   #action_box
-    - if current_user.officer_for(current_club)
+    - if current_user_is_officer
       .span-4#image_box
         = link_to image_tag("change_club_button.png"), edit_club_path(@club)
     .span-4#image_box
@@ -39,7 +39,8 @@
         %th Time
         %th Theme
         = render :partial => 'shared/meeting', :collection => @club.upcoming_meetings
-      .span-3.new_link= link_to image_tag("add_explicit_meeting_button.png"), new_meeting_path
+      - if logged_in 
+        .span-3.new_link= link_to image_tag("add_explicit_meeting_button.png"), new_meeting_path
   .span-20
     .span-4
       .member_background#labeler.last  Members
@@ -49,4 +50,5 @@
         = render :partial => 'shared/member', :collection => @active_members
         /- @club.active_members.each do |membership|
         /%p= link_to membership.member.name, membership.member
-      .span-4.new_link= link_to image_tag("add_explicit_member_button.png"), new_member_path
+      - if current_user_is_officer 
+        .span-4.new_link= link_to image_tag("add_explicit_member_button.png"), new_member_path

@@ -9,6 +9,14 @@ module ApplicationHelper
     Member.find({:auth_token => auth_token}) 
   end
 
+  def current_user_is_officer
+    user = current_user 
+    user.nil? ? FALSE : user.is_officer
+
+  end
+
+
+
   def current_club
     Club.find(session[:club_id])
   end
