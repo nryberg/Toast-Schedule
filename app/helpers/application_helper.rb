@@ -11,7 +11,8 @@ module ApplicationHelper
 
   def current_user_is_officer
     user = current_user 
-    user.nil? ? FALSE : user.is_officer
+    club = current_club
+    user.nil? ? FALSE : user.officer_for(club)
 
   end
 

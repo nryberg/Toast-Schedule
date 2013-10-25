@@ -27,6 +27,7 @@ ToastSchedule::Application.routes.draw do
     get 'login' => :new
     post 'login' => :create
     get 'logout' => :destroy
+    get 'validate' => :validate
   end
 
    resources :role_types

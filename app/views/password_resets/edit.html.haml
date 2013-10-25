@@ -1,17 +1,21 @@
-%h1 Reset Password
-
-= form_for @member, :url => password_reset_path(params[:id]) do |f| 
-  - if @member.errors.any? 
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        = for message in @member.errors.full_messages
-          %li= message
-  .field
-    = f.label :password 
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .actions
-    = f.submit "Update Password"
+.span-4
+  .span-4#lead_box.member_background Member
+.span-20.last
+  .span-5#labeler Reset Your Password
+  .span-20.last
+    = form_for @member, :url => password_reset_path(params[:id]) do |f| 
+      - if @member.errors.any? 
+        .error_messages
+          %h2 Form is invalid
+          %ul
+            = for message in @member.errors.full_messages
+              %li= message
+      .field
+        .span-4= f.label "New Password"
+        = f.password_field :password
+      .field
+        .span-4= f.label "Confirm it!"
+        = f.password_field :password_confirmation
+      .actions
+        .span-4= " "
+        = f.submit "Update Password"

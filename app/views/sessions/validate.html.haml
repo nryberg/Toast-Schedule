@@ -1,0 +1,20 @@
+= content_for :top_title do
+  = "Member - " + @member.name
+.span-4
+  .span-4#lead_box.member_background Member
+.span-20.last
+  .span-20
+    .span-20
+      .span-4#labeler Name
+      .value= @member.name
+      %p Your account hasn't been validated yet.  
+    .span-20
+      .span-4#labeler
+        Why do we do this?  
+      %p 
+        By making sure you have a valid email account, we can send you updates and have a better chance of knowing that there's
+        a real live human being at the other end of the world.
+    .span-20  
+      .span-4#labeler Click the link to validate me!
+      .span-4= link_to "Validate Me!", :controller => "members", :action => "validate_me", :id => @member.id
+
