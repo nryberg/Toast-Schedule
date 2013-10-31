@@ -1,5 +1,5 @@
 %tr
   %td= link_to membership.club.name, club_path(membership.club)
   %td= membership.to_s
-  - if current_user_is_officer
+  - if membership.:is_officer
     %td= link_to image_tag("change_member_button_small.png"), edit_membership_path(membership)

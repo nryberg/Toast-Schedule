@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
           cookies[:auth_token] = member.auth_token
         end
         
-        session[:club_id] = member.primary_club
+        session[:club_id] = member.first_club
         
         redirect_to member
       else

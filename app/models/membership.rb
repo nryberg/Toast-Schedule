@@ -9,15 +9,12 @@ class Membership
   key :officer_at, Time
  
   def to_s
-    s = Array.new
-    if self.is_guest  then
-      s << 'Guest'
-    elsif self.is_member then
-      s << 'Member'
-    elsif self.is_officer then
-      s << 'Officer'
+    if self.is_officer then 'Officer' 
+    elsif self.is_member then 'Member' 
+    elsif self.is_guest then 'Guest' 
+    else
+      'None'
     end
-    s.join(", ")
   end
       
   def is_guest
@@ -38,6 +35,8 @@ class Membership
  
   def flag_as_guest(check_value)
     check_value == "1" ? self.guest_at = Time.new : self.guest_at = nil 
+    self.officer_at = nil 
+    self.member_at = nil 
   end
 
   def flag_as_member(check_value)

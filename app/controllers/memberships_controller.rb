@@ -99,12 +99,13 @@ class MembershipsController < ApplicationController
 
   def check_officer_count
     officer_count = current_club.officers.count
+    ap params
     # This wouldn't flag for any reason _BUT_ the fact that the current officer is removing 
     # their own officer role.  In test and dev this doesn't trigger becuase you're not always officer.
     
     # if officer_count <= 1 && current_user.officer_for(current_club) then
     
-    if officer_count <= 1 then
+    if officer_count <= 1 && current_user.officer_for(current_club) then
       @members = current_club.active_members  
       redirect_to(nominate_officer_path, :notice => 'Please select one other member to be an officer.')
     end

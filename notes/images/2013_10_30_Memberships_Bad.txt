@@ -1,0 +1,9 @@
+09:47 PM 10/30/2013
+
+Notes on a painful relationship with Ruby objects.  
+
+Memberships are going to be the death of me.  It's pretty simple and I've made it way, way overly complex.  
+
+Clubs have members.  I have member objects.  Members can be one of three type:  Guest, Member, Officer.  Perhaps later I want to build some sort of accounting system for when the members are added to the group and if they've paid their dues.  But that's for another day and another challenge.  I can add that it in with some sort of added detail - no?  Okay probably not but for the time being, I'm tired of hitting my head against a wall of confusion around building members into groups.  
+
+
