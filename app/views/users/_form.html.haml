@@ -1,0 +1,17 @@
+= semantic_form_for @user do |f|
+  .span-10.last.append-6
+    = f.inputs do
+      = f.input :name, :as => :string, :required => true
+      = f.input :email, :as => :email, :required => true
+      - if @editing_self
+        = f.input :password
+        = f.input :password_confirmation
+  .span-10.prepend-2.last 
+    %input{:type=>'image', :value => 'submit', :src => "/images/update_member_button.png"}
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+

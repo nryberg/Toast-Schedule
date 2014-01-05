@@ -16,7 +16,6 @@ gem 'mongo_mapper'
 gem 'mongomapper_ext'
 #gem 'webrat'
 #gem 'cucumber-rails'
-#gem 'rspec', '>=2.6.0.rc4'
 gem 'haml'
 gem 'haml-rails'
 # Avoiding WARN  Could not determine content-length of response body error on webrick
@@ -29,8 +28,11 @@ group :development, :test do
   gem 'guard'
   gem 'guard-livereload'
   gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'rspec', '>=2.6.0.rc4'
+  gem 'rspec-rails',      ">= 2.0.0.beta"
+  gem 'factory_girl_rails'
+  #gem 'better_errors' - this one throws binding of caller errors
+  #gem 'binding_of_caller'
 end
 
 gem 'log_buddy'
@@ -62,6 +64,10 @@ gem 'stripe'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end

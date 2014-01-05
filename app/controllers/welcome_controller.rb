@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   skip_before_filter :authorize
   def index
-    @member_signed_in = Member.find(session[:member_id])
+    @member_signed_in = User.find(session[:user_id])
     @time = Time.new.to_s
     @clubname = "TM Schedule Me"
     
@@ -23,7 +23,7 @@ class WelcomeController < ApplicationController
   end
 
   def newclub
-    @member = Member.new
+    @user = User.new
   end
 
 end

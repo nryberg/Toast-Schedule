@@ -12,13 +12,37 @@ class Club
   key :billing_period, String
   
   scope :by_name,  lambda { |name| where(:name => name) } 
+
   
+  #key :guest_ids, Array
+  #many :guests, :class_name => 'Guest', :in => :guest_ids
+  many :guests, :class_name => 'User', :in=> :guest_ids
+
+  key :member_ids, Array
+  many :members, :class_name => 'User', :in => :member_ids
+
+  key :officer_ids, Array
+  many :officers, :class_name => 'User', :in => :officer_ids
+
+  def remove_guest(user) 
+    guest_ids.delete(user.id) 
+    save 
+  end 
+
+  def remove_member(user) 
+    member_ids.delete(user.id) 
+    save 
+  end 
+
+  def remove_officer(user) 
+    officer_ids.delete(user.id) 
+    save 
+  end 
 # Validations :::::::::::::::::::::::::::::::::::::::::::::::::::::
 # validates_presence_of :attribute
 
 # Assocations :::::::::::::::::::::::::::::::::::::::::::::::::::::
   many :meetings
-  many :memberships
   many :billings
 
 
@@ -51,25 +75,7 @@ class Club
     self.meetings.past > 0
   end
 
-  def all_members
-    members = self.memberships.all.map{|x| x.member}
-  end
-
-  def all_memberships
-    memberships = self.memberships.all.map{|x| x.member}
-    memberships.uniq.sort_by {|x| x.name}
-  end
-
-  def active_members
-    self.memberships.where(:member_at => {'$ne' => nil}).all.map {|x| x.member}
-  end
-  def officers
-    self.memberships.where(:officer_at => {'$ne' => nil}).all.map {|x| x.member}
-  end
   
-  def guests
-    self.memberships.where(:guest_at => {'$ne' => nil}).all.map {|x| x.member}
-  end
 
 # TODO: Refactor in the membership management 
 

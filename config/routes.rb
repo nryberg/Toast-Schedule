@@ -1,8 +1,11 @@
 ToastSchedule::Application.routes.draw do
 
+  resources :users
+
+
   match 'about' => 'welcome#about', :as => :about
   match 'pricing' => 'welcome#pricing', :as => :pricing
-  match 'welcome/register' => 'welcome#register'
+  match 'welcome/register' => 'users#new'
   match 'welcome/newmember' => 'welcome#newmember'
   match 'welcome/newclub' => 'welcome#newclub'
   match 'members/search' => 'members#search'
@@ -36,11 +39,14 @@ ToastSchedule::Application.routes.draw do
    resources :clubs do
      resources :meetings
      resources :templates
-     resources :memberships
+     resources :guests
+     resources :members
+     resources :officers
+
    end
   
    
-   resources :members do
+   resources :users do
     get :search, :collection
      resources :clubs
      resources :memberships

@@ -6,30 +6,30 @@ class SessionsController < ApplicationController
   end
 
   def validate
-    @member = Member.find_by_email(session[:email])
+    @user = User.find_by_email(session[:email])
   end
 
   def create
-    @member = Member.find_by_email(params[:email])
-    if @member.validated_at.nil? 
+    @user = User.find_by_email(params[:email])
+    if @user.validated_at.nil? 
       session[:email] = params[:email]
       redirect_to validate_url, :notice => "Please validate your e-mail address."
     else
-      if member = Member.authenticate(params[:email], params[:password])
-        if member.auth_token.nil? 
-          member.generate_token(:auth_token)
-          member.save
+      if user = User.authenticate(params[:email], params[:password])
+        if user.auth_token.nil? 
+          user.generate_token(:auth_token)
+          user.save
         end
 
         if params[:remember_me]
-          cookies.permanent[:auth_token] = member.auth_token
+          cookies.permanent[:auth_token] = user.auth_token
         else
-          cookies[:auth_token] = member.auth_token
+          cookies[:auth_token] = user.auth_token
         end
         
-        session[:club_id] = member.first_club
+        session[:club_id] = user.first_club
         
-        redirect_to member
+        redirect_to user
       else
         redirect_to login_url, :notice => "Incorrect e-mail or password"
       end

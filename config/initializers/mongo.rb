@@ -4,7 +4,10 @@ if ENV['RAILS_ENV'] == "development"
   MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
   # use on home network
   # MongoMapper.connection = Mongo::Connection.new('192.168.0.100', 27017)
-  MongoMapper.database = 'toast_schedule'
+  MongoMapper.database = 'toast_schedule_dev'
+elsif ENV['RAILS_ENV'] == "test" 
+  MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+  MongoMapper.database = 'toast_schedule_test'
 elsif ENV['RAILS_ENV'] == "production" 
   MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27038)
   MongoMapper.database = 'toast_schedule'
