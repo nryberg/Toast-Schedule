@@ -10,5 +10,5 @@ class Officer < User
   def officer?
     true
   end
-enT
+end
 

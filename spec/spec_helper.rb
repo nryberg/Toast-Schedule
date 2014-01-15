@@ -12,6 +12,20 @@ require 'rspec/autorun'
 # end with _spec.rb. You can configure this pattern with with the --pattern
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+ # Drop all collections after each test case.
+ def teardown
+   MongoMapper.database.collections.each do |coll|
+     coll.remove
+   end
+ end
+
+# Make sure that each test case has a teardown
+# method to clear the db after each test.
+def inherited(base)
+  base.define_method :teardown do
+    super
+  end
+end
 
 RSpec.configure do |config|
   # ## Mock Framework
