@@ -4,28 +4,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
-# Requires supporting ruby files with custom matchers and macros, etc, in
-# spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
-# run as spec files by default. This means that files in spec/support that end
-# in _spec.rb will both be required and run as specs, causing the specs to be
-# run twice. It is recommended that you do not name files matching this glob to
-# end with _spec.rb. You can configure this pattern with with the --pattern
-# option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
- # Drop all collections after each test case.
- def teardown
-   MongoMapper.database.collections.each do |coll|
-     coll.remove
-   end
- end
-
-# Make sure that each test case has a teardown
-# method to clear the db after each test.
-def inherited(base)
-  base.define_method :teardown do
-    super
-  end
-end
 
 RSpec.configure do |config|
   # ## Mock Framework

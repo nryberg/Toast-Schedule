@@ -14,8 +14,6 @@ gem 'formtastic', '~> 1.2.3'
 gem 'mongo_mapper'
 # gem 'jnunemaker-validatable', '>= 1.8.4'
 gem 'mongomapper_ext'
-#gem 'webrat'
-#gem 'cucumber-rails'
 gem 'haml'
 gem 'haml-rails'
 # Avoiding WARN  Could not determine content-length of response body error on webrick
@@ -24,12 +22,14 @@ gem 'thin'
 group :production do
 end
 group :development, :test do
+  gem 'webrat'
+  gem 'cucumber-rails'
   gem 'mongrel', '>= 1.2.0.pre2'
   gem 'guard'
   gem 'guard-livereload'
   gem 'pry-rails'
   gem 'rspec', '>=2.6.0.rc4'
-  gem 'rspec-rails',      ">= 2.0.0.beta"
+  gem 'rspec-rails',      "~> 2.8"
   gem 'factory_girl_rails'
   #gem 'better_errors' - this one throws binding of caller errors
   #gem 'binding_of_caller'
@@ -70,4 +70,5 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'cucumber'
 end
