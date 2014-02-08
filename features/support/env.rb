@@ -5,6 +5,18 @@
 # files.
 
 require 'cucumber/rails'
+require 'database_cleaner'
+require 'database_cleaner/cucumber'
+require 'database_cleaner/mongo_mapper/truncation'
+DatabaseCleaner.strategy = :truncation
+
+Before do
+  DatabaseCleaner.start
+end
+
+After do
+  DatabaseCleaner.clean
+end
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -30,11 +42,11 @@ ActionController::Base.allow_rescue = false
 
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
-begin
-  DatabaseCleaner.strategy = :transaction
-rescue NameError
-  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-end
+#begin
+#  DatabaseCleaner.strategy = :transaction
+#rescue NameError
+#  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+#end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:

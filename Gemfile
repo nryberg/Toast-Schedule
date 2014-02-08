@@ -22,8 +22,6 @@ gem 'thin'
 group :production do
 end
 group :development, :test do
-  gem 'webrat'
-  gem 'cucumber-rails'
   gem 'mongrel', '>= 1.2.0.pre2'
   gem 'guard'
   gem 'guard-livereload'
@@ -71,4 +69,7 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
   gem 'cucumber'
+  gem 'webrat'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
